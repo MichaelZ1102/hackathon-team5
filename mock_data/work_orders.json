@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "datasetName": "Historical Maintenance Work Orders",
+    "lookbackWindowMonths": 12,
+    "dataType": "synthetic_demo_data",
+    "note": "Costs and issue patterns are synthetic and intentionally shaped to support risk analysis demos."
+  },
+  "workOrders": [
+    {
+      "workOrderId": "WO-10021",
+      "propertyId": "FL-ORL-102",
+      "category": "Roof Leak",
+      "createdDate": "2026-01-18",
+      "completedDate": "2026-01-20",
+      "cost": 1450,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "WO-10045",
+      "propertyId": "FL-ORL-102",
+      "category": "Water Intrusion",
+      "createdDate": "2026-02-11",
+      "completedDate": "2026-02-13",
+      "cost": 980,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10102",
+      "propertyId": "FL-ORL-102",
+      "category": "Roof Leak",
+      "createdDate": "2026-03-12",
+      "completedDate": "2026-03-15",
+      "cost": 1875,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "WO-10136",
+      "propertyId": "FL-ORL-102",
+      "category": "HVAC Exterior Unit",
+      "createdDate": "2026-04-08",
+      "completedDate": "2026-04-09",
+      "cost": 1220,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-203"
+    },
+    {
+      "workOrderId": "WO-10188",
+      "propertyId": "FL-ORL-102",
+      "category": "Window Seal",
+      "createdDate": "2026-05-21",
+      "completedDate": "2026-05-23",
+      "cost": 760,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10214",
+      "propertyId": "FL-WPK-118",
+      "category": "Tree Limb Removal",
+      "createdDate": "2026-02-25",
+      "completedDate": "2026-02-26",
+      "cost": 640,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-205"
+    },
+    {
+      "workOrderId": "WO-10231",
+      "propertyId": "FL-WPK-118",
+      "category": "Exterior Lighting",
+      "createdDate": "2026-04-17",
+      "completedDate": "2026-04-18",
+      "cost": 510,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-206"
+    },
+    {
+      "workOrderId": "WO-10262",
+      "propertyId": "FL-KIS-031",
+      "category": "Roof Leak",
+      "createdDate": "2026-01-29",
+      "completedDate": "2026-02-01",
+      "cost": 1325,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "WO-10288",
+      "propertyId": "FL-KIS-031",
+      "category": "Fence Damage",
+      "createdDate": "2026-03-04",
+      "completedDate": "2026-03-06",
+      "cost": 880,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-207"
+    },
+    {
+      "workOrderId": "WO-10319",
+      "propertyId": "FL-KIS-031",
+      "category": "Tree Limb Removal",
+      "createdDate": "2026-05-16",
+      "completedDate": "2026-05-17",
+      "cost": 710,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-205"
+    },
+    {
+      "workOrderId": "WO-10340",
+      "propertyId": "FL-LAK-044",
+      "category": "Roof Leak",
+      "createdDate": "2025-12-12",
+      "completedDate": "2025-12-15",
+      "cost": 1660,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "WO-10366",
+      "propertyId": "FL-LAK-044",
+      "category": "Water Intrusion",
+      "createdDate": "2026-01-14",
+      "completedDate": "2026-01-18",
+      "cost": 2140,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10397",
+      "propertyId": "FL-LAK-044",
+      "category": "Exterior Siding",
+      "createdDate": "2026-03-22",
+      "completedDate": "2026-03-27",
+      "cost": 3325,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10408",
+      "propertyId": "FL-LAK-044",
+      "category": "HVAC Exterior Unit",
+      "createdDate": "2026-05-12",
+      "completedDate": "2026-05-14",
+      "cost": 1850,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-203"
+    },
+    {
+      "workOrderId": "WO-10439",
+      "propertyId": "FL-TPA-205",
+      "category": "Exterior Lighting",
+      "createdDate": "2026-01-22",
+      "completedDate": "2026-01-23",
+      "cost": 430,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-206"
+    },
+    {
+      "workOrderId": "WO-10474",
+      "propertyId": "FL-TPA-205",
+      "category": "Gutter Cleaning",
+      "createdDate": "2026-04-28",
+      "completedDate": "2026-04-29",
+      "cost": 590,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    },
+    {
+      "workOrderId": "WO-10502",
+      "propertyId": "FL-STP-077",
+      "category": "Roof Leak",
+      "createdDate": "2025-11-09",
+      "completedDate": "2025-11-13",
+      "cost": 1950,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "WO-10531",
+      "propertyId": "FL-STP-077",
+      "category": "Water Intrusion",
+      "createdDate": "2026-02-03",
+      "completedDate": "2026-02-07",
+      "cost": 2380,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10558",
+      "propertyId": "FL-STP-077",
+      "category": "Window Seal",
+      "createdDate": "2026-04-13",
+      "completedDate": "2026-04-16",
+      "cost": 1110,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10586",
+      "propertyId": "FL-MEL-066",
+      "category": "Roof Leak",
+      "createdDate": "2026-01-05",
+      "completedDate": "2026-01-07",
+      "cost": 1495,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-202"
+    },
+    {
+      "workOrderId": "WO-10610",
+      "propertyId": "FL-MEL-066",
+      "category": "Gutter Damage",
+      "createdDate": "2026-03-18",
+      "completedDate": "2026-03-20",
+      "cost": 870,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    },
+    {
+      "workOrderId": "WO-10643",
+      "propertyId": "FL-MEL-066",
+      "category": "Water Intrusion",
+      "createdDate": "2026-05-09",
+      "completedDate": "2026-05-13",
+      "cost": 1725,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10671",
+      "propertyId": "FL-DAY-090",
+      "category": "Exterior Siding",
+      "createdDate": "2026-02-19",
+      "completedDate": "2026-02-22",
+      "cost": 1260,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10705",
+      "propertyId": "FL-DAY-090",
+      "category": "HVAC Exterior Unit",
+      "createdDate": "2026-04-21",
+      "completedDate": "2026-04-23",
+      "cost": 1390,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-203"
+    },
+    {
+      "workOrderId": "WO-10730",
+      "propertyId": "FL-JAX-155",
+      "category": "Tree Limb Removal",
+      "createdDate": "2026-01-17",
+      "completedDate": "2026-01-19",
+      "cost": 960,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-205"
+    },
+    {
+      "workOrderId": "WO-10758",
+      "propertyId": "FL-JAX-155",
+      "category": "Roof Leak",
+      "createdDate": "2026-03-09",
+      "completedDate": "2026-03-12",
+      "cost": 1360,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-202"
+    },
+    {
+      "workOrderId": "WO-10789",
+      "propertyId": "FL-JAX-155",
+      "category": "Fence Damage",
+      "createdDate": "2026-05-02",
+      "completedDate": "2026-05-04",
+      "cost": 790,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-207"
+    },
+    {
+      "workOrderId": "WO-10812",
+      "propertyId": "FL-MIA-222",
+      "category": "Gutter Cleaning",
+      "createdDate": "2026-02-06",
+      "completedDate": "2026-02-07",
+      "cost": 720,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    },
+    {
+      "workOrderId": "WO-10844",
+      "propertyId": "FL-MIA-222",
+      "category": "Exterior Door",
+      "createdDate": "2026-04-10",
+      "completedDate": "2026-04-11",
+      "cost": 680,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10872",
+      "propertyId": "FL-FMY-136",
+      "category": "Roof Leak",
+      "createdDate": "2026-01-26",
+      "completedDate": "2026-01-29",
+      "cost": 1580,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "WO-10901",
+      "propertyId": "FL-FMY-136",
+      "category": "HVAC Exterior Unit",
+      "createdDate": "2026-03-16",
+      "completedDate": "2026-03-18",
+      "cost": 1510,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-203"
+    },
+    {
+      "workOrderId": "WO-10923",
+      "propertyId": "FL-FMY-136",
+      "category": "Water Intrusion",
+      "createdDate": "2026-05-19",
+      "completedDate": "2026-05-23",
+      "cost": 2015,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-10954",
+      "propertyId": "FL-NAP-051",
+      "category": "Tree Limb Removal",
+      "createdDate": "2026-03-02",
+      "completedDate": "2026-03-03",
+      "cost": 840,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-205"
+    },
+    {
+      "workOrderId": "WO-10988",
+      "propertyId": "FL-SRQ-084",
+      "category": "Roof Leak",
+      "createdDate": "2025-12-19",
+      "completedDate": "2025-12-23",
+      "cost": 1810,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "WO-11013",
+      "propertyId": "FL-SRQ-084",
+      "category": "Exterior Siding",
+      "createdDate": "2026-02-14",
+      "completedDate": "2026-02-19",
+      "cost": 2870,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-11039",
+      "propertyId": "FL-SRQ-084",
+      "category": "Window Seal",
+      "createdDate": "2026-04-26",
+      "completedDate": "2026-04-29",
+      "cost": 1180,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "WO-11072",
+      "propertyId": "FL-PBI-173",
+      "category": "Gutter Cleaning",
+      "createdDate": "2026-03-11",
+      "completedDate": "2026-03-12",
+      "cost": 690,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    }
+  ]
+}
+

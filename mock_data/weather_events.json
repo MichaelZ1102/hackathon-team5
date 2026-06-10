@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "datasetName": "Florida Tornado Response Weather Timeline",
+    "scenarioDate": "2026-06-12",
+    "dataType": "synthetic_demo_data",
+    "note": "Uses real Florida county and city names with plausible severe-weather values for hackathon demo purposes."
+  },
+  "event": {
+    "eventId": "TOR-FL-2026-0612",
+    "name": "Central Florida Severe Storm and Tornado Risk",
+    "scenario": "Fast-moving severe thunderstorm cells with embedded tornado risk crossing the Tampa Bay, Orlando, Space Coast, and northeast Florida markets.",
+    "status": "Simulated",
+    "startTime": "2026-06-12T08:00:00-04:00",
+    "endTime": "2026-06-12T20:00:00-04:00"
+  },
+  "timeline": [
+    {
+      "time": "2026-06-12T08:00:00-04:00",
+      "stage": "Pre-storm watch",
+      "centerLat": 27.9506,
+      "centerLng": -82.4572,
+      "movement": "ENE",
+      "affectedRadiusMiles": 45,
+      "affectedCounties": [
+        {
+          "county": "Hillsborough",
+          "riskLevel": "High",
+          "windSpeedMph": 74,
+          "tornadoProbability": 0.48,
+          "hailRisk": "Medium"
+        },
+        {
+          "county": "Pinellas",
+          "riskLevel": "Medium",
+          "windSpeedMph": 61,
+          "tornadoProbability": 0.31,
+          "hailRisk": "Low"
+        }
+      ]
+    },
+    {
+      "time": "2026-06-12T11:00:00-04:00",
+      "stage": "Storm intensifying",
+      "centerLat": 28.0395,
+      "centerLng": -81.9498,
+      "movement": "ENE",
+      "affectedRadiusMiles": 55,
+      "affectedCounties": [
+        {
+          "county": "Polk",
+          "riskLevel": "High",
+          "windSpeedMph": 82,
+          "tornadoProbability": 0.57,
+          "hailRisk": "Medium"
+        },
+        {
+          "county": "Hillsborough",
+          "riskLevel": "Medium",
+          "windSpeedMph": 66,
+          "tornadoProbability": 0.36,
+          "hailRisk": "Low"
+        },
+        {
+          "county": "Osceola",
+          "riskLevel": "Medium",
+          "windSpeedMph": 63,
+          "tornadoProbability": 0.34,
+          "hailRisk": "Medium"
+        }
+      ]
+    },
+    {
+      "time": "2026-06-12T14:00:00-04:00",
+      "stage": "Peak tornado risk",
+      "centerLat": 28.5383,
+      "centerLng": -81.3792,
+      "movement": "NE",
+      "affectedRadiusMiles": 60,
+      "affectedCounties": [
+        {
+          "county": "Orange",
+          "riskLevel": "Critical",
+          "windSpeedMph": 92,
+          "tornadoProbability": 0.72,
+          "hailRisk": "High"
+        },
+        {
+          "county": "Seminole",
+          "riskLevel": "High",
+          "windSpeedMph": 86,
+          "tornadoProbability": 0.63,
+          "hailRisk": "High"
+        },
+        {
+          "county": "Osceola",
+          "riskLevel": "High",
+          "windSpeedMph": 79,
+          "tornadoProbability": 0.52,
+          "hailRisk": "Medium"
+        },
+        {
+          "county": "Brevard",
+          "riskLevel": "Medium",
+          "windSpeedMph": 68,
+          "tornadoProbability": 0.38,
+          "hailRisk": "Medium"
+        }
+      ]
+    },
+    {
+      "time": "2026-06-12T17:00:00-04:00",
+      "stage": "East coast impact",
+      "centerLat": 28.0836,
+      "centerLng": -80.6081,
+      "movement": "NE",
+      "affectedRadiusMiles": 50,
+      "affectedCounties": [
+        {
+          "county": "Brevard",
+          "riskLevel": "High",
+          "windSpeedMph": 84,
+          "tornadoProbability": 0.61,
+          "hailRisk": "Medium"
+        },
+        {
+          "county": "Volusia",
+          "riskLevel": "Medium",
+          "windSpeedMph": 70,
+          "tornadoProbability": 0.42,
+          "hailRisk": "Low"
+        },
+        {
+          "county": "Orange",
+          "riskLevel": "Medium",
+          "windSpeedMph": 62,
+          "tornadoProbability": 0.29,
+          "hailRisk": "Low"
+        }
+      ]
+    },
+    {
+      "time": "2026-06-12T20:00:00-04:00",
+      "stage": "Post-storm assessment",
+      "centerLat": 29.2108,
+      "centerLng": -81.0228,
+      "movement": "Offshore",
+      "affectedRadiusMiles": 35,
+      "affectedCounties": [
+        {
+          "county": "Volusia",
+          "riskLevel": "Medium",
+          "windSpeedMph": 58,
+          "tornadoProbability": 0.22,
+          "hailRisk": "Low"
+        },
+        {
+          "county": "Brevard",
+          "riskLevel": "Low",
+          "windSpeedMph": 44,
+          "tornadoProbability": 0.12,
+          "hailRisk": "Low"
+        }
+      ]
+    }
+  ]
+}
+

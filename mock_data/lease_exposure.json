@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "datasetName": "Lease and Occupancy Exposure Summary",
+    "dataType": "synthetic_demo_data"
+  },
+  "leaseExposure": [
+    {
+      "propertyId": "FL-ORL-102",
+      "occupiedUnits": 81,
+      "vacantUnits": 5,
+      "renewalsDueNext90Days": 19,
+      "averageMonthlyRent": 1810,
+      "atRiskResidentCount": 154
+    },
+    {
+      "propertyId": "FL-WPK-118",
+      "occupiedUnits": 61,
+      "vacantUnits": 3,
+      "renewalsDueNext90Days": 11,
+      "averageMonthlyRent": 2260,
+      "atRiskResidentCount": 116
+    },
+    {
+      "propertyId": "FL-KIS-031",
+      "occupiedUnits": 38,
+      "vacantUnits": 4,
+      "renewalsDueNext90Days": 8,
+      "averageMonthlyRent": 2140,
+      "atRiskResidentCount": 127
+    },
+    {
+      "propertyId": "FL-LAK-044",
+      "occupiedUnits": 66,
+      "vacantUnits": 6,
+      "renewalsDueNext90Days": 16,
+      "averageMonthlyRent": 1525,
+      "atRiskResidentCount": 132
+    },
+    {
+      "propertyId": "FL-TPA-205",
+      "occupiedUnits": 109,
+      "vacantUnits": 3,
+      "renewalsDueNext90Days": 21,
+      "averageMonthlyRent": 2185,
+      "atRiskResidentCount": 207
+    },
+    {
+      "propertyId": "FL-STP-077",
+      "occupiedUnits": 52,
+      "vacantUnits": 6,
+      "renewalsDueNext90Days": 14,
+      "averageMonthlyRent": 1975,
+      "atRiskResidentCount": 99
+    },
+    {
+      "propertyId": "FL-MEL-066",
+      "occupiedUnits": 45,
+      "vacantUnits": 3,
+      "renewalsDueNext90Days": 10,
+      "averageMonthlyRent": 1860,
+      "atRiskResidentCount": 136
+    },
+    {
+      "propertyId": "FL-DAY-090",
+      "occupiedUnits": 70,
+      "vacantUnits": 6,
+      "renewalsDueNext90Days": 17,
+      "averageMonthlyRent": 1640,
+      "atRiskResidentCount": 133
+    },
+    {
+      "propertyId": "FL-JAX-155",
+      "occupiedUnits": 54,
+      "vacantUnits": 7,
+      "renewalsDueNext90Days": 15,
+      "averageMonthlyRent": 1765,
+      "atRiskResidentCount": 168
+    },
+    {
+      "propertyId": "FL-MIA-222",
+      "occupiedUnits": 91,
+      "vacantUnits": 5,
+      "renewalsDueNext90Days": 24,
+      "averageMonthlyRent": 2480,
+      "atRiskResidentCount": 173
+    },
+    {
+      "propertyId": "FL-FMY-136",
+      "occupiedUnits": 76,
+      "vacantUnits": 7,
+      "renewalsDueNext90Days": 18,
+      "averageMonthlyRent": 1895,
+      "atRiskResidentCount": 144
+    },
+    {
+      "propertyId": "FL-NAP-051",
+      "occupiedUnits": 35,
+      "vacantUnits": 1,
+      "renewalsDueNext90Days": 6,
+      "averageMonthlyRent": 2920,
+      "atRiskResidentCount": 105
+    },
+    {
+      "propertyId": "FL-SRQ-084",
+      "occupiedUnits": 62,
+      "vacantUnits": 7,
+      "renewalsDueNext90Days": 13,
+      "averageMonthlyRent": 1835,
+      "atRiskResidentCount": 118
+    },
+    {
+      "propertyId": "FL-PBI-173",
+      "occupiedUnits": 102,
+      "vacantUnits": 2,
+      "renewalsDueNext90Days": 22,
+      "averageMonthlyRent": 2385,
+      "atRiskResidentCount": 194
+    }
+  ]
+}
+

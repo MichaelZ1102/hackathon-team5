@@ -1,0 +1,481 @@
+{
+  "eventId": "TOR-FL-2026-0612",
+  "analysisTime": "2026-06-12T14:00:00-04:00",
+  "scenarioStage": "Peak tornado risk",
+  "portfolioSummary": {
+    "totalProperties": 14,
+    "affectedProperties": 4,
+    "criticalRiskProperties": 1,
+    "highRiskProperties": 0,
+    "mediumRiskProperties": 3,
+    "lowRiskProperties": 0,
+    "estimatedRepairExposure": 140000,
+    "residentExposure": 533,
+    "topAffectedMarkets": [
+      "Orlando",
+      "Space Coast"
+    ]
+  },
+  "properties": [
+    {
+      "propertyId": "FL-ORL-102",
+      "name": "Orlando Lakeside Villas",
+      "market": "Orlando",
+      "city": "Orlando",
+      "county": "Orange",
+      "lat": 28.5383,
+      "lng": -81.3792,
+      "assetType": "Multifamily",
+      "units": 86,
+      "isAffected": true,
+      "riskScore": 81,
+      "riskLevel": "Critical",
+      "estimatedRepairExposure": 78000,
+      "scoreBreakdown": {
+        "weatherRisk": 100,
+        "assetVulnerability": 62,
+        "maintenanceRisk": 75,
+        "businessImpact": 67,
+        "weights": {
+          "weatherRisk": 0.4,
+          "assetVulnerability": 0.25,
+          "maintenanceRisk": 0.25,
+          "businessImpact": 0.1
+        },
+        "formula": "round(weatherRisk * 0.40 + assetVulnerability * 0.25 + maintenanceRisk * 0.25 + businessImpact * 0.10)"
+      },
+      "riskDrivers": [
+        "Orange County is in Critical tornado risk at the selected timeline point.",
+        "County weather shows 92 mph wind speed and 0.72 tornado probability.",
+        "Roof age is 18 years, which increases storm vulnerability.",
+        "Average HVAC age is 11 years.",
+        "Exterior condition is Fair.",
+        "Tree canopy risk is Medium.",
+        "Recent work order patterns include Roof Leak x2, Water Intrusion x1, HVAC Exterior Unit x1, Window Seal x1.",
+        "3 recent work orders are marked as repeat issues."
+      ],
+      "recommendedActions": [
+        "Send pre-storm notification to residents.",
+        "Pre-book contractor capacity for likely post-storm inspections.",
+        "Prepare post-storm inspection draft work orders.",
+        "Escalate this property in the VP portfolio impact summary."
+      ],
+      "recommendedDraftWorkOrders": [
+        {
+          "title": "Post-storm roof inspection",
+          "category": "Roof Inspection",
+          "priority": "Urgent",
+          "reason": "Roof age, roof-related work order history, or roof CapEx plan indicates elevated storm vulnerability.",
+          "recommendedTiming": "Within 24 hours after storm clearance",
+          "requiresUserConfirmation": true
+        },
+        {
+          "title": "Post-storm water intrusion and exterior envelope inspection",
+          "category": "Exterior Envelope",
+          "priority": "Urgent",
+          "reason": "Exterior condition, water intrusion history, or envelope-related CapEx indicates possible storm exposure.",
+          "recommendedTiming": "Within 24 hours after storm clearance",
+          "requiresUserConfirmation": true
+        },
+        {
+          "title": "Post-storm exterior HVAC unit inspection",
+          "category": "HVAC Exterior Unit",
+          "priority": "Urgent",
+          "reason": "HVAC age or prior exterior HVAC work orders indicate potential equipment exposure.",
+          "recommendedTiming": "Within 24 hours after storm clearance",
+          "requiresUserConfirmation": true
+        }
+      ],
+      "recommendedContractors": [
+        {
+          "contractorId": "CTR-201",
+          "name": "Florida Emergency Roofing",
+          "serviceType": "Roofing",
+          "reason": "Serves Orange County and matches Roofing response needs.",
+          "availableWithinHours": 24
+        },
+        {
+          "contractorId": "CTR-204",
+          "name": "Peninsula Building Envelope",
+          "serviceType": "Exterior Envelope",
+          "reason": "Serves Orange County and matches Exterior Envelope response needs.",
+          "availableWithinHours": 30
+        },
+        {
+          "contractorId": "CTR-203",
+          "name": "Sunstate HVAC Recovery",
+          "serviceType": "HVAC",
+          "reason": "Serves Orange County and matches HVAC response needs.",
+          "availableWithinHours": 18
+        }
+      ],
+      "llmContext": {
+        "summaryInput": "Orlando Lakeside Villas is in Orange County during Critical tornado risk. County weather shows 92 mph wind speed and 0.72 tornado probability. The property has a 18-year roof, Fair exterior condition, and 5 recent work orders. Estimated repair exposure is 78000.",
+        "allowedClaims": [
+          "The property is in Orange County during a Critical tornado risk timeline point.",
+          "The county weather event includes 92 mph wind speed and 0.72 tornado probability.",
+          "The property roof age is 18 years.",
+          "The property exterior condition is Fair.",
+          "Any AI-generated work order requires user confirmation.",
+          "Historical work orders include Roof Leak x2, Water Intrusion x1, HVAC Exterior Unit x1, Window Seal x1.",
+          "CapEx plan includes Roof replacement, Exterior sealing."
+        ],
+        "disallowedClaims": [
+          "Do not claim confirmed physical damage.",
+          "Do not claim residents have been injured.",
+          "Do not claim evacuation is mandatory.",
+          "Do not claim insurance coverage or reimbursement."
+        ],
+        "dataLimitations": [
+          "No live radar feed is connected in this mock dataset.",
+          "No confirmed post-storm inspection results are available yet.",
+          "Repair exposure is an estimate for demo purposes."
+        ],
+        "recommendedPromptFiles": [
+          "llm_prompts/property_risk_explanation_prompt.md",
+          "llm_prompts/tenant_notification_prompt.md",
+          "llm_prompts/work_order_draft_prompt.md",
+          "llm_prompts/contractor_recommendation_prompt.md"
+        ]
+      }
+    },
+    {
+      "propertyId": "FL-KIS-031",
+      "name": "Kissimmee Palms SFR Pool",
+      "market": "Orlando",
+      "city": "Kissimmee",
+      "county": "Osceola",
+      "lat": 28.2919,
+      "lng": -81.4076,
+      "assetType": "Single-Family Rental",
+      "units": 42,
+      "isAffected": true,
+      "riskScore": 60,
+      "riskLevel": "Medium",
+      "estimatedRepairExposure": 21000,
+      "scoreBreakdown": {
+        "weatherRisk": 75,
+        "assetVulnerability": 69,
+        "maintenanceRisk": 37,
+        "businessImpact": 39,
+        "weights": {
+          "weatherRisk": 0.4,
+          "assetVulnerability": 0.25,
+          "maintenanceRisk": 0.25,
+          "businessImpact": 0.1
+        },
+        "formula": "round(weatherRisk * 0.40 + assetVulnerability * 0.25 + maintenanceRisk * 0.25 + businessImpact * 0.10)"
+      },
+      "riskDrivers": [
+        "Osceola County is in High tornado risk at the selected timeline point.",
+        "County weather shows 79 mph wind speed and 0.52 tornado probability.",
+        "Roof age is 16 years, which increases storm vulnerability.",
+        "Average HVAC age is 10 years.",
+        "Exterior condition is Fair.",
+        "Tree canopy risk is High.",
+        "Recent work order patterns include Roof Leak x1, Fence Damage x1, Tree Limb Removal x1.",
+        "2 recent work orders are marked as repeat issues."
+      ],
+      "recommendedActions": [
+        "Monitor weather timeline changes.",
+        "Prepare resident notification draft.",
+        "Review recent maintenance history before the storm clears."
+      ],
+      "recommendedDraftWorkOrders": [
+        {
+          "title": "Post-storm roof inspection",
+          "category": "Roof Inspection",
+          "priority": "Routine",
+          "reason": "Roof age, roof-related work order history, or roof CapEx plan indicates elevated storm vulnerability.",
+          "recommendedTiming": "Within 48 hours after storm clearance",
+          "requiresUserConfirmation": true
+        },
+        {
+          "title": "Post-storm water intrusion and exterior envelope inspection",
+          "category": "Exterior Envelope",
+          "priority": "Routine",
+          "reason": "Exterior condition, water intrusion history, or envelope-related CapEx indicates possible storm exposure.",
+          "recommendedTiming": "Within 48 hours after storm clearance",
+          "requiresUserConfirmation": true
+        },
+        {
+          "title": "Post-storm exterior HVAC unit inspection",
+          "category": "HVAC Exterior Unit",
+          "priority": "Routine",
+          "reason": "HVAC age or prior exterior HVAC work orders indicate potential equipment exposure.",
+          "recommendedTiming": "Within 48 hours after storm clearance",
+          "requiresUserConfirmation": true
+        }
+      ],
+      "recommendedContractors": [
+        {
+          "contractorId": "CTR-201",
+          "name": "Florida Emergency Roofing",
+          "serviceType": "Roofing",
+          "reason": "Serves Osceola County and matches Roofing response needs.",
+          "availableWithinHours": 24
+        }
+      ],
+      "llmContext": {
+        "summaryInput": "Kissimmee Palms SFR Pool is in Osceola County during High tornado risk. County weather shows 79 mph wind speed and 0.52 tornado probability. The property has a 16-year roof, Fair exterior condition, and 3 recent work orders. Estimated repair exposure is 21000.",
+        "allowedClaims": [
+          "The property is in Osceola County during a High tornado risk timeline point.",
+          "The county weather event includes 79 mph wind speed and 0.52 tornado probability.",
+          "The property roof age is 16 years.",
+          "The property exterior condition is Fair.",
+          "Any AI-generated work order requires user confirmation.",
+          "Historical work orders include Roof Leak x1, Fence Damage x1, Tree Limb Removal x1."
+        ],
+        "disallowedClaims": [
+          "Do not claim confirmed physical damage.",
+          "Do not claim residents have been injured.",
+          "Do not claim evacuation is mandatory.",
+          "Do not claim insurance coverage or reimbursement."
+        ],
+        "dataLimitations": [
+          "No live radar feed is connected in this mock dataset.",
+          "No confirmed post-storm inspection results are available yet.",
+          "Repair exposure is an estimate for demo purposes."
+        ],
+        "recommendedPromptFiles": [
+          "llm_prompts/property_risk_explanation_prompt.md",
+          "llm_prompts/tenant_notification_prompt.md",
+          "llm_prompts/work_order_draft_prompt.md",
+          "llm_prompts/contractor_recommendation_prompt.md"
+        ]
+      }
+    },
+    {
+      "propertyId": "FL-MEL-066",
+      "name": "Melbourne Coast Townhomes",
+      "market": "Space Coast",
+      "city": "Melbourne",
+      "county": "Brevard",
+      "lat": 28.0836,
+      "lng": -80.6081,
+      "assetType": "Townhome Rental",
+      "units": 48,
+      "isAffected": true,
+      "riskScore": 52,
+      "riskLevel": "Medium",
+      "estimatedRepairExposure": 26000,
+      "scoreBreakdown": {
+        "weatherRisk": 50,
+        "assetVulnerability": 61,
+        "maintenanceRisk": 46,
+        "businessImpact": 49,
+        "weights": {
+          "weatherRisk": 0.4,
+          "assetVulnerability": 0.25,
+          "maintenanceRisk": 0.25,
+          "businessImpact": 0.1
+        },
+        "formula": "round(weatherRisk * 0.40 + assetVulnerability * 0.25 + maintenanceRisk * 0.25 + businessImpact * 0.10)"
+      },
+      "riskDrivers": [
+        "Brevard County is in Medium tornado risk at the selected timeline point.",
+        "County weather shows 68 mph wind speed and 0.38 tornado probability.",
+        "Roof age is 19 years, which increases storm vulnerability.",
+        "Exterior condition is Fair.",
+        "Tree canopy risk is Medium.",
+        "Flood zone exposure is High.",
+        "Recent work order patterns include Roof Leak x1, Gutter Damage x1, Water Intrusion x1.",
+        "2 recent work orders are marked as repeat issues."
+      ],
+      "recommendedActions": [
+        "Monitor weather timeline changes.",
+        "Prepare resident notification draft.",
+        "Review recent maintenance history before the storm clears."
+      ],
+      "recommendedDraftWorkOrders": [
+        {
+          "title": "Post-storm roof inspection",
+          "category": "Roof Inspection",
+          "priority": "Routine",
+          "reason": "Roof age, roof-related work order history, or roof CapEx plan indicates elevated storm vulnerability.",
+          "recommendedTiming": "Within 48 hours after storm clearance",
+          "requiresUserConfirmation": true
+        },
+        {
+          "title": "Post-storm water intrusion and exterior envelope inspection",
+          "category": "Exterior Envelope",
+          "priority": "Routine",
+          "reason": "Exterior condition, water intrusion history, or envelope-related CapEx indicates possible storm exposure.",
+          "recommendedTiming": "Within 48 hours after storm clearance",
+          "requiresUserConfirmation": true
+        }
+      ],
+      "recommendedContractors": [
+        {
+          "contractorId": "CTR-202",
+          "name": "Atlantic Coast Roof Response",
+          "serviceType": "Roofing",
+          "reason": "Serves Brevard County and matches Roofing response needs.",
+          "availableWithinHours": 36
+        },
+        {
+          "contractorId": "CTR-204",
+          "name": "Peninsula Building Envelope",
+          "serviceType": "Exterior Envelope",
+          "reason": "Serves Brevard County and matches Exterior Envelope response needs.",
+          "availableWithinHours": 30
+        }
+      ],
+      "llmContext": {
+        "summaryInput": "Melbourne Coast Townhomes is in Brevard County during Medium tornado risk. County weather shows 68 mph wind speed and 0.38 tornado probability. The property has a 19-year roof, Fair exterior condition, and 3 recent work orders. Estimated repair exposure is 26000.",
+        "allowedClaims": [
+          "The property is in Brevard County during a Medium tornado risk timeline point.",
+          "The county weather event includes 68 mph wind speed and 0.38 tornado probability.",
+          "The property roof age is 19 years.",
+          "The property exterior condition is Fair.",
+          "Any AI-generated work order requires user confirmation.",
+          "Historical work orders include Roof Leak x1, Gutter Damage x1, Water Intrusion x1.",
+          "CapEx plan includes Roof coating and gutter replacement."
+        ],
+        "disallowedClaims": [
+          "Do not claim confirmed physical damage.",
+          "Do not claim residents have been injured.",
+          "Do not claim evacuation is mandatory.",
+          "Do not claim insurance coverage or reimbursement."
+        ],
+        "dataLimitations": [
+          "No live radar feed is connected in this mock dataset.",
+          "No confirmed post-storm inspection results are available yet.",
+          "Repair exposure is an estimate for demo purposes."
+        ],
+        "recommendedPromptFiles": [
+          "llm_prompts/property_risk_explanation_prompt.md",
+          "llm_prompts/tenant_notification_prompt.md",
+          "llm_prompts/work_order_draft_prompt.md",
+          "llm_prompts/contractor_recommendation_prompt.md"
+        ]
+      }
+    },
+    {
+      "propertyId": "FL-WPK-118",
+      "name": "Winter Park Commons",
+      "market": "Orlando",
+      "city": "Winter Park",
+      "county": "Orange",
+      "lat": 28.5999,
+      "lng": -81.3392,
+      "assetType": "Multifamily",
+      "units": 64,
+      "isAffected": true,
+      "riskScore": 52,
+      "riskLevel": "Medium",
+      "estimatedRepairExposure": 15000,
+      "scoreBreakdown": {
+        "weatherRisk": 100,
+        "assetVulnerability": 14,
+        "maintenanceRisk": 9,
+        "businessImpact": 62,
+        "weights": {
+          "weatherRisk": 0.4,
+          "assetVulnerability": 0.25,
+          "maintenanceRisk": 0.25,
+          "businessImpact": 0.1
+        },
+        "formula": "round(weatherRisk * 0.40 + assetVulnerability * 0.25 + maintenanceRisk * 0.25 + businessImpact * 0.10)"
+      },
+      "riskDrivers": [
+        "Orange County is in Critical tornado risk at the selected timeline point.",
+        "County weather shows 92 mph wind speed and 0.72 tornado probability.",
+        "Tree canopy risk is Medium.",
+        "Recent work order patterns include Tree Limb Removal x1, Exterior Lighting x1."
+      ],
+      "recommendedActions": [
+        "Monitor weather timeline changes.",
+        "Prepare resident notification draft.",
+        "Review recent maintenance history before the storm clears."
+      ],
+      "recommendedDraftWorkOrders": [
+        {
+          "title": "Tree limb and debris inspection",
+          "category": "Tree and Debris",
+          "priority": "Routine",
+          "reason": "Tree canopy risk or prior tree limb work orders indicate debris exposure.",
+          "recommendedTiming": "Within 48 hours after storm clearance",
+          "requiresUserConfirmation": true
+        }
+      ],
+      "recommendedContractors": [
+        {
+          "contractorId": "CTR-205",
+          "name": "Florida Tree and Debris Response",
+          "serviceType": "Tree and Debris",
+          "reason": "Serves Orange County and matches Tree and Debris response needs.",
+          "availableWithinHours": 12
+        }
+      ],
+      "llmContext": {
+        "summaryInput": "Winter Park Commons is in Orange County during Critical tornado risk. County weather shows 92 mph wind speed and 0.72 tornado probability. The property has a 9-year roof, Good exterior condition, and 2 recent work orders. Estimated repair exposure is 15000.",
+        "allowedClaims": [
+          "The property is in Orange County during a Critical tornado risk timeline point.",
+          "The county weather event includes 92 mph wind speed and 0.72 tornado probability.",
+          "The property roof age is 9 years.",
+          "The property exterior condition is Good.",
+          "Any AI-generated work order requires user confirmation.",
+          "Historical work orders include Tree Limb Removal x1, Exterior Lighting x1."
+        ],
+        "disallowedClaims": [
+          "Do not claim confirmed physical damage.",
+          "Do not claim residents have been injured.",
+          "Do not claim evacuation is mandatory.",
+          "Do not claim insurance coverage or reimbursement."
+        ],
+        "dataLimitations": [
+          "No live radar feed is connected in this mock dataset.",
+          "No confirmed post-storm inspection results are available yet.",
+          "Repair exposure is an estimate for demo purposes."
+        ],
+        "recommendedPromptFiles": [
+          "llm_prompts/property_risk_explanation_prompt.md",
+          "llm_prompts/tenant_notification_prompt.md",
+          "llm_prompts/work_order_draft_prompt.md",
+          "llm_prompts/contractor_recommendation_prompt.md"
+        ]
+      }
+    }
+  ],
+  "llmInputs": {
+    "executiveSummaryContext": {
+      "weatherEvent": "Central Florida Severe Storm and Tornado Risk",
+      "analysisTime": "2026-06-12T14:00:00-04:00",
+      "scenarioStage": "Peak tornado risk",
+      "affectedProperties": 4,
+      "criticalRiskProperties": 1,
+      "highRiskProperties": 0,
+      "estimatedRepairExposure": 140000,
+      "residentExposure": 533,
+      "topConcerns": [
+        "Orlando, Space Coast are the main affected markets at this timeline point.",
+        "Highest-risk properties: Orlando Lakeside Villas (Critical, 81); Kissimmee Palms SFR Pool (Medium, 60); Melbourne Coast Townhomes (Medium, 52).",
+        "Roof Inspection, Exterior Envelope, HVAC Exterior Unit, Tree and Debris are the main post-storm work order themes."
+      ],
+      "recommendedNextActions": [
+        "Send resident notifications for affected properties.",
+        "Pre-book contractors for Critical and High risk assets.",
+        "Prepare draft inspection work orders for user confirmation after storm clearance."
+      ]
+    },
+    "recommendedPromptFiles": [
+      "llm_prompts/executive_summary_prompt.md",
+      "llm_prompts/vp_email_prompt.md"
+    ]
+  },
+  "dataSources": [
+    "mock_data/weather_events.json",
+    "mock_data/properties.json",
+    "mock_data/work_orders.json",
+    "mock_data/capex_plan.json",
+    "mock_data/lease_exposure.json",
+    "mock_data/contractors.json"
+  ],
+  "metadata": {
+    "dataType": "synthetic_demo_data",
+    "engineVersion": "0.1",
+    "generatedFor": "hackathon_demo",
+    "importantNote": "This output is for demo purposes. It is not official weather, emergency, insurance, or property condition data."
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "datasetName": "CapEx and Asset Renewal Plan",
+    "dataType": "synthetic_demo_data"
+  },
+  "capexItems": [
+    {
+      "capexId": "CAP-001",
+      "propertyId": "FL-ORL-102",
+      "item": "Roof replacement",
+      "plannedYear": 2026,
+      "estimatedCost": 120000,
+      "priority": "High",
+      "status": "Planned"
+    },
+    {
+      "capexId": "CAP-002",
+      "propertyId": "FL-ORL-102",
+      "item": "Exterior sealing",
+      "plannedYear": 2026,
+      "estimatedCost": 38000,
+      "priority": "Medium",
+      "status": "Planned"
+    },
+    {
+      "capexId": "CAP-003",
+      "propertyId": "FL-LAK-044",
+      "item": "Roof replacement",
+      "plannedYear": 2026,
+      "estimatedCost": 98000,
+      "priority": "High",
+      "status": "Approved"
+    },
+    {
+      "capexId": "CAP-004",
+      "propertyId": "FL-LAK-044",
+      "item": "Siding replacement",
+      "plannedYear": 2027,
+      "estimatedCost": 72000,
+      "priority": "High",
+      "status": "Planned"
+    },
+    {
+      "capexId": "CAP-005",
+      "propertyId": "FL-STP-077",
+      "item": "Window and envelope upgrade",
+      "plannedYear": 2026,
+      "estimatedCost": 84000,
+      "priority": "High",
+      "status": "Planned"
+    },
+    {
+      "capexId": "CAP-006",
+      "propertyId": "FL-MEL-066",
+      "item": "Roof coating and gutter replacement",
+      "plannedYear": 2026,
+      "estimatedCost": 56000,
+      "priority": "Medium",
+      "status": "Planned"
+    },
+    {
+      "capexId": "CAP-007",
+      "propertyId": "FL-JAX-155",
+      "item": "Tree risk mitigation",
+      "plannedYear": 2026,
+      "estimatedCost": 22000,
+      "priority": "Medium",
+      "status": "Planned"
+    },
+    {
+      "capexId": "CAP-008",
+      "propertyId": "FL-SRQ-084",
+      "item": "Roof replacement",
+      "plannedYear": 2026,
+      "estimatedCost": 91000,
+      "priority": "High",
+      "status": "Approved"
+    },
+    {
+      "capexId": "CAP-009",
+      "propertyId": "FL-FMY-136",
+      "item": "HVAC exterior unit refresh",
+      "plannedYear": 2027,
+      "estimatedCost": 68000,
+      "priority": "Medium",
+      "status": "Planned"
+    },
+    {
+      "capexId": "CAP-010",
+      "propertyId": "FL-TPA-205",
+      "item": "Stormwater drainage tune-up",
+      "plannedYear": 2026,
+      "estimatedCost": 26000,
+      "priority": "Low",
+      "status": "Planned"
+    }
+  ]
+}
+

@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "datasetName": "Florida Emergency Contractor Directory",
+    "dataType": "synthetic_demo_data"
+  },
+  "contractors": [
+    {
+      "contractorId": "CTR-201",
+      "name": "Florida Emergency Roofing",
+      "serviceType": "Roofing",
+      "baseCounty": "Orange",
+      "serviceCounties": ["Orange", "Seminole", "Osceola", "Polk"],
+      "availableWithinHours": 24,
+      "rating": 4.6,
+      "averageCostLevel": "Medium"
+    },
+    {
+      "contractorId": "CTR-202",
+      "name": "Atlantic Coast Roof Response",
+      "serviceType": "Roofing",
+      "baseCounty": "Brevard",
+      "serviceCounties": ["Brevard", "Volusia", "Duval"],
+      "availableWithinHours": 36,
+      "rating": 4.4,
+      "averageCostLevel": "Medium"
+    },
+    {
+      "contractorId": "CTR-203",
+      "name": "Sunstate HVAC Recovery",
+      "serviceType": "HVAC",
+      "baseCounty": "Hillsborough",
+      "serviceCounties": ["Hillsborough", "Orange", "Polk", "Lee"],
+      "availableWithinHours": 18,
+      "rating": 4.7,
+      "averageCostLevel": "Medium"
+    },
+    {
+      "contractorId": "CTR-204",
+      "name": "Peninsula Building Envelope",
+      "serviceType": "Exterior Envelope",
+      "baseCounty": "Orange",
+      "serviceCounties": ["Orange", "Pinellas", "Brevard", "Sarasota", "Lee"],
+      "availableWithinHours": 30,
+      "rating": 4.5,
+      "averageCostLevel": "High"
+    },
+    {
+      "contractorId": "CTR-205",
+      "name": "Florida Tree and Debris Response",
+      "serviceType": "Tree and Debris",
+      "baseCounty": "Osceola",
+      "serviceCounties": ["Orange", "Osceola", "Polk", "Duval", "Collier"],
+      "availableWithinHours": 12,
+      "rating": 4.3,
+      "averageCostLevel": "Low"
+    },
+    {
+      "contractorId": "CTR-206",
+      "name": "Gulf Coast Electrical Services",
+      "serviceType": "Electrical",
+      "baseCounty": "Hillsborough",
+      "serviceCounties": ["Hillsborough", "Pinellas", "Sarasota", "Lee"],
+      "availableWithinHours": 24,
+      "rating": 4.6,
+      "averageCostLevel": "Medium"
+    },
+    {
+      "contractorId": "CTR-207",
+      "name": "Rapid Fence and Exterior Repair",
+      "serviceType": "Exterior Repair",
+      "baseCounty": "Duval",
+      "serviceCounties": ["Duval", "Volusia", "Orange", "Osceola"],
+      "availableWithinHours": 48,
+      "rating": 4.1,
+      "averageCostLevel": "Low"
+    },
+    {
+      "contractorId": "CTR-208",
+      "name": "Stormwater Gutter Pros",
+      "serviceType": "Gutters and Drainage",
+      "baseCounty": "Brevard",
+      "serviceCounties": ["Brevard", "Orange", "Volusia", "Miami-Dade", "Palm Beach"],
+      "availableWithinHours": 24,
+      "rating": 4.2,
+      "averageCostLevel": "Low"
+    }
+  ]
+}
+
