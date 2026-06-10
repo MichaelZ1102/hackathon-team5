@@ -1,0 +1,445 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Florida Tornado Response AI Analysis API",
+    "version": "0.1.0",
+    "description": "Hackathon demo API for tornado risk timeline, property risk analysis, AI-style recommendations, notification drafts, and draft work order confirmation."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5000",
+      "description": "Local Flask development server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Risk",
+      "description": "Weather timeline and property risk analysis"
+    },
+    {
+      "name": "AI Content",
+      "description": "Template-generated natural language content based on risk engine output"
+    },
+    {
+      "name": "Notifications",
+      "description": "Resident notification drafts"
+    },
+    {
+      "name": "Work Orders",
+      "description": "Draft and confirmed work orders"
+    }
+  ],
+  "paths": {
+    "/api/risk/timeline": {
+      "get": {
+        "tags": ["Risk"],
+        "summary": "Get tornado weather timeline",
+        "description": "Returns the synthetic Florida tornado event and all timeline points.",
+        "responses": {
+          "200": {
+            "description": "Weather timeline response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "event": { "type": "object" },
+                    "timeline": {
+                      "type": "array",
+                      "items": { "type": "object" }
+                    },
+                    "meta": { "type": "object" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/risk/properties": {
+      "get": {
+        "tags": ["Risk"],
+        "summary": "Get affected property risk analysis",
+        "description": "Calculates and returns portfolio and property-level risk results for a selected timeline point.",
+        "parameters": [
+          {
+            "name": "time",
+            "in": "query",
+            "required": false,
+            "description": "Weather timeline point. Defaults to peak tornado risk.",
+            "schema": {
+              "type": "string",
+              "example": "2026-06-12T14:00:00-04:00"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Risk analysis response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/RiskAnalysisResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid timeline point",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ai/recommendations": {
+      "post": {
+        "tags": ["AI Content"],
+        "summary": "Generate AI-style recommendations",
+        "description": "Returns a property-level recommendation when propertyId is provided; otherwise returns portfolio-level recommendation.",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "time": {
+                    "type": "string",
+                    "example": "2026-06-12T14:00:00-04:00"
+                  },
+                  "propertyId": {
+                    "type": "string",
+                    "example": "FL-ORL-102"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recommendation response",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object" }
+              }
+            }
+          },
+          "404": {
+            "description": "Property not found in affected results",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/notifications/draft": {
+      "post": {
+        "tags": ["Notifications"],
+        "summary": "Generate resident notification draft",
+        "description": "Returns SMS, push notification, and email drafts for one affected property.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PropertyRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Notification draft response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NotificationDraftResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          },
+          "404": {
+            "description": "Property not found in affected results",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/work-orders/draft": {
+      "post": {
+        "tags": ["Work Orders"],
+        "summary": "Get draft work orders",
+        "description": "Returns AI risk engine draft work orders for one affected property. Drafts require user confirmation.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PropertyRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Draft work order response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DraftWorkOrderResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          },
+          "404": {
+            "description": "Property not found in affected results",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/work-orders/confirm": {
+      "post": {
+        "tags": ["Work Orders"],
+        "summary": "Confirm a draft work order",
+        "description": "Creates a confirmed mock work order from one draft and stores it in flask_api/storage/confirmed_work_orders.json.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ConfirmWorkOrderRequest" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Confirmed work order",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ConfirmedWorkOrderResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          },
+          "404": {
+            "description": "Property not found in affected results",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PropertyRequest": {
+        "type": "object",
+        "required": ["propertyId"],
+        "properties": {
+          "time": {
+            "type": "string",
+            "example": "2026-06-12T14:00:00-04:00"
+          },
+          "propertyId": {
+            "type": "string",
+            "example": "FL-ORL-102"
+          }
+        }
+      },
+      "ConfirmWorkOrderRequest": {
+        "type": "object",
+        "required": ["propertyId", "draftIndex"],
+        "properties": {
+          "time": {
+            "type": "string",
+            "example": "2026-06-12T14:00:00-04:00"
+          },
+          "propertyId": {
+            "type": "string",
+            "example": "FL-ORL-102"
+          },
+          "draftIndex": {
+            "type": "integer",
+            "example": 0
+          },
+          "confirmedBy": {
+            "type": "string",
+            "example": "demo-user"
+          }
+        }
+      },
+      "RiskAnalysisResponse": {
+        "type": "object",
+        "properties": {
+          "eventId": { "type": "string" },
+          "analysisTime": { "type": "string" },
+          "scenarioStage": { "type": "string" },
+          "portfolioSummary": { "$ref": "#/components/schemas/PortfolioSummary" },
+          "properties": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/PropertyRiskResult" }
+          },
+          "llmInputs": { "type": "object" },
+          "dataSources": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "metadata": { "type": "object" }
+        }
+      },
+      "PortfolioSummary": {
+        "type": "object",
+        "properties": {
+          "totalProperties": { "type": "integer" },
+          "affectedProperties": { "type": "integer" },
+          "criticalRiskProperties": { "type": "integer" },
+          "highRiskProperties": { "type": "integer" },
+          "mediumRiskProperties": { "type": "integer" },
+          "lowRiskProperties": { "type": "integer" },
+          "estimatedRepairExposure": { "type": "number" },
+          "residentExposure": { "type": "integer" },
+          "topAffectedMarkets": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "PropertyRiskResult": {
+        "type": "object",
+        "properties": {
+          "propertyId": { "type": "string" },
+          "name": { "type": "string" },
+          "market": { "type": "string" },
+          "city": { "type": "string" },
+          "county": { "type": "string" },
+          "lat": { "type": "number" },
+          "lng": { "type": "number" },
+          "riskScore": { "type": "integer" },
+          "riskLevel": {
+            "type": "string",
+            "enum": ["Low", "Medium", "High", "Critical"]
+          },
+          "estimatedRepairExposure": { "type": "number" },
+          "scoreBreakdown": { "type": "object" },
+          "riskDrivers": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "recommendedActions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "recommendedDraftWorkOrders": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/DraftWorkOrder" }
+          },
+          "recommendedContractors": {
+            "type": "array",
+            "items": { "type": "object" }
+          },
+          "llmContext": { "type": "object" }
+        }
+      },
+      "DraftWorkOrder": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "category": { "type": "string" },
+          "priority": {
+            "type": "string",
+            "enum": ["Routine", "High", "Urgent"]
+          },
+          "reason": { "type": "string" },
+          "recommendedTiming": { "type": "string" },
+          "requiresUserConfirmation": { "type": "boolean" }
+        }
+      },
+      "DraftWorkOrderResponse": {
+        "type": "object",
+        "properties": {
+          "eventId": { "type": "string" },
+          "analysisTime": { "type": "string" },
+          "propertyId": { "type": "string" },
+          "propertyName": { "type": "string" },
+          "riskLevel": { "type": "string" },
+          "riskScore": { "type": "integer" },
+          "draftWorkOrders": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/DraftWorkOrder" }
+          }
+        }
+      },
+      "ConfirmedWorkOrderResponse": {
+        "type": "object",
+        "properties": {
+          "workOrderId": { "type": "string" },
+          "source": { "type": "string" },
+          "status": { "type": "string" },
+          "confirmedAt": { "type": "string" },
+          "confirmedBy": { "type": "string" },
+          "eventId": { "type": "string" },
+          "analysisTime": { "type": "string" },
+          "propertyId": { "type": "string" },
+          "propertyName": { "type": "string" },
+          "riskLevel": { "type": "string" },
+          "riskScore": { "type": "integer" },
+          "draftIndex": { "type": "integer" },
+          "workOrder": { "$ref": "#/components/schemas/DraftWorkOrder" }
+        }
+      },
+      "NotificationDraftResponse": {
+        "type": "object",
+        "properties": {
+          "generationMode": { "type": "string" },
+          "eventId": { "type": "string" },
+          "analysisTime": { "type": "string" },
+          "propertyId": { "type": "string" },
+          "propertyName": { "type": "string" },
+          "riskLevel": { "type": "string" },
+          "sms": { "type": "string" },
+          "pushNotification": { "type": "object" },
+          "email": { "type": "object" }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      }
+    }
+  }
+}
