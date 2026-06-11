@@ -11,6 +11,7 @@ from services.content_generator import (
     build_property_recommendation,
 )
 from services.data_loader import load_json, write_json
+from services.portfolio_intelligence_api import build_portfolio_intelligence
 from services.risk_engine import DEFAULT_ANALYSIS_TIME, analyze_risk
 
 
@@ -66,6 +67,18 @@ def get_risk_properties():
         return jsonify({"error": str(exc)}), 400
 
     return jsonify(result)
+
+
+@app.route("/api/portfolio/intelligence", methods=["GET"])
+def get_portfolio_intelligence():
+    """Read-only Layer 1 Portfolio Intelligence (Phase A + Phase B).
+
+    Aggregates assetHealthScore, stormImpactLevel, riskScore_v2, and
+    lossForecast. Does not modify any state, does not touch Layer 2 / the JS
+    engine / riskScore_v1, and does not yet include insuranceGap, capitalROI,
+    or priorityRanking.
+    """
+    return jsonify(build_portfolio_intelligence())
 
 
 @app.route("/api/ai/recommendations", methods=["POST", "OPTIONS"])
