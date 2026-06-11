@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
 
+import requests
 from flask import Flask, jsonify, request
 from flask_swagger_ui import get_swaggerui_blueprint
 
@@ -202,6 +203,63 @@ def post_work_order_confirm():
     write_json(CONFIRMED_WORK_ORDERS_FILE, existing)
 
     return jsonify(confirmed_work_order), 201
+
+
+def get_token_with_basic_auth(username, password):
+    """Get a Bearer token from the Lessen auth API."""
+    api_url = "https://meshstage.lessen.com/auth/token"
+
+    try:
+        response = requests.post(api_url, auth=(username, password), headers={"Accept": "*/*"}, timeout=30)
+        response.raise_for_status()
+
+        try:
+            token_payload = response.json()
+        except ValueError:
+            return response.text.strip()
+
+        if isinstance(token_payload, str):
+            return token_payload.strip()
+
+        if isinstance(token_payload, dict):
+            for key in ("access_token", "token", "bearerToken", "bearer_token"):
+                token = token_payload.get(key)
+                if token:
+                    return str(token).strip()
+
+        return response.text.strip()
+    except requests.RequestException as exc:
+        print(f"Failed to get token: {exc}")
+        return None
+
+
+def call_instruction_api(token, instruction="#TEMPLATE#", template="", text="{}", states=None):
+    """Call the Lessen Instruction API."""
+    api_url = "https://meshstage.lessen.com/onebrain/instruct/67b8aa0e-702c-45f1-b0fa-cf86d1139b7c"
+
+    if not token:
+        print("Failed to call Instruction API: token is required")
+        return None
+
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    payload = {
+        "instruction": instruction,
+        "template": template,
+        "text": text,
+        "states": states or [],
+    }
+
+    try:
+        response = requests.post(api_url, headers=headers, json=payload, timeout=60)
+        response.raise_for_status()
+
+        try:
+            return response.json()
+        except ValueError:
+            return response.text
+    except requests.RequestException as exc:
+        print(f"Failed to call Instruction API: {exc}")
+        return None
 
 
 def find_property(analysis_result, property_id):
