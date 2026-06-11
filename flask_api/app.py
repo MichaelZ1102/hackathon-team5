@@ -12,7 +12,12 @@ from services.content_generator import (
     build_property_recommendation,
 )
 from services.data_loader import load_json, write_json
-from services.risk_engine import DEFAULT_ANALYSIS_TIME, analyze_risk
+from services.risk_engine import (
+    DEFAULT_ANALYSIS_TIME,
+    DEFAULT_EVENT_ID,
+    analyze_risk,
+    select_weather_event,
+)
 
 
 APP_DIR = Path(__file__).resolve().parent
@@ -49,11 +54,19 @@ def get_openapi_spec():
 @app.route("/api/risk/timeline", methods=["GET"])
 def get_risk_timeline():
     weather_data = load_json("weather_events.json")
+    event_id = request.args.get("eventId", DEFAULT_EVENT_ID)
+    try:
+        selected_event = select_weather_event(weather_data, event_id)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+
     return jsonify(
         {
-            "event": weather_data["event"],
-            "timeline": weather_data["timeline"],
-            "meta": weather_data["meta"],
+            "event": selected_event,
+            "timeline": selected_event.get("timeline", []),
+            "events": weather_data.get("events", []),
+            "metadata": weather_data.get("metadata", {}),
+            "meta": weather_data.get("metadata", {}),
         }
     )
 
@@ -61,8 +74,9 @@ def get_risk_timeline():
 @app.route("/api/risk/properties", methods=["GET"])
 def get_risk_properties():
     analysis_time = request.args.get("time", DEFAULT_ANALYSIS_TIME)
+    event_id = request.args.get("eventId", DEFAULT_EVENT_ID)
     try:
-        result = analyze_risk(analysis_time)
+        result = analyze_risk(analysis_time, event_id)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
 
@@ -76,10 +90,11 @@ def post_ai_recommendations():
 
     body = request.get_json(silent=True) or {}
     analysis_time = body.get("time", DEFAULT_ANALYSIS_TIME)
+    event_id = body.get("eventId", DEFAULT_EVENT_ID)
     property_id = body.get("propertyId")
 
     try:
-        result = analyze_risk(analysis_time)
+        result = analyze_risk(analysis_time, event_id)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
 
@@ -99,13 +114,14 @@ def post_notification_draft():
 
     body = request.get_json(silent=True) or {}
     analysis_time = body.get("time", DEFAULT_ANALYSIS_TIME)
+    event_id = body.get("eventId", DEFAULT_EVENT_ID)
     property_id = body.get("propertyId")
 
     if not property_id:
         return jsonify({"error": "propertyId is required"}), 400
 
     try:
-        result = analyze_risk(analysis_time)
+        result = analyze_risk(analysis_time, event_id)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
 
@@ -123,13 +139,14 @@ def post_work_order_draft():
 
     body = request.get_json(silent=True) or {}
     analysis_time = body.get("time", DEFAULT_ANALYSIS_TIME)
+    event_id = body.get("eventId", DEFAULT_EVENT_ID)
     property_id = body.get("propertyId")
 
     if not property_id:
         return jsonify({"error": "propertyId is required"}), 400
 
     try:
-        result = analyze_risk(analysis_time)
+        result = analyze_risk(analysis_time, event_id)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
 
@@ -157,6 +174,7 @@ def post_work_order_confirm():
 
     body = request.get_json(silent=True) or {}
     analysis_time = body.get("time", DEFAULT_ANALYSIS_TIME)
+    event_id = body.get("eventId", DEFAULT_EVENT_ID)
     property_id = body.get("propertyId")
     draft_index = body.get("draftIndex", 0)
     confirmed_by = body.get("confirmedBy", "demo-user")
@@ -170,7 +188,7 @@ def post_work_order_confirm():
         return jsonify({"error": "draftIndex must be an integer"}), 400
 
     try:
-        result = analyze_risk(analysis_time)
+        result = analyze_risk(analysis_time, event_id)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
 
