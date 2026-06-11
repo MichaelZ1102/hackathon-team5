@@ -7,7 +7,7 @@
   },
   "event": {
     "eventId": "TOR-FL-2026-0612",
-    "name": "Central Florida Severe Storm and Tornado Risk",
+    "name": "Central Florida Severe Storm and Tornado Risk.",
     "scenario": "Fast-moving severe thunderstorm cells with embedded tornado risk crossing the Tampa Bay, Orlando, Space Coast, and northeast Florida markets.",
     "status": "Simulated",
     "startTime": "2026-06-12T08:00:00-04:00",
