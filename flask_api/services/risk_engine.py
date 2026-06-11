@@ -5,6 +5,7 @@ from services.data_loader import load_json
 
 DEFAULT_EVENT_ID = "FL-HUR-2026-FCST-01"
 DEFAULT_ANALYSIS_TIME = "2026-08-17T06:00:00Z"
+LEGACY_ANALYSIS_TIMES = {"2026-06-12T14:00:00-04:00"}
 
 WEIGHTS = {
     "weatherRisk": 0.40,
@@ -53,6 +54,20 @@ def select_weather_event(weather_data, event_id=DEFAULT_EVENT_ID):
         return events[0]
 
     raise ValueError("No weather events found")
+
+
+def select_weather_event_for_time(weather_data, analysis_time, event_id=None):
+    if event_id:
+        return select_weather_event(weather_data, event_id)
+
+    for event in weather_data.get("events", []):
+        if any(
+            point["timestamp"] == analysis_time
+            for point in event.get("timeline", [])
+        ):
+            return event
+
+    raise ValueError(f"No weather event contains timeline point {analysis_time}")
 
 
 def build_weather_by_county(weather_event, timeline_point):
@@ -131,7 +146,14 @@ def format_weather_metrics(county_weather):
     return ", ".join(metrics)
 
 
-def analyze_risk(analysis_time=DEFAULT_ANALYSIS_TIME, event_id=DEFAULT_EVENT_ID):
+def normalize_analysis_time(analysis_time):
+    if not analysis_time or analysis_time in LEGACY_ANALYSIS_TIMES:
+        return DEFAULT_ANALYSIS_TIME
+    return analysis_time
+
+
+def analyze_risk(analysis_time=DEFAULT_ANALYSIS_TIME, event_id=None):
+    analysis_time = normalize_analysis_time(analysis_time)
     weather_data = load_json("weather_events.json")
     properties_data = load_json("properties.json")
     work_orders_data = load_json("work_orders.json")
@@ -139,7 +161,7 @@ def analyze_risk(analysis_time=DEFAULT_ANALYSIS_TIME, event_id=DEFAULT_EVENT_ID)
     lease_data = load_json("lease_exposure.json")
     contractors_data = load_json("contractors.json")
 
-    weather_event = select_weather_event(weather_data, event_id)
+    weather_event = select_weather_event_for_time(weather_data, analysis_time, event_id)
     timeline_point = next(
         (
             point
@@ -149,8 +171,12 @@ def analyze_risk(analysis_time=DEFAULT_ANALYSIS_TIME, event_id=DEFAULT_EVENT_ID)
         None,
     )
     if not timeline_point:
+        available_times = ", ".join(
+            point["timestamp"] for point in weather_event.get("timeline", [])
+        )
         raise ValueError(
-            f"No weather timeline point found for {analysis_time} in event {weather_event['id']}"
+            f"No weather timeline point found for {analysis_time} in event "
+            f"{weather_event['id']}. Available times: {available_times}"
         )
 
     weather_by_county = build_weather_by_county(weather_event, timeline_point)

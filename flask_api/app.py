@@ -16,7 +16,9 @@ from services.risk_engine import (
     DEFAULT_ANALYSIS_TIME,
     DEFAULT_EVENT_ID,
     analyze_risk,
+    normalize_analysis_time,
     select_weather_event,
+    select_weather_event_for_time,
 )
 
 
@@ -54,16 +56,47 @@ def get_openapi_spec():
 @app.route("/api/risk/timeline", methods=["GET"])
 def get_risk_timeline():
     weather_data = load_json("weather_events.json")
-    event_id = request.args.get("eventId", DEFAULT_EVENT_ID)
+    event_id = request.args.get("eventId")
+    analysis_time = request.args.get("time")
     try:
-        selected_event = select_weather_event(weather_data, event_id)
+        if analysis_time:
+            analysis_time = normalize_analysis_time(analysis_time)
+            selected_event = select_weather_event_for_time(
+                weather_data, analysis_time, event_id
+            )
+        else:
+            selected_event = select_weather_event(
+                weather_data, event_id or DEFAULT_EVENT_ID
+            )
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
+
+    timeline = selected_event.get("timeline", [])
+    timeline_point = None
+    if analysis_time:
+        timeline_point = next(
+            (point for point in timeline if point["timestamp"] == analysis_time),
+            None,
+        )
+        if not timeline_point:
+            available_times = ", ".join(point["timestamp"] for point in timeline)
+            return (
+                jsonify(
+                    {
+                        "error": (
+                            f"No weather timeline point found for {analysis_time} "
+                            f"in event {selected_event['id']}. Available times: {available_times}"
+                        )
+                    }
+                ),
+                400,
+            )
 
     return jsonify(
         {
             "event": selected_event,
-            "timeline": selected_event.get("timeline", []),
+            "timeline": [timeline_point] if timeline_point else timeline,
+            "timelinePoint": timeline_point,
             "events": weather_data.get("events", []),
             "metadata": weather_data.get("metadata", {}),
             "meta": weather_data.get("metadata", {}),
@@ -74,7 +107,7 @@ def get_risk_timeline():
 @app.route("/api/risk/properties", methods=["GET"])
 def get_risk_properties():
     analysis_time = request.args.get("time", DEFAULT_ANALYSIS_TIME)
-    event_id = request.args.get("eventId", DEFAULT_EVENT_ID)
+    event_id = request.args.get("eventId")
     try:
         result = analyze_risk(analysis_time, event_id)
     except ValueError as exc:
@@ -90,7 +123,7 @@ def post_ai_recommendations():
 
     body = request.get_json(silent=True) or {}
     analysis_time = body.get("time", DEFAULT_ANALYSIS_TIME)
-    event_id = body.get("eventId", DEFAULT_EVENT_ID)
+    event_id = body.get("eventId")
     property_id = body.get("propertyId")
 
     try:
@@ -101,7 +134,7 @@ def post_ai_recommendations():
     if property_id:
         property_result = find_property(result, property_id)
         if not property_result:
-            return jsonify({"error": f"Property {property_id} was not found in affected results"}), 404
+            return property_not_found_response(result, property_id)
         return jsonify(build_property_recommendation(result, property_result))
 
     return jsonify(build_portfolio_recommendation(result))
@@ -114,7 +147,7 @@ def post_notification_draft():
 
     body = request.get_json(silent=True) or {}
     analysis_time = body.get("time", DEFAULT_ANALYSIS_TIME)
-    event_id = body.get("eventId", DEFAULT_EVENT_ID)
+    event_id = body.get("eventId")
     property_id = body.get("propertyId")
 
     if not property_id:
@@ -127,7 +160,7 @@ def post_notification_draft():
 
     property_result = find_property(result, property_id)
     if not property_result:
-        return jsonify({"error": f"Property {property_id} was not found in affected results"}), 404
+        return property_not_found_response(result, property_id)
 
     return jsonify(build_notification_draft(result, property_result))
 
@@ -139,7 +172,7 @@ def post_work_order_draft():
 
     body = request.get_json(silent=True) or {}
     analysis_time = body.get("time", DEFAULT_ANALYSIS_TIME)
-    event_id = body.get("eventId", DEFAULT_EVENT_ID)
+    event_id = body.get("eventId")
     property_id = body.get("propertyId")
 
     if not property_id:
@@ -152,7 +185,7 @@ def post_work_order_draft():
 
     property_result = find_property(result, property_id)
     if not property_result:
-        return jsonify({"error": f"Property {property_id} was not found in affected results"}), 404
+        return property_not_found_response(result, property_id)
 
     return jsonify(
         {
@@ -174,7 +207,7 @@ def post_work_order_confirm():
 
     body = request.get_json(silent=True) or {}
     analysis_time = body.get("time", DEFAULT_ANALYSIS_TIME)
-    event_id = body.get("eventId", DEFAULT_EVENT_ID)
+    event_id = body.get("eventId")
     property_id = body.get("propertyId")
     draft_index = body.get("draftIndex", 0)
     confirmed_by = body.get("confirmedBy", "demo-user")
@@ -194,7 +227,7 @@ def post_work_order_confirm():
 
     property_result = find_property(result, property_id)
     if not property_result:
-        return jsonify({"error": f"Property {property_id} was not found in affected results"}), 404
+        return property_not_found_response(result, property_id)
 
     drafts = property_result["recommendedDraftWorkOrders"]
     if draft_index < 0 or draft_index >= len(drafts):
@@ -285,6 +318,26 @@ def find_property(analysis_result, property_id):
         if property_result["propertyId"] == property_id:
             return property_result
     return None
+
+
+def property_not_found_response(analysis_result, property_id):
+    affected_property_ids = [
+        property_result["propertyId"] for property_result in analysis_result["properties"]
+    ]
+    return (
+        jsonify(
+            {
+                "error": (
+                    f"Property {property_id} is not affected for event "
+                    f"{analysis_result['eventId']} at {analysis_result['analysisTime']}."
+                ),
+                "eventId": analysis_result["eventId"],
+                "analysisTime": analysis_result["analysisTime"],
+                "affectedPropertyIds": affected_property_ids,
+            }
+        ),
+        404,
+    )
 
 
 def load_confirmed_work_orders():

@@ -1,0 +1,26 @@
+{
+  "confirmedWorkOrders": [
+    {
+      "workOrderId": "AI-WO-F117ADCC",
+      "source": "ai_risk_engine",
+      "status": "Confirmed",
+      "confirmedAt": "2026-06-11T07:26:28.320756+00:00",
+      "confirmedBy": "demo-user",
+      "eventId": "FL-HUR-2026-FCST-01",
+      "analysisTime": "2026-08-17T06:00:00Z",
+      "propertyId": "FL-TPA-205",
+      "propertyName": "Tampa Bay Residences",
+      "riskLevel": "Medium",
+      "riskScore": 45,
+      "draftIndex": 0,
+      "workOrder": {
+        "title": "Post-storm exterior safety inspection",
+        "category": "Exterior Envelope",
+        "priority": "Routine",
+        "reason": "Property is in an affected county at the selected storm timeline point.",
+        "recommendedTiming": "Within 48 hours after storm clearance",
+        "requiresUserConfirmation": true
+      }
+    }
+  ]
+}
