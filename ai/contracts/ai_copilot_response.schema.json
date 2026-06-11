@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://internal.ai-platform/contracts/ai_copilot_response.schema.json",
+  "title": "AI Copilot Response",
+  "description": "Structured advisory response returned by the internal AI Platform Agent.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "executiveSummary",
+    "keyFindings",
+    "riskDrivers",
+    "stormImpactAssessment",
+    "maintenanceAssetHealthInsights",
+    "financialExposure",
+    "capitalPlanningRecommendations",
+    "priorityAssets",
+    "operationalActionPlan",
+    "dataGapsConfidence"
+  ],
+  "properties": {
+    "executiveSummary": {
+      "type": "string"
+    },
+    "keyFindings": {
+      "type": "array",
+      "items": {
+        "type": ["string", "object"]
+      }
+    },
+    "riskDrivers": {
+      "type": "array",
+      "items": {
+        "type": ["string", "object"]
+      }
+    },
+    "stormImpactAssessment": {
+      "type": "string"
+    },
+    "maintenanceAssetHealthInsights": {
+      "type": "string"
+    },
+    "financialExposure": {
+      "type": "string"
+    },
+    "capitalPlanningRecommendations": {
+      "type": "array",
+      "items": {
+        "type": ["string", "object"]
+      }
+    },
+    "priorityAssets": {
+      "type": "array",
+      "items": {
+        "type": ["string", "object"]
+      }
+    },
+    "operationalActionPlan": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["immediateActions", "nearTermActions", "strategicActions"],
+      "properties": {
+        "immediateActions": {
+          "type": "array",
+          "items": {
+            "type": ["string", "object"]
+          }
+        },
+        "nearTermActions": {
+          "type": "array",
+          "items": {
+            "type": ["string", "object"]
+          }
+        },
+        "strategicActions": {
+          "type": "array",
+          "items": {
+            "type": ["string", "object"]
+          }
+        }
+      }
+    },
+    "dataGapsConfidence": {
+      "type": "array",
+      "items": {
+        "type": ["string", "object"]
+      }
+    }
+  }
+}

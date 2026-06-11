@@ -111,27 +111,29 @@ def test_watch_list_carries_temporary_note(client):
 # Diagnostics
 # ---------------------------------------------------------------------------
 
-def test_diagnostics_shape_and_deferred_metrics(client):
+def test_diagnostics_shape_and_phase_c_metrics_included(client):
     diag = client.get("/api/portfolio/intelligence").get_json()["diagnostics"]
     for key in (
         "calculationVersion", "includedMetrics", "missingMetrics",
         "dataSourcesUsed", "warnings",
     ):
         assert key in diag
-    # The three deferred metrics must be reported as missing, not silently absent.
-    for m in ("insuranceGap", "capitalROI", "priorityRanking"):
-        assert m in diag["missingMetrics"]
+    # As of Phase C every planned Layer 1 metric is implemented and included.
     assert set(diag["includedMetrics"]) == {
-        "assetHealthScore", "stormImpactLevel", "riskScore_v2", "lossForecast"
+        "assetHealthScore", "stormImpactLevel", "riskScore_v2", "lossForecast",
+        "insuranceGap", "capitalROI", "priorityRanking",
     }
+    assert diag["missingMetrics"] == []
+    assert MISSING_METRICS == []
 
 
-def test_deferred_metrics_not_in_any_property(client):
-    """The endpoint must NOT emit insuranceGap/capitalROI/priorityRanking yet."""
+def test_phase_c_metrics_present_in_every_property(client):
+    """Every property now carries insuranceGap and priorityRanking results."""
     data = client.get("/api/portfolio/intelligence").get_json()
     for r in data["propertyIntelligenceResults"]:
-        for m in MISSING_METRICS:
-            assert m not in r
+        assert r["insuranceGap"]["metric"] == "insuranceGap"
+        assert r["priorityRanking"]["metric"] == "priorityRanking"
+        assert "bestCapitalAction" in r
 
 
 # ---------------------------------------------------------------------------

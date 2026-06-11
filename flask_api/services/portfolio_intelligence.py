@@ -23,6 +23,7 @@ tunable without hunting through the code.
 
 from collections import defaultdict
 
+from services.analysis_scope import filter_work_orders, resolve_analysis_scope
 from services.data_loader import load_json
 from services.layer1_schema import (
     ASSET_HEALTH_METRIC,
@@ -34,8 +35,8 @@ from services.layer1_schema import (
 # ---------------------------------------------------------------------------
 # Deterministic reference year
 # ---------------------------------------------------------------------------
-# Fixed so building age is reproducible regardless of when the code runs.
-# Matches the demo's storm-scenario timeframe (mid-2026).
+# Default analysis year when no explicit scope is supplied. Matches the demo's
+# storm-scenario timeframe (mid-2026); callers can override via the scope.
 ANALYSIS_YEAR = 2026
 
 
@@ -121,12 +122,15 @@ def _least_confident(*levels):
     return min(levels, key=lambda level: _CONFIDENCE_RANK[level])
 
 
-def compute_asset_health_score(property_dict, work_orders_for_property):
+def compute_asset_health_score(property_dict, work_orders_for_property,
+                               analysis_year=ANALYSIS_YEAR):
     """Compute the assetHealthScore Layer 1 result for one property.
 
     Args:
         property_dict: a property record from properties.json.
-        work_orders_for_property: list of that property's work order records.
+        work_orders_for_property: list of that property's IN-SCOPE work order
+            records (callers apply the analysis-scope window before this).
+        analysis_year: reference year for building age (from the scope).
 
     Returns:
         A Layer 1 result dict (see layer1_schema.make_layer1_result).
@@ -153,7 +157,7 @@ def compute_asset_health_score(property_dict, work_orders_for_property):
     exterior_condition = property_dict.get("exteriorCondition")
 
     # --- 1) agePenalty (building age + HVAC age) ---
-    building_age = (ANALYSIS_YEAR - year_built) if year_built is not None else None
+    building_age = (analysis_year - year_built) if year_built is not None else None
     building_age_penalty = _tiered_penalty(building_age, BUILDING_AGE_PENALTIES)
     hvac_age_penalty = _tiered_penalty(hvac_age, HVAC_AGE_PENALTIES)
     age_penalty = building_age_penalty + hvac_age_penalty
@@ -263,18 +267,24 @@ def _group_work_orders_by_property(work_orders):
     return grouped
 
 
-def compute_all_asset_health(data_dir=None):
+def compute_all_asset_health(data_dir=None, scope=None):
     """Compute assetHealthScore for every property in the mock data.
 
     Args:
         data_dir: optional directory containing properties.json and
             work_orders.json. When None, the default mock_data dir is used
             (via data_loader.load_json).
+        scope: optional resolved analysis scope (see services.analysis_scope).
+            When None, the default scope is used; work orders outside the
+            scope's rolling lookback window are excluded from scoring.
 
     Returns:
         A list of Layer 1 result dicts, ordered worst-health-first then by
         propertyId for deterministic output.
     """
+    if scope is None:
+        scope = resolve_analysis_scope()
+
     if data_dir is None:
         properties_data = load_json("properties.json")
         work_orders_data = load_json("work_orders.json")
@@ -285,14 +295,16 @@ def compute_all_asset_health(data_dir=None):
         properties_data = load_json(base / "properties.json")
         work_orders_data = load_json(base / "work_orders.json")
 
-    work_orders_by_property = _group_work_orders_by_property(
-        work_orders_data.get("workOrders", [])
+    in_scope_work_orders, _ = filter_work_orders(
+        work_orders_data.get("workOrders", []), scope
     )
+    work_orders_by_property = _group_work_orders_by_property(in_scope_work_orders)
 
     results = [
         compute_asset_health_score(
             property_item,
             work_orders_by_property.get(property_item.get("propertyId"), []),
+            analysis_year=scope["analysisYear"],
         )
         for property_item in properties_data.get("properties", [])
     ]

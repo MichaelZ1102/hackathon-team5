@@ -347,3 +347,196 @@ def validate_loss_forecast_result(result):
     if not isinstance(result.get("multipliers"), dict):
         problems.append("multipliers must be a dict")
     return problems
+
+# ===========================================================================
+# Phase C output contracts (additive)
+# ---------------------------------------------------------------------------
+# Phase C completes the capital-planning chain: insuranceGap, capitalROI, and
+# priorityRanking. Same envelope as Phase B (propertyId, metric, drivers,
+# confidence, dataQualityNotes) plus metric-specific payload fields.
+# ===========================================================================
+
+INSURANCE_GAP_METRIC = "insuranceGap"
+CAPITAL_ROI_METRIC = "capitalROI"
+PRIORITY_RANKING_METRIC = "priorityRanking"
+
+# The five weighted priorityScore components (Phase C ranking formula).
+PRIORITY_COMPONENTS = (
+    "riskScore_v2",
+    "lossForecastNormalized",
+    "assetHealthInverse",
+    "insuranceGapNormalized",
+    "capitalUrgency",
+)
+
+
+def make_insurance_gap_result(
+    property_id,
+    insurance_gap,
+    coverage_limit=None,
+    applicable_deductible=None,
+    covered_amount=None,
+    deductible_type=None,
+    policy_id=None,
+    drivers=None,
+    confidence="High",
+    data_quality_notes=None,
+):
+    """Build an insuranceGap result.
+
+    Payload fields beyond the envelope:
+        insuranceGap          float/None - uncovered forecast loss in USD
+                                           (None if not computable)
+        coverageLimit         float/None - policy coverage limit used
+        applicableDeductible  float/None - deductible applied for the storm peril
+        coveredAmount         float/None - eligible covered amount
+        deductibleType        str/None   - which deductible was applied
+                                           ("namedStorm" | "windstorm" | None)
+        policyId              str/None   - source policy
+    """
+    if confidence not in CONFIDENCE_LEVELS:
+        raise ValueError(f"confidence must be one of {CONFIDENCE_LEVELS}, got {confidence!r}")
+    return {
+        "propertyId": str(property_id),
+        "metric": INSURANCE_GAP_METRIC,
+        "insuranceGap": (round(float(insurance_gap), 2) if insurance_gap is not None else None),
+        "coverageLimit": (float(coverage_limit) if coverage_limit is not None else None),
+        "applicableDeductible": (
+            float(applicable_deductible) if applicable_deductible is not None else None
+        ),
+        "coveredAmount": (round(float(covered_amount), 2) if covered_amount is not None else None),
+        "deductibleType": deductible_type,
+        "policyId": policy_id,
+        "drivers": list(drivers or []),
+        "confidence": confidence,
+        "dataQualityNotes": list(data_quality_notes or []),
+    }
+
+
+def validate_insurance_gap_result(result):
+    problems = []
+    _validate_envelope(result, INSURANCE_GAP_METRIC, problems)
+    for field in ("insuranceGap", "coverageLimit", "applicableDeductible", "coveredAmount"):
+        value = result.get(field)
+        if value is not None and not isinstance(value, (int, float)):
+            problems.append(f"{field} must be a number or None")
+    gap = result.get("insuranceGap")
+    if isinstance(gap, (int, float)) and gap < 0:
+        problems.append(f"insuranceGap must be >= 0, got {gap}")
+    return problems
+
+
+def make_capital_roi_result(
+    property_id,
+    capital_action_id,
+    action_type,
+    estimated_cost=None,
+    estimated_risk_reduction=None,
+    estimated_avoided_loss=None,
+    capital_roi=None,
+    horizon_years=None,
+    drivers=None,
+    confidence="High",
+    data_quality_notes=None,
+):
+    """Build a capitalROI result (one per capital action, not per property).
+
+    Payload fields beyond the envelope:
+        capitalActionId         str        - the action this result describes
+        actionType              str/None   - e.g. "Roof Replacement"
+        estimatedCost           float/None - action cost in USD
+        estimatedRiskReduction  float/None - 0-1 fraction of annual loss avoided
+        estimatedAvoidedLoss    float/None - USD avoided over the horizon
+        capitalROI              float/None - avoidedLoss / cost (None if not computable)
+        horizonYears            int/None   - planning horizon used
+    """
+    if confidence not in CONFIDENCE_LEVELS:
+        raise ValueError(f"confidence must be one of {CONFIDENCE_LEVELS}, got {confidence!r}")
+    return {
+        "propertyId": str(property_id),
+        "metric": CAPITAL_ROI_METRIC,
+        "capitalActionId": str(capital_action_id),
+        "actionType": action_type,
+        "estimatedCost": (float(estimated_cost) if estimated_cost is not None else None),
+        "estimatedRiskReduction": (
+            float(estimated_risk_reduction) if estimated_risk_reduction is not None else None
+        ),
+        "estimatedAvoidedLoss": (
+            round(float(estimated_avoided_loss), 2) if estimated_avoided_loss is not None else None
+        ),
+        "capitalROI": (round(float(capital_roi), 2) if capital_roi is not None else None),
+        "horizonYears": (int(horizon_years) if horizon_years is not None else None),
+        "drivers": list(drivers or []),
+        "confidence": confidence,
+        "dataQualityNotes": list(data_quality_notes or []),
+    }
+
+
+def validate_capital_roi_result(result):
+    problems = []
+    _validate_envelope(result, CAPITAL_ROI_METRIC, problems)
+    if not isinstance(result.get("capitalActionId"), str):
+        problems.append("capitalActionId must be a str")
+    for field in ("estimatedCost", "estimatedRiskReduction", "estimatedAvoidedLoss", "capitalROI"):
+        value = result.get(field)
+        if value is not None and not isinstance(value, (int, float)):
+            problems.append(f"{field} must be a number or None")
+    roi = result.get("capitalROI")
+    if isinstance(roi, (int, float)) and roi < 0:
+        problems.append(f"capitalROI must be >= 0, got {roi}")
+    return problems
+
+
+def make_priority_ranking_result(
+    property_id,
+    priority_rank,
+    priority_score,
+    components=None,
+    drivers=None,
+    confidence="High",
+    data_quality_notes=None,
+):
+    """Build a priorityRanking result.
+
+    Payload fields beyond the envelope:
+        priorityRank   int   - 1 = highest priority across the portfolio
+        priorityScore  float - 0-100 weighted score the rank derives from
+        components     dict  - the PRIORITY_COMPONENTS sub-scores (0-100 each)
+    """
+    if confidence not in CONFIDENCE_LEVELS:
+        raise ValueError(f"confidence must be one of {CONFIDENCE_LEVELS}, got {confidence!r}")
+    return {
+        "propertyId": str(property_id),
+        "metric": PRIORITY_RANKING_METRIC,
+        "priorityRank": int(priority_rank),
+        "priorityScore": round(float(priority_score), 1),
+        "components": {
+            k: round(float((components or {}).get(k, 0)), 1) for k in PRIORITY_COMPONENTS
+        },
+        "drivers": list(drivers or []),
+        "confidence": confidence,
+        "dataQualityNotes": list(data_quality_notes or []),
+    }
+
+
+def validate_priority_ranking_result(result):
+    problems = []
+    _validate_envelope(result, PRIORITY_RANKING_METRIC, problems)
+    rank = result.get("priorityRank")
+    if isinstance(rank, bool) or not isinstance(rank, int):
+        problems.append("priorityRank must be int")
+    elif rank < 1:
+        problems.append(f"priorityRank must be >= 1, got {rank}")
+    score = result.get("priorityScore")
+    if not isinstance(score, (int, float)):
+        problems.append("priorityScore must be a number")
+    elif not (0 <= score <= 100):
+        problems.append(f"priorityScore out of range 0-100: {score}")
+    comps = result.get("components")
+    if not isinstance(comps, dict):
+        problems.append("components must be a dict")
+    else:
+        for key in PRIORITY_COMPONENTS:
+            if key not in comps:
+                problems.append(f"components missing {key}")
+    return problems

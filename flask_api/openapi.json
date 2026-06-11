@@ -21,6 +21,10 @@
       "description": "Template-generated natural language content based on risk engine output"
     },
     {
+      "name": "AI Copilot",
+      "description": "Layer 3 advisory integration through the internal AI Platform Agent model"
+    },
+    {
       "name": "Notifications",
       "description": "Resident notification drafts"
     },
@@ -130,6 +134,85 @@
           },
           "404": {
             "description": "Property not found in affected results",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/portfolio/intelligence": {
+      "get": {
+        "tags": ["Portfolio Intelligence"],
+        "summary": "Read-only Layer 1 Portfolio Intelligence for an analysis scope",
+        "description": "Aggregates assetHealthScore, stormImpactLevel, riskScore_v2, lossForecast, insuranceGap, capitalROI (per capital action + bestCapitalAction per property), and the final priorityRanking for the requested analysis scope. Without parameters the default demo scope (FL-DEMO / 2026 / current demo storm) is used. The response includes finalPriorityList (Phase C ranking) alongside the legacy watchList (kept for compatibility).",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "example": "FL-DEMO",
+            "description": "Portfolio to analyze. The demo dataset contains only FL-DEMO; unknown ids are served with a diagnostics warning."
+          },
+          {
+            "name": "analysisYear",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer" },
+            "example": 2026,
+            "description": "Analysis year. Bounds the rolling work-order lookback window and which valuations are considered valid."
+          },
+          {
+            "name": "stormEventId",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "example": "TOR-FL-2026-0612",
+            "description": "Storm event to analyze. Falls back to the current demo storm (with a diagnostics warning) when the id is unknown."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Scoped Portfolio Intelligence payload (portfolioSummary, propertyIntelligenceResults, watchList, finalPriorityList, capitalActionResults, diagnostics.analysisScope)"
+          },
+          "400": {
+            "description": "Invalid scope parameter (e.g. non-integer analysisYear)",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ai-copilot/analyze": {
+      "post": {
+        "tags": ["AI Copilot"],
+        "summary": "Run the Layer 3 AI Copilot analysis",
+        "description": "Builds AI Copilot State from demo data and deterministic Layer 1/Layer 2 outputs, calls the internal AI Platform Agent when configured, and falls back to a deterministic mock response for local demos.",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AiCopilotAnalyzeRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AI Copilot analysis response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AiCopilotAnalyzeResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Copilot request",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ErrorResponse" }
@@ -298,6 +381,113 @@
           "confirmedBy": {
             "type": "string",
             "example": "demo-user"
+          }
+        }
+      },
+      "AiCopilotAnalyzeRequest": {
+        "type": "object",
+        "properties": {
+          "taskType": {
+            "type": "string",
+            "enum": ["portfolio_review", "storm_impact", "capital_planning"],
+            "example": "portfolio_review"
+          },
+          "userQuestion": {
+            "type": "string",
+            "example": "What should leadership know about the portfolio?"
+          },
+          "scenario": {
+            "type": "object",
+            "description": "Optional analysis scope. The backend builds the scoped Copilot state itself; do not pass raw portfolio data.",
+            "properties": {
+              "portfolioId": { "type": "string", "example": "FL-DEMO" },
+              "analysisYear": { "type": "integer", "example": 2026 },
+              "stormEventId": { "type": "string", "example": "TOR-FL-2026-0612" }
+            }
+          },
+          "dataContext": {
+            "type": "object",
+            "additionalProperties": true,
+            "example": { "requestedMetrics": ["insuranceGap", "capitalROI", "priorityRanking"] }
+          }
+        }
+      },
+      "AiCopilotAnalyzeResponse": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": ["ai_platform", "mock"]
+          },
+          "taskType": {
+            "type": "string",
+            "enum": ["portfolio_review", "storm_impact", "capital_planning"]
+          },
+          "result": { "$ref": "#/components/schemas/AiCopilotResult" },
+          "diagnostics": {
+            "type": "object",
+            "properties": {
+              "templateVersion": { "type": "string" },
+              "stateVersion": { "type": "string" },
+              "availableMetrics": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "missingMetrics": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "usedCalculatedMetrics": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "AiCopilotResult": {
+        "type": "object",
+        "properties": {
+          "executiveSummary": { "type": "string" },
+          "keyFindings": {
+            "type": "array",
+            "items": {}
+          },
+          "riskDrivers": {
+            "type": "array",
+            "items": {}
+          },
+          "stormImpactAssessment": { "type": "string" },
+          "maintenanceAssetHealthInsights": { "type": "string" },
+          "financialExposure": { "type": "string" },
+          "capitalPlanningRecommendations": {
+            "type": "array",
+            "items": {}
+          },
+          "priorityAssets": {
+            "type": "array",
+            "items": {}
+          },
+          "operationalActionPlan": {
+            "type": "object",
+            "properties": {
+              "immediateActions": {
+                "type": "array",
+                "items": {}
+              },
+              "nearTermActions": {
+                "type": "array",
+                "items": {}
+              },
+              "strategicActions": {
+                "type": "array",
+                "items": {}
+              }
+            }
+          },
+          "dataGapsConfidence": {
+            "type": "array",
+            "items": {}
           }
         }
       },

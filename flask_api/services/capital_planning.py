@@ -28,6 +28,12 @@ Data inputs (all already present in mock_data/):
 
 import math
 
+from services.analysis_scope import (
+    filter_valuations,
+    filter_work_orders,
+    resolve_analysis_scope,
+    select_storm_event,
+)
 from services.data_loader import load_json
 from services.layer1_schema import (
     RISK_V2_COMPONENTS,
@@ -156,20 +162,6 @@ def _classify_storm_level(distance, wind, rain, flood):
     return level, drivers
 
 
-def _load_storm_path():
-    """Load storm_path.json, returning (path_points, storm_meta) or ([], {})."""
-    try:
-        storm = load_json("storm_path.json")
-    except (FileNotFoundError, ValueError):
-        return [], {}
-    points = [
-        (p["latitude"], p["longitude"])
-        for p in storm.get("projectedPath", [])
-        if p.get("latitude") is not None and p.get("longitude") is not None
-    ]
-    return points, storm
-
-
 def compute_storm_impact_level(property_dict, path_points, storm_meta):
     """Compute the stormImpactLevel Layer 1 result for one property."""
     property_id = property_dict.get("propertyId", "UNKNOWN")
@@ -250,7 +242,7 @@ ASSET_VALUE_TIERS = (
 )
 
 
-def _building_vulnerability_score(property_dict):
+def _building_vulnerability_score(property_dict, analysis_year=2026):
     """0-100 from roof age, HVAC age, exterior condition, building age."""
     score = 0
     roof = property_dict.get("roofAgeYears")
@@ -263,7 +255,7 @@ def _building_vulnerability_score(property_dict):
     score += {"Poor": 25, "Fair": 15, "Good": 5, "Excellent": 0}.get(ext, 10)
     year = property_dict.get("yearBuilt")
     if year is not None:
-        age = 2026 - year
+        age = analysis_year - year
         score += min(10, max(0, (age - 20)) * 0.5)
     return max(0, min(100, score))
 
@@ -283,7 +275,7 @@ def _asset_value_score(replacement_value):
 
 
 def compute_risk_score_v2(property_dict, storm_impact_result, asset_health_result,
-                          valuation):
+                          valuation, analysis_year=2026):
     """Compute riskScore_v2 for one property from upstream Phase A/B results."""
     property_id = property_dict.get("propertyId", "UNKNOWN")
     drivers = []
@@ -291,7 +283,7 @@ def compute_risk_score_v2(property_dict, storm_impact_result, asset_health_resul
     confidences = [storm_impact_result["confidence"], asset_health_result["confidence"]]
 
     storm_exposure = STORM_EXPOSURE_BY_LEVEL.get(storm_impact_result["level"], 15)
-    building_vuln = _building_vulnerability_score(property_dict)
+    building_vuln = _building_vulnerability_score(property_dict, analysis_year)
     maintenance_risk = _maintenance_risk_from_health(asset_health_result)
 
     flood = property_dict.get("floodZoneExposure")
@@ -345,9 +337,9 @@ def compute_risk_score_v2(property_dict, storm_impact_result, asset_health_resul
 DAMAGE_RATIO_BY_LEVEL = {"Low": 0.005, "Medium": 0.025, "High": 0.075, "Severe": 0.15}
 
 
-def _vulnerability_multiplier(property_dict):
+def _vulnerability_multiplier(property_dict, analysis_year=2026):
     """1.0 baseline, scaled up by building vulnerability (0-100 -> ~1.0-1.5)."""
-    vuln = _building_vulnerability_score(property_dict)
+    vuln = _building_vulnerability_score(property_dict, analysis_year)
     return 1.0 + (vuln / 100.0) * 0.5
 
 
@@ -358,7 +350,7 @@ def _maintenance_condition_multiplier(asset_health_result):
 
 
 def compute_loss_forecast(property_dict, storm_impact_result, asset_health_result,
-                          valuation):
+                          valuation, analysis_year=2026):
     """Compute lossForecast for one property."""
     property_id = property_dict.get("propertyId", "UNKNOWN")
     drivers = []
@@ -367,7 +359,7 @@ def compute_loss_forecast(property_dict, storm_impact_result, asset_health_resul
 
     level = storm_impact_result["level"]
     damage_ratio = DAMAGE_RATIO_BY_LEVEL.get(level, 0.005)
-    vuln_mult = _vulnerability_multiplier(property_dict)
+    vuln_mult = _vulnerability_multiplier(property_dict, analysis_year)
     maint_mult = _maintenance_condition_multiplier(asset_health_result)
     multipliers = {"buildingVulnerability": vuln_mult, "maintenanceCondition": maint_mult}
 
@@ -405,13 +397,24 @@ def compute_loss_forecast(property_dict, storm_impact_result, asset_health_resul
 # ===========================================================================
 # Orchestration: run the full Phase B chain across the portfolio
 # ===========================================================================
-def compute_phase_b(data_dir=None):
+def compute_phase_b(data_dir=None, scope=None):
     """Run stormImpactLevel -> riskScore_v2 -> lossForecast for every property.
+
+    Args:
+        data_dir: optional directory holding the mock data files.
+        scope: optional resolved analysis scope (see services.analysis_scope).
+            When None, the default scope is used. The scope selects the storm
+            event (by stormEventId, falling back to the demo storm), the
+            work-order lookback window, and which valuations are valid for
+            the analysis year.
 
     Returns a dict keyed by metric name, each a list of Layer 1 results:
         {"stormImpactLevel": [...], "riskScore_v2": [...], "lossForecast": [...]}
     Deterministic ordering by propertyId.
     """
+    if scope is None:
+        scope = resolve_analysis_scope()
+
     if data_dir is None:
         properties_data = load_json("properties.json")
         work_orders_data = load_json("work_orders.json")
@@ -419,7 +422,7 @@ def compute_phase_b(data_dir=None):
             valuations_data = load_json("valuations.json")
         except (FileNotFoundError, ValueError):
             valuations_data = {"valuations": []}
-        path_points, storm_meta = _load_storm_path()
+        path_points, storm_meta, _ = select_storm_event(scope)
     else:
         from pathlib import Path
 
@@ -432,19 +435,19 @@ def compute_phase_b(data_dir=None):
             valuations_data = {"valuations": []}
         try:
             storm = load_json(base / "storm_path.json")
-            path_points = [
-                (p["latitude"], p["longitude"]) for p in storm.get("projectedPath", [])
-            ]
-            storm_meta = storm
+            path_points, storm_meta, _ = select_storm_event(scope, storm_data=storm)
         except (FileNotFoundError, ValueError):
             path_points, storm_meta = [], {}
 
-    work_orders_by_property = _group_work_orders_by_property(
-        work_orders_data.get("workOrders", [])
+    analysis_year = scope["analysisYear"]
+    in_scope_work_orders, _ = filter_work_orders(
+        work_orders_data.get("workOrders", []), scope
     )
-    valuation_by_property = {
-        v.get("propertyId"): v for v in valuations_data.get("valuations", [])
-    }
+    work_orders_by_property = _group_work_orders_by_property(in_scope_work_orders)
+    valid_valuations, _ = filter_valuations(
+        valuations_data.get("valuations", []), scope
+    )
+    valuation_by_property = {v.get("propertyId"): v for v in valid_valuations}
 
     storm_results, risk_results, loss_results = [], [], []
 
@@ -454,11 +457,11 @@ def compute_phase_b(data_dir=None):
         valuation = valuation_by_property.get(pid)
 
         # Phase A dependency: assetHealthScore feeds maintenance signals below.
-        health = compute_asset_health_score(prop, wos)
+        health = compute_asset_health_score(prop, wos, analysis_year=analysis_year)
 
         storm = compute_storm_impact_level(prop, path_points, storm_meta)
-        risk = compute_risk_score_v2(prop, storm, health, valuation)
-        loss = compute_loss_forecast(prop, storm, health, valuation)
+        risk = compute_risk_score_v2(prop, storm, health, valuation, analysis_year)
+        loss = compute_loss_forecast(prop, storm, health, valuation, analysis_year)
 
         storm_results.append(storm)
         risk_results.append(risk)

@@ -6,26 +6,47 @@ data and shapes them into a single read-only response for the frontend and the
 (future) AI Copilot.
 
 This module performs NO calculation of its own beyond aggregation/sorting; all
-numeric metrics come from portfolio_intelligence (Phase A) and capital_planning
-(Phase B). It does not touch Layer 2, the JS engine, or riskScore_v1.
+numeric metrics come from portfolio_intelligence (Phase A), capital_planning
+(Phase B), and phase_c (insuranceGap, capitalROI, priorityRanking). It does
+not touch Layer 2, the JS engine, or riskScore_v1.
 
-Not yet implemented (intentionally): insuranceGap, capitalROI, priorityRanking.
-The watchList here uses a TEMPORARY deterministic sort, not a final ranking.
+The watchList keeps its original (pre-Phase C) deterministic sort for
+compatibility; finalPriorityList carries the final Phase C priorityRanking.
 """
 
+from services.analysis_scope import (
+    WORK_ORDER_LOOKBACK_MONTHS,
+    filter_valuations,
+    filter_work_orders,
+    resolve_analysis_scope,
+    select_storm_event,
+    work_order_window,
+)
 from services.capital_planning import compute_phase_b
 from services.data_loader import load_json
+from services.phase_c import compute_phase_c
 from services.portfolio_intelligence import compute_all_asset_health
 
 
-CALCULATION_VERSION = "layer1-phaseA+B-v1"
-INCLUDED_METRICS = ["assetHealthScore", "stormImpactLevel", "riskScore_v2", "lossForecast"]
-MISSING_METRICS = ["insuranceGap", "capitalROI", "priorityRanking"]
+CALCULATION_VERSION = "layer1-phaseA+B+C-v3-scoped"
+INCLUDED_METRICS = [
+    "assetHealthScore",
+    "stormImpactLevel",
+    "riskScore_v2",
+    "lossForecast",
+    "insuranceGap",
+    "capitalROI",
+    "priorityRanking",
+]
+# All planned Layer 1 metrics are implemented as of Phase C.
+MISSING_METRICS = []
 DATA_SOURCES_USED = [
     "mock_data/properties.json",
     "mock_data/work_orders.json",
     "mock_data/valuations.json",
     "mock_data/storm_path.json",
+    "mock_data/insurance_policies.json",
+    "mock_data/capital_actions.json",
 ]
 
 _CONFIDENCE_RANK = {"Low": 0, "Medium": 1, "High": 2}
@@ -46,12 +67,22 @@ def _index_by_property(results):
     return {r["propertyId"]: r for r in results}
 
 
-def build_portfolio_intelligence(data_dir=None):
+def build_portfolio_intelligence(data_dir=None, scope=None):
     """Build the full read-only Portfolio Intelligence payload.
 
+    Args:
+        data_dir: optional directory holding the mock data files.
+        scope: optional resolved analysis scope (see services.analysis_scope).
+            When None, the default scope (FL-DEMO / 2026 / demo storm) is used,
+            which selects exactly the data the engines used before scoping.
+
     Returns a dict with portfolioSummary, propertyIntelligenceResults,
-    watchList, and diagnostics. Deterministic for a fixed data set.
+    watchList, and diagnostics (including diagnostics.analysisScope).
+    Deterministic for a fixed data set and scope.
     """
+    if scope is None:
+        scope = resolve_analysis_scope()
+
     if data_dir is None:
         properties_data = load_json("properties.json")
     else:
@@ -61,11 +92,19 @@ def build_portfolio_intelligence(data_dir=None):
 
     properties = properties_data.get("properties", [])
 
-    asset_health = _index_by_property(compute_all_asset_health(data_dir))
-    phase_b = compute_phase_b(data_dir)
+    asset_health_results = compute_all_asset_health(data_dir, scope=scope)
+    asset_health = _index_by_property(asset_health_results)
+    phase_b = compute_phase_b(data_dir, scope=scope)
     storm = _index_by_property(phase_b["stormImpactLevel"])
     risk_v2 = _index_by_property(phase_b["riskScore_v2"])
     loss = _index_by_property(phase_b["lossForecast"])
+
+    phase_c = compute_phase_c(
+        data_dir, scope=scope, asset_health_results=asset_health_results, phase_b=phase_b
+    )
+    insurance_gap = _index_by_property(phase_c["insuranceGap"])
+    priority = _index_by_property(phase_c["priorityRanking"])
+    best_action_by_property = phase_c["bestCapitalActionByProperty"]
 
     property_results = []
     warnings = []
@@ -76,12 +115,14 @@ def build_portfolio_intelligence(data_dir=None):
         si = storm.get(pid)
         rv = risk_v2.get(pid)
         lf = loss.get(pid)
+        ig = insurance_gap.get(pid)
+        pr = priority.get(pid)
 
-        # Aggregate drivers + data-quality notes across all four metrics.
+        # Aggregate drivers + data-quality notes across all metrics.
         drivers = []
         notes = []
         confidences = []
-        for metric_result in (ah, si, rv, lf):
+        for metric_result in (ah, si, rv, lf, ig, pr):
             if not metric_result:
                 continue
             drivers.extend(metric_result.get("drivers", []))
@@ -92,6 +133,8 @@ def build_portfolio_intelligence(data_dir=None):
 
         if lf and lf.get("expectedLoss") is None:
             warnings.append(f"{pid}: lossForecast not computable (missing valuation)")
+        if ig and ig.get("insuranceGap") is None:
+            warnings.append(f"{pid}: insuranceGap not computable (missing policy or loss forecast)")
         if overall_confidence == "Low":
             warnings.append(f"{pid}: overall confidence is Low")
 
@@ -110,6 +153,9 @@ def build_portfolio_intelligence(data_dir=None):
                 "stormImpactLevel": si,
                 "riskScore_v2": rv,
                 "lossForecast": lf,
+                "insuranceGap": ig,
+                "priorityRanking": pr,
+                "bestCapitalAction": best_action_by_property.get(pid),
                 "drivers": drivers,
                 "confidence": overall_confidence,
                 "dataQualityNotes": notes,
@@ -120,21 +166,97 @@ def build_portfolio_intelligence(data_dir=None):
     property_results.sort(key=lambda r: r["propertyId"])
 
     watch_list = _build_watch_list(property_results)
+    final_priority_list = _build_final_priority_list(property_results)
     summary = _build_summary(property_results, watch_list)
+    analysis_scope, scope_warnings = _build_scope_diagnostics(scope, data_dir)
     diagnostics = {
         "calculationVersion": CALCULATION_VERSION,
+        "analysisScope": analysis_scope,
         "includedMetrics": list(INCLUDED_METRICS),
         "missingMetrics": list(MISSING_METRICS),
         "dataSourcesUsed": list(DATA_SOURCES_USED),
-        "warnings": warnings,
+        "warnings": scope_warnings + warnings,
     }
 
     return {
         "portfolioSummary": summary,
         "propertyIntelligenceResults": property_results,
         "watchList": watch_list,
+        "finalPriorityList": final_priority_list,
+        "capitalActionResults": phase_c["capitalROI"],
         "diagnostics": diagnostics,
     }
+
+
+def _build_scope_diagnostics(scope, data_dir=None):
+    """Describe how the analysis scope selected the underlying data.
+
+    Returns (analysisScope_dict, scope_warnings). The dict reports the resolved
+    scope plus what the scope actually selected (work-order window and counts,
+    valuation validity counts, the storm event used); the warnings surface
+    scope-level data gaps (unknown ids, records excluded by the scope) so they
+    are visible next to the per-property dataQualityNotes.
+    """
+    if data_dir is None:
+        work_orders_data = load_json("work_orders.json")
+        try:
+            valuations_data = load_json("valuations.json")
+        except (FileNotFoundError, ValueError):
+            valuations_data = {"valuations": []}
+        _, storm_meta, storm_notes = select_storm_event(scope)
+    else:
+        from pathlib import Path
+
+        base = Path(data_dir)
+        work_orders_data = load_json(base / "work_orders.json")
+        try:
+            valuations_data = load_json(base / "valuations.json")
+        except (FileNotFoundError, ValueError):
+            valuations_data = {"valuations": []}
+        try:
+            storm_data = load_json(base / "storm_path.json")
+            _, storm_meta, storm_notes = select_storm_event(scope, storm_data=storm_data)
+        except (FileNotFoundError, ValueError):
+            storm_meta, storm_notes = {}, ["Storm path data unavailable"]
+
+    window_start, window_end = work_order_window(scope)
+    wo_in_scope, wo_excluded = filter_work_orders(
+        work_orders_data.get("workOrders", []), scope
+    )
+    valuations_valid, valuations_excluded = filter_valuations(
+        valuations_data.get("valuations", []), scope
+    )
+
+    warnings = list(scope.get("notes", [])) + list(storm_notes)
+    if wo_excluded:
+        warnings.append(
+            f"{len(wo_excluded)} work order(s) outside the {window_start}..{window_end} "
+            "analysis window were excluded from scoring"
+        )
+    if valuations_excluded:
+        excluded_ids = sorted(v.get("propertyId", "?") for v in valuations_excluded)
+        warnings.append(
+            f"{len(valuations_excluded)} valuation(s) dated after analysisYear "
+            f"{scope['analysisYear']} were excluded: {', '.join(excluded_ids)}"
+        )
+
+    analysis_scope = {
+        "portfolioId": scope["portfolioId"],
+        "analysisYear": scope["analysisYear"],
+        "stormEventId": storm_meta.get("stormEventId"),
+        "requestedStormEventId": scope.get("stormEventId"),
+        "workOrderWindow": {
+            "start": window_start,
+            "end": window_end,
+            "lookbackMonths": WORK_ORDER_LOOKBACK_MONTHS,
+        },
+        "workOrdersInScope": len(wo_in_scope),
+        "workOrdersExcluded": len(wo_excluded),
+        "valuationsValidForYear": len(valuations_valid),
+        "valuationsExcluded": len(valuations_excluded),
+        "notes": warnings,
+    }
+    return analysis_scope, warnings
 
 
 def _watch_sort_key(result):
@@ -175,10 +297,55 @@ def _build_watch_list(property_results):
                 "assetHealthScore": ah.get("score"),
                 "drivers": (rv.get("drivers") or [])[:3],
                 "confidence": r["confidence"],
-                "note": "Temporary deterministic sort; final priorityRanking not yet implemented.",
+                "note": "Compatibility list (pre-Phase C sort); see finalPriorityList for the final priorityRanking.",
             }
         )
     return watch
+
+
+def _build_final_priority_list(property_results):
+    """The final Phase C portfolio ranking, ordered by priorityRank.
+
+    One row per property with the metrics a consumer needs to act on the
+    ranking. This list supersedes the temporary watchList sort, which is kept
+    unchanged for compatibility.
+    """
+    ranked = [r for r in property_results if r.get("priorityRanking")]
+    ranked.sort(key=lambda r: r["priorityRanking"]["priorityRank"])
+    rows = []
+    for r in ranked:
+        pr = r["priorityRanking"]
+        rv = r.get("riskScore_v2") or {}
+        lf = r.get("lossForecast") or {}
+        ah = r.get("assetHealthScore") or {}
+        ig = r.get("insuranceGap") or {}
+        best = r.get("bestCapitalAction")
+        rows.append(
+            {
+                "priorityRank": pr["priorityRank"],
+                "priorityScore": pr["priorityScore"],
+                "propertyId": r["propertyId"],
+                "propertyName": r["propertyName"],
+                "county": r["county"],
+                "riskScore_v2": rv.get("score"),
+                "lossForecast": lf.get("expectedLoss"),
+                "assetHealthScore": ah.get("score"),
+                "insuranceGap": ig.get("insuranceGap"),
+                "bestCapitalAction": (
+                    {
+                        "capitalActionId": best.get("capitalActionId"),
+                        "actionType": best.get("actionType"),
+                        "estimatedCost": best.get("estimatedCost"),
+                        "capitalROI": best.get("capitalROI"),
+                    }
+                    if best
+                    else None
+                ),
+                "rankingDrivers": pr.get("drivers", []),
+                "confidence": pr.get("confidence"),
+            }
+        )
+    return rows
 
 
 def _build_summary(property_results, watch_list):
@@ -218,12 +385,26 @@ def _build_summary(property_results, watch_list):
                 seen.add(d)
                 top_drivers.append(d)
 
+    gaps = [
+        (r.get("insuranceGap") or {}).get("insuranceGap")
+        for r in property_results
+    ]
+    total_gap = round(sum(v for v in gaps if v is not None), 2)
+
+    top_priority = min(
+        (r for r in property_results if r.get("priorityRanking")),
+        key=lambda r: r["priorityRanking"]["priorityRank"],
+        default=None,
+    )
+
     return {
         "totalProperties": total,
         "severeImpactCount": severe_count,
         "highRiskCount": high_risk_count,
         "totalLossForecast": total_loss,
         "averageAssetHealthScore": avg_health,
+        "totalInsuranceGap": total_gap,
+        "topPriorityPropertyId": top_priority["propertyId"] if top_priority else None,
         "topRiskDrivers": top_drivers[:6],
     }
 

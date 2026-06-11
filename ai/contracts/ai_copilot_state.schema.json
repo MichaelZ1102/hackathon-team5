@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://internal.ai-platform/contracts/ai_copilot_state.schema.json",
+  "title": "AI Copilot State",
+  "description": "State payload sent by the backend demo system to the internal AI Platform Agent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "taskType",
+    "userQuestion",
+    "portfolioSummary",
+    "stormEvent",
+    "layer1Results",
+    "watchList",
+    "operationalActions",
+    "availableMetrics",
+    "missingMetrics",
+    "dataQualityNotes"
+  ],
+  "properties": {
+    "taskType": {
+      "type": "string",
+      "enum": ["portfolio_review", "storm_impact", "capital_planning"]
+    },
+    "userQuestion": {
+      "type": "string"
+    },
+    "analysisScope": {
+      "type": "object",
+      "description": "Optional explicit analysis scope the backend used to build this State (portfolioId, analysisYear, stormEventId, workOrderWindow). Absent for legacy callers.",
+      "additionalProperties": true,
+      "properties": {
+        "portfolioId": { "type": "string" },
+        "analysisYear": { "type": "integer" },
+        "stormEventId": { "type": ["string", "null"] }
+      }
+    },
+    "portfolioSummary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "stormEvent": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "layer1Results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "watchList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "operationalActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "availableMetrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "missingMetrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "dataQualityNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
