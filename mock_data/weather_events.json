@@ -42,7 +42,8 @@
         "Charlotte",
         "Sarasota",
         "DeSoto",
-        "Hardee"
+        "Hardee",
+        "Highlands"
       ],
       "track": {
         "type": "LineString",
@@ -11932,7 +11933,8 @@
         "DeSoto",
         "Hardee",
         "Polk",
-        "Orange"
+        "Orange",
+        "Highlands"
       ],
       "track": {
         "type": "LineString",
