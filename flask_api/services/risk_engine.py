@@ -3,7 +3,9 @@ from collections import defaultdict
 from services.data_loader import load_json
 
 
-DEFAULT_ANALYSIS_TIME = "2026-06-12T14:00:00-04:00"
+DEFAULT_EVENT_ID = "FL-HUR-2026-FCST-01"
+DEFAULT_ANALYSIS_TIME = "2026-08-17T06:00:00Z"
+LEGACY_ANALYSIS_TIMES = {"2026-06-12T14:00:00-04:00"}
 
 WEIGHTS = {
     "weatherRisk": 0.40,
@@ -33,7 +35,125 @@ MAINTENANCE_CATEGORY_POINTS = {
 }
 
 
-def analyze_risk(analysis_time=DEFAULT_ANALYSIS_TIME):
+def select_weather_event(weather_data, event_id=DEFAULT_EVENT_ID):
+    events = weather_data.get("events", [])
+    if event_id:
+        match = next((event for event in events if event["id"] == event_id), None)
+        if not match:
+            raise ValueError(f"No weather event found for {event_id}")
+        return match
+
+    forecast_event = next(
+        (event for event in events if event.get("status") == "forecast"),
+        None,
+    )
+    if forecast_event:
+        return forecast_event
+
+    if events:
+        return events[0]
+
+    raise ValueError("No weather events found")
+
+
+def select_weather_event_for_time(weather_data, analysis_time, event_id=None):
+    if event_id:
+        return select_weather_event(weather_data, event_id)
+
+    for event in weather_data.get("events", []):
+        if any(
+            point["timestamp"] == analysis_time
+            for point in event.get("timeline", [])
+        ):
+            return event
+
+    raise ValueError(f"No weather event contains timeline point {analysis_time}")
+
+
+def build_weather_by_county(weather_event, timeline_point):
+    risk_level = derive_weather_risk_level(weather_event, timeline_point)
+    county_weather = {}
+
+    for county in weather_event.get("affectedCounties", []):
+        county_weather[county] = {
+            "county": county,
+            "riskLevel": risk_level,
+            "eventId": weather_event["id"],
+            "eventName": weather_event["name"],
+            "eventType": weather_event["type"],
+            "phase": timeline_point.get("phase", timeline_point.get("stageId")),
+            "windSpeedMph": timeline_point.get("windSpeedMph", 0),
+            "precipitationMm": timeline_point.get("precipitationMm"),
+            "snowfallCm": timeline_point.get("snowfallCm"),
+            "impactRadiusKm": timeline_point.get("impactRadiusKm"),
+            "severityLevel": weather_event.get("severity", {}).get("level", 0),
+            "severityLabel": weather_event.get("severity", {}).get("label"),
+        }
+
+    return county_weather
+
+
+def derive_weather_risk_level(weather_event, timeline_point):
+    event_type = weather_event.get("type")
+    severity_level = weather_event.get("severity", {}).get("level", 0)
+    wind_speed = timeline_point.get("windSpeedMph", 0) or 0
+    precipitation = timeline_point.get("precipitationMm", 0) or 0
+    snowfall = timeline_point.get("snowfallCm", 0) or 0
+    phase = timeline_point.get("phase", timeline_point.get("stageId"))
+
+    if event_type == "hurricane":
+        if wind_speed >= 110 or severity_level >= 4 or precipitation >= 150:
+            return "Critical"
+        if wind_speed >= 90 or severity_level >= 3 or phase in {"landfall", "peak"}:
+            return "High"
+        if wind_speed >= 60:
+            return "Medium"
+        return "Low"
+
+    if event_type == "blizzard":
+        if wind_speed >= 45 or snowfall >= 20 or severity_level >= 4:
+            return "Critical"
+        if wind_speed >= 35 or snowfall >= 10 or severity_level >= 3:
+            return "High"
+        if wind_speed >= 25 or snowfall >= 3:
+            return "Medium"
+        return "Low"
+
+    if wind_speed >= 90 or precipitation >= 150 or snowfall >= 20:
+        return "Critical"
+    if wind_speed >= 60 or precipitation >= 75 or snowfall >= 10:
+        return "High"
+    if wind_speed >= 30 or precipitation >= 25 or snowfall >= 3:
+        return "Medium"
+    return "Low"
+
+
+def format_event_type(county_weather):
+    return county_weather.get("eventType", "severe weather").replace("_", " ")
+
+
+def format_weather_metrics(county_weather):
+    metrics = [f"{county_weather.get('windSpeedMph', 0)} mph wind speed"]
+
+    precipitation = county_weather.get("precipitationMm")
+    if precipitation is not None:
+        metrics.append(f"{precipitation} mm precipitation")
+
+    snowfall = county_weather.get("snowfallCm")
+    if snowfall is not None:
+        metrics.append(f"{snowfall} cm snowfall")
+
+    return ", ".join(metrics)
+
+
+def normalize_analysis_time(analysis_time):
+    if not analysis_time or analysis_time in LEGACY_ANALYSIS_TIMES:
+        return DEFAULT_ANALYSIS_TIME
+    return analysis_time
+
+
+def analyze_risk(analysis_time=DEFAULT_ANALYSIS_TIME, event_id=None):
+    analysis_time = normalize_analysis_time(analysis_time)
     weather_data = load_json("weather_events.json")
     properties_data = load_json("properties.json")
     work_orders_data = load_json("work_orders.json")
@@ -41,17 +161,25 @@ def analyze_risk(analysis_time=DEFAULT_ANALYSIS_TIME):
     lease_data = load_json("lease_exposure.json")
     contractors_data = load_json("contractors.json")
 
+    weather_event = select_weather_event_for_time(weather_data, analysis_time, event_id)
     timeline_point = next(
-        (point for point in weather_data["timeline"] if point["time"] == analysis_time),
+        (
+            point
+            for point in weather_event.get("timeline", [])
+            if point["timestamp"] == analysis_time
+        ),
         None,
     )
     if not timeline_point:
-        raise ValueError(f"No weather timeline point found for {analysis_time}")
+        available_times = ", ".join(
+            point["timestamp"] for point in weather_event.get("timeline", [])
+        )
+        raise ValueError(
+            f"No weather timeline point found for {analysis_time} in event "
+            f"{weather_event['id']}. Available times: {available_times}"
+        )
 
-    weather_by_county = {
-        county_weather["county"]: county_weather
-        for county_weather in timeline_point["affectedCounties"]
-    }
+    weather_by_county = build_weather_by_county(weather_event, timeline_point)
     work_orders_by_property = group_by(work_orders_data["workOrders"], "propertyId")
     capex_by_property = group_by(capex_data["capexItems"], "propertyId")
     lease_by_property = {
@@ -83,14 +211,16 @@ def analyze_risk(analysis_time=DEFAULT_ANALYSIS_TIME):
     )
 
     return {
-        "eventId": weather_data["event"]["eventId"],
-        "analysisTime": timeline_point["time"],
-        "scenarioStage": timeline_point["stage"],
+        "eventId": weather_event["id"],
+        "eventName": weather_event["name"],
+        "eventType": weather_event["type"],
+        "analysisTime": timeline_point["timestamp"],
+        "scenarioStage": timeline_point.get("phase", timeline_point.get("stageId")),
         "portfolioSummary": portfolio_summary,
         "properties": property_results,
         "llmInputs": {
             "executiveSummaryContext": build_executive_context(
-                weather_event=weather_data["event"],
+                weather_event=weather_event,
                 timeline_point=timeline_point,
                 portfolio_summary=portfolio_summary,
                 property_results=property_results,
@@ -185,10 +315,12 @@ def calculate_weather_risk(county_weather):
     score = WEATHER_BASE_SCORE.get(county_weather["riskLevel"], 0)
     if county_weather["windSpeedMph"] >= 90:
         score += 5
-    if county_weather["tornadoProbability"] >= 0.60:
-        score += 5
-    if county_weather["hailRisk"] == "High":
+    if (county_weather.get("precipitationMm") or 0) >= 100:
         score += 3
+    if (county_weather.get("snowfallCm") or 0) >= 15:
+        score += 3
+    if (county_weather.get("severityLevel") or 0) >= 4:
+        score += 5
     return cap_score(score)
 
 
@@ -307,10 +439,13 @@ def risk_level_from_score(score):
 
 def build_risk_drivers(property_item, county_weather, work_orders, capex_items, lease):
     drivers = [
-        f"{property_item['county']} County is in {county_weather['riskLevel']} tornado risk at the selected timeline point.",
         (
-            f"County weather shows {county_weather['windSpeedMph']} mph wind speed "
-            f"and {county_weather['tornadoProbability']} tornado probability."
+            f"{property_item['county']} County is in {county_weather['riskLevel']} "
+            f"{format_event_type(county_weather)} risk at the selected timeline point."
+        ),
+        (
+            f"County weather shows {format_weather_metrics(county_weather)} "
+            f"during the {county_weather.get('phase')} phase."
         ),
     ]
 
@@ -520,11 +655,10 @@ def build_llm_context(property_item, county_weather, work_orders, capex_items, e
     allowed_claims = [
         (
             f"The property is in {property_item['county']} County during a "
-            f"{county_weather['riskLevel']} tornado risk timeline point."
+            f"{county_weather['riskLevel']} {format_event_type(county_weather)} risk timeline point."
         ),
         (
-            f"The county weather event includes {county_weather['windSpeedMph']} mph wind speed "
-            f"and {county_weather['tornadoProbability']} tornado probability."
+            f"The county weather event includes {format_weather_metrics(county_weather)}."
         ),
         f"The property roof age is {property_item['roofAgeYears']} years.",
         f"The property exterior condition is {property_item['exteriorCondition']}.",
@@ -543,9 +677,8 @@ def build_llm_context(property_item, county_weather, work_orders, capex_items, e
     return {
         "summaryInput": (
             f"{property_item['name']} is in {property_item['county']} County during "
-            f"{county_weather['riskLevel']} tornado risk. County weather shows "
-            f"{county_weather['windSpeedMph']} mph wind speed and "
-            f"{county_weather['tornadoProbability']} tornado probability. The property has "
+            f"{county_weather['riskLevel']} {format_event_type(county_weather)} risk. "
+            f"County weather shows {format_weather_metrics(county_weather)}. The property has "
             f"a {property_item['roofAgeYears']}-year roof, {property_item['exteriorCondition']} "
             f"exterior condition, and {len(work_orders)} recent work orders. "
             f"Estimated repair exposure is {exposure}."
@@ -619,8 +752,8 @@ def build_executive_context(weather_event, timeline_point, portfolio_summary, pr
 
     return {
         "weatherEvent": weather_event["name"],
-        "analysisTime": timeline_point["time"],
-        "scenarioStage": timeline_point["stage"],
+        "analysisTime": timeline_point["timestamp"],
+        "scenarioStage": timeline_point.get("phase", timeline_point.get("stageId")),
         "affectedProperties": portfolio_summary["affectedProperties"],
         "criticalRiskProperties": portfolio_summary["criticalRiskProperties"],
         "highRiskProperties": portfolio_summary["highRiskProperties"],

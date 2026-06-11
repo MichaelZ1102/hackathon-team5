@@ -36,9 +36,11 @@
   "paths": {
     "/api/risk/timeline": {
       "get": {
-        "tags": ["Risk"],
-        "summary": "Get tornado weather timeline",
-        "description": "Returns the synthetic Florida tornado event and all timeline points.",
+        "tags": [
+          "Risk"
+        ],
+        "summary": "Get severe weather timeline",
+        "description": "Returns the selected severe weather event timeline. When time is provided, returns the matching timeline point.",
         "responses": {
           "200": {
             "description": "Weather timeline response",
@@ -47,34 +49,89 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "event": { "type": "object" },
+                    "event": {
+                      "type": "object"
+                    },
                     "timeline": {
                       "type": "array",
-                      "items": { "type": "object" }
+                      "items": {
+                        "type": "object"
+                      }
                     },
-                    "meta": { "type": "object" }
+                    "meta": {
+                      "type": "object"
+                    },
+                    "timelinePoint": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "events": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "metadata": {
+                      "type": "object"
+                    }
                   }
                 }
               }
             }
           }
-        }
-      }
-    },
-    "/api/risk/properties": {
-      "get": {
-        "tags": ["Risk"],
-        "summary": "Get affected property risk analysis",
-        "description": "Calculates and returns portfolio and property-level risk results for a selected timeline point.",
+        },
         "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": false,
+            "description": "Weather event ID. Defaults to the demo forecast hurricane event.",
+            "schema": {
+              "type": "string",
+              "example": "FL-HUR-2026-FCST-01"
+            }
+          },
           {
             "name": "time",
             "in": "query",
             "required": false,
-            "description": "Weather timeline point. Defaults to peak tornado risk.",
+            "description": "Timeline timestamp to filter by. If omitted, all timeline points for the selected event are returned.",
             "schema": {
               "type": "string",
-              "example": "2026-06-12T14:00:00-04:00"
+              "example": "2026-08-17T06:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    "/api/risk/properties": {
+      "get": {
+        "tags": [
+          "Risk"
+        ],
+        "summary": "Get affected property risk analysis",
+        "description": "Calculates and returns portfolio and property-level risk results for a selected timeline point.",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": false,
+            "description": "Optional weather event ID. If omitted, the API selects the event that contains the requested time.",
+            "schema": {
+              "type": "string",
+              "example": "FL-HUR-2026-FCST-01"
+            }
+          },
+          {
+            "name": "time",
+            "in": "query",
+            "required": false,
+            "description": "Timeline timestamp. If eventId is omitted, this timestamp is used to select the weather event.",
+            "schema": {
+              "type": "string",
+              "example": "2026-08-17T06:00:00Z"
             }
           }
         ],
@@ -83,7 +140,9 @@
             "description": "Risk analysis response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/RiskAnalysisResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/RiskAnalysisResponse"
+                }
               }
             }
           },
@@ -91,7 +150,72 @@
             "description": "Invalid timeline point",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/risk/storm-center/properties": {
+      "get": {
+        "tags": [
+          "Risk"
+        ],
+        "summary": "Get properties near the storm center",
+        "description": "Returns properties within radiusKm of the selected storm timeline center point. Defaults radiusKm to the timeline point impactRadiusKm when omitted.",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": false,
+            "description": "Optional weather event ID. If omitted, the API selects the event that contains the requested time.",
+            "schema": {
+              "type": "string",
+              "example": "FL-HUR-2026-FCST-01"
+            }
+          },
+          {
+            "name": "time",
+            "in": "query",
+            "required": false,
+            "description": "Timeline timestamp used to locate the storm center.",
+            "schema": {
+              "type": "string",
+              "example": "2026-08-17T06:00:00Z"
+            }
+          },
+          {
+            "name": "radiusKm",
+            "in": "query",
+            "required": false,
+            "description": "Search radius in kilometers around the storm center. Defaults to the timeline point impactRadiusKm, or 50 when unavailable.",
+            "schema": {
+              "type": "number",
+              "example": 80
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Storm-center related properties response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StormCenterPropertiesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid timeline point or radius",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -100,7 +224,9 @@
     },
     "/api/ai/recommendations": {
       "post": {
-        "tags": ["AI Content"],
+        "tags": [
+          "AI Content"
+        ],
         "summary": "Generate AI-style recommendations",
         "description": "Returns a property-level recommendation when propertyId is provided; otherwise returns portfolio-level recommendation.",
         "requestBody": {
@@ -112,11 +238,11 @@
                 "properties": {
                   "time": {
                     "type": "string",
-                    "example": "2026-06-12T14:00:00-04:00"
+                    "example": "2026-08-17T06:00:00Z"
                   },
                   "propertyId": {
                     "type": "string",
-                    "example": "FL-ORL-102"
+                    "example": "FL-TPA-205"
                   }
                 }
               }
@@ -128,7 +254,9 @@
             "description": "Recommendation response",
             "content": {
               "application/json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           },
@@ -136,7 +264,9 @@
             "description": "Property not found in affected results",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -224,14 +354,18 @@
     },
     "/api/notifications/draft": {
       "post": {
-        "tags": ["Notifications"],
+        "tags": [
+          "Notifications"
+        ],
         "summary": "Generate resident notification draft",
         "description": "Returns SMS, push notification, and email drafts for one affected property.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/PropertyRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/PropertyRequest"
+              }
             }
           }
         },
@@ -240,7 +374,9 @@
             "description": "Notification draft response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/NotificationDraftResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationDraftResponse"
+                }
               }
             }
           },
@@ -248,7 +384,9 @@
             "description": "Missing or invalid request",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           },
@@ -256,7 +394,9 @@
             "description": "Property not found in affected results",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -265,14 +405,18 @@
     },
     "/api/work-orders/draft": {
       "post": {
-        "tags": ["Work Orders"],
+        "tags": [
+          "Work Orders"
+        ],
         "summary": "Get draft work orders",
         "description": "Returns AI risk engine draft work orders for one affected property. Drafts require user confirmation.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/PropertyRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/PropertyRequest"
+              }
             }
           }
         },
@@ -281,7 +425,9 @@
             "description": "Draft work order response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/DraftWorkOrderResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/DraftWorkOrderResponse"
+                }
               }
             }
           },
@@ -289,7 +435,9 @@
             "description": "Missing or invalid request",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           },
@@ -297,7 +445,9 @@
             "description": "Property not found in affected results",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -306,14 +456,18 @@
     },
     "/api/work-orders/confirm": {
       "post": {
-        "tags": ["Work Orders"],
+        "tags": [
+          "Work Orders"
+        ],
         "summary": "Confirm a draft work order",
         "description": "Creates a confirmed mock work order from one draft and stores it in flask_api/storage/confirmed_work_orders.json.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/ConfirmWorkOrderRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmWorkOrderRequest"
+              }
             }
           }
         },
@@ -322,7 +476,9 @@
             "description": "Confirmed work order",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ConfirmedWorkOrderResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ConfirmedWorkOrderResponse"
+                }
               }
             }
           },
@@ -330,7 +486,9 @@
             "description": "Missing or invalid request",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           },
@@ -338,7 +496,9 @@
             "description": "Property not found in affected results",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -350,29 +510,39 @@
     "schemas": {
       "PropertyRequest": {
         "type": "object",
-        "required": ["propertyId"],
+        "required": [
+          "propertyId"
+        ],
         "properties": {
           "time": {
             "type": "string",
-            "example": "2026-06-12T14:00:00-04:00"
+            "example": "2026-08-17T06:00:00Z"
           },
           "propertyId": {
             "type": "string",
-            "example": "FL-ORL-102"
+            "example": "FL-TPA-205"
+          },
+          "eventId": {
+            "type": "string",
+            "example": "FL-HUR-2026-FCST-01",
+            "description": "Optional weather event ID. If omitted, the API selects the event that contains the requested time."
           }
         }
       },
       "ConfirmWorkOrderRequest": {
         "type": "object",
-        "required": ["propertyId", "draftIndex"],
+        "required": [
+          "propertyId",
+          "draftIndex"
+        ],
         "properties": {
           "time": {
             "type": "string",
-            "example": "2026-06-12T14:00:00-04:00"
+            "example": "2026-08-17T06:00:00Z"
           },
           "propertyId": {
             "type": "string",
-            "example": "FL-ORL-102"
+            "example": "FL-TPA-205"
           },
           "draftIndex": {
             "type": "integer",
@@ -381,6 +551,11 @@
           "confirmedBy": {
             "type": "string",
             "example": "demo-user"
+          },
+          "eventId": {
+            "type": "string",
+            "example": "FL-HUR-2026-FCST-01",
+            "description": "Optional weather event ID. If omitted, the API selects the event that contains the requested time."
           }
         }
       },
@@ -494,140 +669,406 @@
       "RiskAnalysisResponse": {
         "type": "object",
         "properties": {
-          "eventId": { "type": "string" },
-          "analysisTime": { "type": "string" },
-          "scenarioStage": { "type": "string" },
-          "portfolioSummary": { "$ref": "#/components/schemas/PortfolioSummary" },
+          "eventId": {
+            "type": "string"
+          },
+          "analysisTime": {
+            "type": "string"
+          },
+          "scenarioStage": {
+            "type": "string"
+          },
+          "portfolioSummary": {
+            "$ref": "#/components/schemas/PortfolioSummary"
+          },
           "properties": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/PropertyRiskResult" }
+            "items": {
+              "$ref": "#/components/schemas/PropertyRiskResult"
+            }
           },
-          "llmInputs": { "type": "object" },
+          "llmInputs": {
+            "type": "object"
+          },
           "dataSources": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           },
-          "metadata": { "type": "object" }
+          "metadata": {
+            "type": "object"
+          }
         }
       },
       "PortfolioSummary": {
         "type": "object",
         "properties": {
-          "totalProperties": { "type": "integer" },
-          "affectedProperties": { "type": "integer" },
-          "criticalRiskProperties": { "type": "integer" },
-          "highRiskProperties": { "type": "integer" },
-          "mediumRiskProperties": { "type": "integer" },
-          "lowRiskProperties": { "type": "integer" },
-          "estimatedRepairExposure": { "type": "number" },
-          "residentExposure": { "type": "integer" },
+          "totalProperties": {
+            "type": "integer"
+          },
+          "affectedProperties": {
+            "type": "integer"
+          },
+          "criticalRiskProperties": {
+            "type": "integer"
+          },
+          "highRiskProperties": {
+            "type": "integer"
+          },
+          "mediumRiskProperties": {
+            "type": "integer"
+          },
+          "lowRiskProperties": {
+            "type": "integer"
+          },
+          "estimatedRepairExposure": {
+            "type": "number"
+          },
+          "residentExposure": {
+            "type": "integer"
+          },
           "topAffectedMarkets": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
       "PropertyRiskResult": {
         "type": "object",
         "properties": {
-          "propertyId": { "type": "string" },
-          "name": { "type": "string" },
-          "market": { "type": "string" },
-          "city": { "type": "string" },
-          "county": { "type": "string" },
-          "lat": { "type": "number" },
-          "lng": { "type": "number" },
-          "riskScore": { "type": "integer" },
+          "propertyId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "market": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "county": {
+            "type": "string"
+          },
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          },
+          "riskScore": {
+            "type": "integer"
+          },
           "riskLevel": {
             "type": "string",
-            "enum": ["Low", "Medium", "High", "Critical"]
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ]
           },
-          "estimatedRepairExposure": { "type": "number" },
-          "scoreBreakdown": { "type": "object" },
+          "estimatedRepairExposure": {
+            "type": "number"
+          },
+          "scoreBreakdown": {
+            "type": "object"
+          },
           "riskDrivers": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           },
           "recommendedActions": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           },
           "recommendedDraftWorkOrders": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/DraftWorkOrder" }
+            "items": {
+              "$ref": "#/components/schemas/DraftWorkOrder"
+            }
           },
           "recommendedContractors": {
             "type": "array",
-            "items": { "type": "object" }
+            "items": {
+              "type": "object"
+            }
           },
-          "llmContext": { "type": "object" }
+          "llmContext": {
+            "type": "object"
+          }
         }
       },
       "DraftWorkOrder": {
         "type": "object",
         "properties": {
-          "title": { "type": "string" },
-          "category": { "type": "string" },
+          "title": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
           "priority": {
             "type": "string",
-            "enum": ["Routine", "High", "Urgent"]
+            "enum": [
+              "Routine",
+              "High",
+              "Urgent"
+            ]
           },
-          "reason": { "type": "string" },
-          "recommendedTiming": { "type": "string" },
-          "requiresUserConfirmation": { "type": "boolean" }
+          "reason": {
+            "type": "string"
+          },
+          "recommendedTiming": {
+            "type": "string"
+          },
+          "requiresUserConfirmation": {
+            "type": "boolean"
+          }
         }
       },
       "DraftWorkOrderResponse": {
         "type": "object",
         "properties": {
-          "eventId": { "type": "string" },
-          "analysisTime": { "type": "string" },
-          "propertyId": { "type": "string" },
-          "propertyName": { "type": "string" },
-          "riskLevel": { "type": "string" },
-          "riskScore": { "type": "integer" },
+          "eventId": {
+            "type": "string"
+          },
+          "analysisTime": {
+            "type": "string"
+          },
+          "propertyId": {
+            "type": "string"
+          },
+          "propertyName": {
+            "type": "string"
+          },
+          "riskLevel": {
+            "type": "string"
+          },
+          "riskScore": {
+            "type": "integer"
+          },
           "draftWorkOrders": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/DraftWorkOrder" }
+            "items": {
+              "$ref": "#/components/schemas/DraftWorkOrder"
+            }
           }
         }
       },
       "ConfirmedWorkOrderResponse": {
         "type": "object",
         "properties": {
-          "workOrderId": { "type": "string" },
-          "source": { "type": "string" },
-          "status": { "type": "string" },
-          "confirmedAt": { "type": "string" },
-          "confirmedBy": { "type": "string" },
-          "eventId": { "type": "string" },
-          "analysisTime": { "type": "string" },
-          "propertyId": { "type": "string" },
-          "propertyName": { "type": "string" },
-          "riskLevel": { "type": "string" },
-          "riskScore": { "type": "integer" },
-          "draftIndex": { "type": "integer" },
-          "workOrder": { "$ref": "#/components/schemas/DraftWorkOrder" }
+          "workOrderId": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "confirmedAt": {
+            "type": "string"
+          },
+          "confirmedBy": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string"
+          },
+          "analysisTime": {
+            "type": "string"
+          },
+          "propertyId": {
+            "type": "string"
+          },
+          "propertyName": {
+            "type": "string"
+          },
+          "riskLevel": {
+            "type": "string"
+          },
+          "riskScore": {
+            "type": "integer"
+          },
+          "draftIndex": {
+            "type": "integer"
+          },
+          "workOrder": {
+            "$ref": "#/components/schemas/DraftWorkOrder"
+          }
         }
       },
       "NotificationDraftResponse": {
         "type": "object",
         "properties": {
-          "generationMode": { "type": "string" },
-          "eventId": { "type": "string" },
-          "analysisTime": { "type": "string" },
-          "propertyId": { "type": "string" },
-          "propertyName": { "type": "string" },
-          "riskLevel": { "type": "string" },
-          "sms": { "type": "string" },
-          "pushNotification": { "type": "object" },
-          "email": { "type": "object" }
+          "generationMode": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string"
+          },
+          "analysisTime": {
+            "type": "string"
+          },
+          "propertyId": {
+            "type": "string"
+          },
+          "propertyName": {
+            "type": "string"
+          },
+          "riskLevel": {
+            "type": "string"
+          },
+          "sms": {
+            "type": "string"
+          },
+          "pushNotification": {
+            "type": "object"
+          },
+          "email": {
+            "type": "object"
+          }
         }
       },
       "ErrorResponse": {
         "type": "object",
         "properties": {
-          "error": { "type": "string" }
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "StormCenterPropertiesResponse": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string"
+          },
+          "eventName": {
+            "type": "string"
+          },
+          "eventType": {
+            "type": "string"
+          },
+          "analysisTime": {
+            "type": "string"
+          },
+          "scenarioStage": {
+            "type": "string"
+          },
+          "stormCenter": {
+            "type": "object",
+            "properties": {
+              "lat": {
+                "type": "number"
+              },
+              "lng": {
+                "type": "number"
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          },
+          "radiusKm": {
+            "type": "number"
+          },
+          "matchedProperties": {
+            "type": "integer"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StormCenterPropertyResult"
+            }
+          },
+          "timelinePoint": {
+            "type": "object"
+          },
+          "metadata": {
+            "type": "object"
+          }
+        }
+      },
+      "StormCenterPropertyResult": {
+        "type": "object",
+        "properties": {
+          "propertyId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "market": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "county": {
+            "type": "string"
+          },
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          },
+          "assetType": {
+            "type": "string"
+          },
+          "units": {
+            "type": "integer"
+          },
+          "distanceKm": {
+            "type": "number"
+          },
+          "isAffected": {
+            "type": "boolean"
+          },
+          "riskScore": {
+            "type": "integer"
+          },
+          "riskLevel": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ]
+          },
+          "estimatedRepairExposure": {
+            "type": "number"
+          },
+          "recommendedActions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "recommendedDraftWorkOrders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DraftWorkOrder"
+            }
+          },
+          "recommendedContractors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
         }
       }
     }
