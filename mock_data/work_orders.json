@@ -3360,6 +3360,204 @@
       "status": "Completed",
       "isRepeatIssue": false,
       "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "B9893201",
+      "propertyId": "STORMPATH-001",
+      "category": "Roof Leak",
+      "createdDate": "2025-08-18",
+      "completedDate": "2025-08-20",
+      "cost": 350,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "B9893202",
+      "propertyId": "STORMPATH-001",
+      "category": "Window Seal",
+      "createdDate": "2026-03-11",
+      "completedDate": "2026-03-12",
+      "cost": 250,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "B9893203",
+      "propertyId": "STORMPATH-002",
+      "category": "Water Intrusion",
+      "createdDate": "2025-09-04",
+      "completedDate": "2025-09-07",
+      "cost": 1200,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    },
+    {
+      "workOrderId": "B9893204",
+      "propertyId": "STORMPATH-002",
+      "category": "Roof Leak",
+      "createdDate": "2026-04-02",
+      "completedDate": "2026-04-04",
+      "cost": 500,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "B9893205",
+      "propertyId": "STORMPATH-004",
+      "category": "Exterior Siding",
+      "createdDate": "2024-11-13",
+      "completedDate": "2024-11-15",
+      "cost": 650,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    },
+    {
+      "workOrderId": "B9893206",
+      "propertyId": "STORMPATH-004",
+      "category": "Window Seal",
+      "createdDate": "2026-01-22",
+      "completedDate": "2026-01-23",
+      "cost": 300,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "B9893207",
+      "propertyId": "STORMPATH-006",
+      "category": "Roof Leak",
+      "createdDate": "2025-06-25",
+      "completedDate": "2025-06-27",
+      "cost": 500,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "B9893208",
+      "propertyId": "STORMPATH-006",
+      "category": "Roof Leak",
+      "createdDate": "2026-02-18",
+      "completedDate": "2026-02-20",
+      "cost": 350,
+      "status": "Completed",
+      "isRepeatIssue": true,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "B9893209",
+      "propertyId": "STORMPATH-007",
+      "category": "Window Seal",
+      "createdDate": "2025-10-09",
+      "completedDate": "2025-10-10",
+      "cost": 250,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "B9893210",
+      "propertyId": "STORMPATH-008",
+      "category": "Exterior Siding",
+      "createdDate": "2025-12-03",
+      "completedDate": "2025-12-05",
+      "cost": 700,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    },
+    {
+      "workOrderId": "B9893211",
+      "propertyId": "STORMPATH-009",
+      "category": "Tree Limb Removal",
+      "createdDate": "2025-07-29",
+      "completedDate": "2025-07-30",
+      "cost": 400,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-205"
+    },
+    {
+      "workOrderId": "B9893212",
+      "propertyId": "STORMPATH-010",
+      "category": "Roof Leak",
+      "createdDate": "2025-05-14",
+      "completedDate": "2025-05-16",
+      "cost": 750,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "B9893213",
+      "propertyId": "STORMPATH-010",
+      "category": "Water Intrusion",
+      "createdDate": "2026-05-06",
+      "completedDate": "2026-05-09",
+      "cost": 1500,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    },
+    {
+      "workOrderId": "B9893214",
+      "propertyId": "STORMPATH-012",
+      "category": "Tree Limb Removal",
+      "createdDate": "2025-08-06",
+      "completedDate": "2025-08-07",
+      "cost": 350,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-205"
+    },
+    {
+      "workOrderId": "B9893215",
+      "propertyId": "STORMPATH-015",
+      "category": "Window Seal",
+      "createdDate": "2025-11-19",
+      "completedDate": "2025-11-20",
+      "cost": 300,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-204"
+    },
+    {
+      "workOrderId": "B9893216",
+      "propertyId": "STORMPATH-018",
+      "category": "Roof Leak",
+      "createdDate": "2026-02-05",
+      "completedDate": "2026-02-08",
+      "cost": 600,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-201"
+    },
+    {
+      "workOrderId": "B9893217",
+      "propertyId": "STORMPATH-022",
+      "category": "Water Intrusion",
+      "createdDate": "2026-04-21",
+      "completedDate": "2026-04-24",
+      "cost": 1800,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-208"
+    },
+    {
+      "workOrderId": "B9893218",
+      "propertyId": "STORMPATH-024",
+      "category": "Tree Limb Removal",
+      "createdDate": "2025-09-16",
+      "completedDate": "2025-09-17",
+      "cost": 450,
+      "status": "Completed",
+      "isRepeatIssue": false,
+      "contractorId": "CTR-205"
     }
   ]
 }
