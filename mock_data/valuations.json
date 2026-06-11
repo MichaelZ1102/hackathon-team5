@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "datasetName": "Property Valuations",
+    "dataType": "synthetic_demo_data",
+    "foreignKey": "propertyId -> properties.json",
+    "feeds": "lossForecast, riskScore_v2 (assetValue factor)",
+    "note": "All values USD. Synthetic demo data, not official appraisals."
+  },
+  "valuations": [
+    {"propertyId": "FL-ORL-102", "replacementValue": 14800000, "marketValue": 17200000, "insuredValue": 14000000, "buildingValue": 12600000, "contentsValue": 1400000, "lastValuationDate": "2025-09-15", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-WPK-118", "replacementValue": 13900000, "marketValue": 18500000, "insuredValue": 13900000, "buildingValue": 12100000, "contentsValue": 1800000, "lastValuationDate": "2025-11-02", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-KIS-031", "replacementValue": 7200000, "marketValue": 8400000, "insuredValue": 6800000, "buildingValue": 6200000, "contentsValue": 1000000, "lastValuationDate": "2025-08-20", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-LAK-044", "replacementValue": 9600000, "marketValue": 10100000, "insuredValue": 8200000, "buildingValue": 8400000, "contentsValue": 1200000, "lastValuationDate": "2024-12-10", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-TPA-205", "replacementValue": 23400000, "marketValue": 29800000, "insuredValue": 23400000, "buildingValue": 20800000, "contentsValue": 2600000, "lastValuationDate": "2026-01-18", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-STP-077", "replacementValue": 8900000, "marketValue": 9600000, "insuredValue": 6500000, "buildingValue": 7900000, "contentsValue": 1000000, "lastValuationDate": "2024-10-05", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-MEL-066", "replacementValue": 7800000, "marketValue": 8200000, "insuredValue": 5800000, "buildingValue": 6900000, "contentsValue": 900000, "lastValuationDate": "2025-03-22", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-DAY-090", "replacementValue": 11200000, "marketValue": 12800000, "insuredValue": 10600000, "buildingValue": 9900000, "contentsValue": 1300000, "lastValuationDate": "2025-07-11", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-JAX-155", "replacementValue": 9100000, "marketValue": 10400000, "insuredValue": 8700000, "buildingValue": 8000000, "contentsValue": 1100000, "lastValuationDate": "2025-06-30", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-MIA-222", "replacementValue": 26800000, "marketValue": 35200000, "insuredValue": 24000000, "buildingValue": 23600000, "contentsValue": 3200000, "lastValuationDate": "2026-02-14", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-FMY-136", "replacementValue": 13600000, "marketValue": 15100000, "insuredValue": 9500000, "buildingValue": 12000000, "contentsValue": 1600000, "lastValuationDate": "2024-09-08", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-NAP-051", "replacementValue": 12400000, "marketValue": 19800000, "insuredValue": 12400000, "buildingValue": 10800000, "contentsValue": 1600000, "lastValuationDate": "2026-01-30", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-SRQ-084", "replacementValue": 8600000, "marketValue": 9300000, "insuredValue": 7000000, "buildingValue": 7600000, "contentsValue": 1000000, "lastValuationDate": "2024-11-19", "valuationMethod": "Cost Approach"},
+    {"propertyId": "FL-PBI-173", "replacementValue": 22100000, "marketValue": 28600000, "insuredValue": 22100000, "buildingValue": 19600000, "contentsValue": 2500000, "lastValuationDate": "2026-03-05", "valuationMethod": "Cost Approach"}
+  ]
+}

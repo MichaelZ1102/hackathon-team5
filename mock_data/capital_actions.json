@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "datasetName": "Capital Actions",
+    "dataType": "synthetic_demo_data",
+    "foreignKey": "propertyId -> properties.json",
+    "feeds": "capitalROI",
+    "note": "estimatedRiskReduction is a 0-1 fraction of annual expected loss avoided. Synthetic demo data."
+  },
+  "capitalActions": [
+    {"capitalActionId": "CAP-ORL-1", "propertyId": "FL-ORL-102", "actionType": "Roof Replacement", "description": "Replace aging roof and flashing system", "estimatedCost": 620000, "estimatedRiskReduction": 0.24, "usefulLifeYears": 25, "implementationTimeDays": 45, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-ORL-2", "propertyId": "FL-ORL-102", "actionType": "Drainage Improvement", "description": "Upgrade site drainage and gutters", "estimatedCost": 90000, "estimatedRiskReduction": 0.08, "usefulLifeYears": 15, "implementationTimeDays": 14, "eligibleBeforeStorm": true},
+    {"capitalActionId": "CAP-WPK-1", "propertyId": "FL-WPK-118", "actionType": "Window Hardening", "description": "Install impact-rated windows on exposed elevations", "estimatedCost": 310000, "estimatedRiskReduction": 0.12, "usefulLifeYears": 20, "implementationTimeDays": 30, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-KIS-1", "propertyId": "FL-KIS-031", "actionType": "Tree Trimming", "description": "Remove high-risk tree limbs near structures", "estimatedCost": 28000, "estimatedRiskReduction": 0.06, "usefulLifeYears": 5, "implementationTimeDays": 5, "eligibleBeforeStorm": true},
+    {"capitalActionId": "CAP-LAK-1", "propertyId": "FL-LAK-044", "actionType": "Roof Replacement", "description": "Full roof tear-off and replacement; current roof past service life", "estimatedCost": 540000, "estimatedRiskReduction": 0.30, "usefulLifeYears": 25, "implementationTimeDays": 50, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-LAK-2", "propertyId": "FL-LAK-044", "actionType": "Envelope Sealing", "description": "Seal building envelope to reduce water intrusion", "estimatedCost": 75000, "estimatedRiskReduction": 0.10, "usefulLifeYears": 12, "implementationTimeDays": 10, "eligibleBeforeStorm": true},
+    {"capitalActionId": "CAP-TPA-1", "propertyId": "FL-TPA-205", "actionType": "Generator Installation", "description": "Install backup generator for critical systems", "estimatedCost": 180000, "estimatedRiskReduction": 0.05, "usefulLifeYears": 20, "implementationTimeDays": 20, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-STP-1", "propertyId": "FL-STP-077", "actionType": "Roof Replacement", "description": "Replace 1978-era roof; high storm exposure, thin coverage", "estimatedCost": 480000, "estimatedRiskReduction": 0.32, "usefulLifeYears": 25, "implementationTimeDays": 45, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-STP-2", "propertyId": "FL-STP-077", "actionType": "Flood Barrier", "description": "Install perimeter flood barriers for surge zone", "estimatedCost": 130000, "estimatedRiskReduction": 0.18, "usefulLifeYears": 15, "implementationTimeDays": 18, "eligibleBeforeStorm": true},
+    {"capitalActionId": "CAP-MEL-1", "propertyId": "FL-MEL-066", "actionType": "Window Hardening", "description": "Impact glazing on coastal-facing units", "estimatedCost": 240000, "estimatedRiskReduction": 0.20, "usefulLifeYears": 20, "implementationTimeDays": 28, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-DAY-1", "propertyId": "FL-DAY-090", "actionType": "Drainage Improvement", "description": "Regrade and expand stormwater capacity", "estimatedCost": 110000, "estimatedRiskReduction": 0.09, "usefulLifeYears": 15, "implementationTimeDays": 16, "eligibleBeforeStorm": true},
+    {"capitalActionId": "CAP-JAX-1", "propertyId": "FL-JAX-155", "actionType": "Tree Trimming", "description": "Canopy management around buildings", "estimatedCost": 22000, "estimatedRiskReduction": 0.05, "usefulLifeYears": 5, "implementationTimeDays": 4, "eligibleBeforeStorm": true},
+    {"capitalActionId": "CAP-MIA-1", "propertyId": "FL-MIA-222", "actionType": "Envelope Sealing", "description": "High-rise envelope inspection and sealing", "estimatedCost": 260000, "estimatedRiskReduction": 0.11, "usefulLifeYears": 12, "implementationTimeDays": 22, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-FMY-1", "propertyId": "FL-FMY-136", "actionType": "Roof Replacement", "description": "Replace roof; coastal high-exposure, underinsured", "estimatedCost": 510000, "estimatedRiskReduction": 0.28, "usefulLifeYears": 25, "implementationTimeDays": 48, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-FMY-2", "propertyId": "FL-FMY-136", "actionType": "Flood Barrier", "description": "Surge protection at ground level", "estimatedCost": 140000, "estimatedRiskReduction": 0.17, "usefulLifeYears": 15, "implementationTimeDays": 20, "eligibleBeforeStorm": true},
+    {"capitalActionId": "CAP-NAP-1", "propertyId": "FL-NAP-051", "actionType": "Window Hardening", "description": "Impact-rated openings, Gulf-facing", "estimatedCost": 200000, "estimatedRiskReduction": 0.10, "usefulLifeYears": 20, "implementationTimeDays": 26, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-SRQ-1", "propertyId": "FL-SRQ-084", "actionType": "Roof Replacement", "description": "Replace 1986 roof; moderate exposure, thin coverage", "estimatedCost": 430000, "estimatedRiskReduction": 0.26, "usefulLifeYears": 25, "implementationTimeDays": 44, "eligibleBeforeStorm": false},
+    {"capitalActionId": "CAP-PBI-1", "propertyId": "FL-PBI-173", "actionType": "Generator Installation", "description": "Backup power for newer Class A asset", "estimatedCost": 170000, "estimatedRiskReduction": 0.04, "usefulLifeYears": 20, "implementationTimeDays": 19, "eligibleBeforeStorm": false}
+  ]
+}
