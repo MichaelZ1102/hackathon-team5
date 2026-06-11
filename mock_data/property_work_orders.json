@@ -1,0 +1,5217 @@
+[
+  {
+    "propertyId": "GPS0041213",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 28.010361,
+      "lng": -82.4399339
+    },
+    "building": {
+      "yearBuilt": 2002,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 925000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9626712",
+        "date": "2023-02-28",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9626715",
+        "date": "2023-02-28",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9833999",
+        "date": "2024-12-02",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 373
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 795000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "VIS000",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.809823,
+      "lng": -80.194982
+    },
+    "building": {
+      "yearBuilt": 2007,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 770000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9627455",
+        "date": "2023-03-03",
+        "type": "Glass",
+        "cause": "Glass / Window Breakage",
+        "cost": 600
+      },
+      {
+        "workOrderId": "B9628815",
+        "date": "2023-03-14",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 900
+      },
+      {
+        "workOrderId": "B9632396",
+        "date": "2023-04-10",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9632403",
+        "date": "2023-04-10",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9632404",
+        "date": "2023-04-10",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9632407",
+        "date": "2023-04-10",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9684114",
+        "date": "2023-11-07",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9684210",
+        "date": "2023-11-08",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 615000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "RU000",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.940541,
+      "lng": -82.245024
+    },
+    "building": {
+      "yearBuilt": 2000,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 625000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9628984",
+        "date": "2023-03-15",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9679479",
+        "date": "2023-10-10",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9831575",
+        "date": "2024-11-05",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 540000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "IH10042351",
+    "location": {
+      "state": "Florida",
+      "county": "Sarasota",
+      "lat": 27.29465,
+      "lng": -82.51094
+    },
+    "building": {
+      "yearBuilt": 2017,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 890000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9628998",
+        "date": "2023-03-15",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 790000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "HPP24-0073",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.698148,
+      "lng": -81.428918
+    },
+    "building": {
+      "yearBuilt": 1998,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 790000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9631663",
+        "date": "2023-04-04",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9801320",
+        "date": "2024-04-04",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 685000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "HPV3000991",
+    "location": {
+      "state": "Florida",
+      "county": "Osceola",
+      "lat": 28.261119,
+      "lng": -81.415412
+    },
+    "building": {
+      "yearBuilt": 2006,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 645000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9631689",
+        "date": "2023-04-04",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 580000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "SA000",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.942329,
+      "lng": -82.452596
+    },
+    "building": {
+      "yearBuilt": 1995,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 875000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9634859",
+        "date": "2023-04-20",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9635897",
+        "date": "2023-04-25",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9635908",
+        "date": "2023-04-25",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9635920",
+        "date": "2023-04-25",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9635926",
+        "date": "2023-04-25",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9635927",
+        "date": "2023-04-25",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9647722",
+        "date": "2023-06-05",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9648099",
+        "date": "2023-06-05",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9648251",
+        "date": "2023-06-06",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9648262",
+        "date": "2023-06-06",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 200
+      },
+      {
+        "workOrderId": "B9648263",
+        "date": "2023-06-06",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 200
+      },
+      {
+        "workOrderId": "B9648264",
+        "date": "2023-06-06",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 200
+      },
+      {
+        "workOrderId": "B9648265",
+        "date": "2023-06-06",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 200
+      },
+      {
+        "workOrderId": "B9648285",
+        "date": "2023-06-06",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 200
+      },
+      {
+        "workOrderId": "B9671717",
+        "date": "2023-08-30",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9672922",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9672967",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9672970",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673050",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673051",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9673052",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673053",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673054",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673059",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673061",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673080",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673119",
+        "date": "2023-09-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673226",
+        "date": "2023-09-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673227",
+        "date": "2023-09-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673228",
+        "date": "2023-09-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673229",
+        "date": "2023-09-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673448",
+        "date": "2023-09-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9673516",
+        "date": "2023-09-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9680069",
+        "date": "2023-10-11",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9680363",
+        "date": "2023-10-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9680372",
+        "date": "2023-10-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9680377",
+        "date": "2023-10-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9680389",
+        "date": "2023-10-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9785972",
+        "date": "2023-11-30",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9785973",
+        "date": "2023-11-30",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9785974",
+        "date": "2023-11-30",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9785975",
+        "date": "2023-11-30",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9785976",
+        "date": "2023-11-30",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9785977",
+        "date": "2023-11-30",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9785978",
+        "date": "2023-11-30",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9786387",
+        "date": "2023-12-05",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9787886",
+        "date": "2023-12-19",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9787887",
+        "date": "2023-12-19",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9788823",
+        "date": "2023-12-29",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9791810",
+        "date": "2024-01-19",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9813517",
+        "date": "2024-04-30",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9813525",
+        "date": "2024-04-30",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9813526",
+        "date": "2024-04-30",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9813528",
+        "date": "2024-04-30",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9815176",
+        "date": "2024-05-21",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9817261",
+        "date": "2024-06-19",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9825355",
+        "date": "2024-09-23",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9826237",
+        "date": "2024-10-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9831412",
+        "date": "2024-11-04",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9833785",
+        "date": "2024-11-27",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 727.07
+      },
+      {
+        "workOrderId": "B9853681",
+        "date": "2025-07-17",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9856287",
+        "date": "2025-08-08",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9887538",
+        "date": "2026-04-07",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9887596",
+        "date": "2026-04-07",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 725000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "HPP30-0445",
+    "location": {
+      "state": "Florida",
+      "county": "Lee",
+      "lat": 26.735788,
+      "lng": -81.929434
+    },
+    "building": {
+      "yearBuilt": 1998,
+      "roofType": "Concrete Tile",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 435000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9645540",
+        "date": "2023-05-24",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9648101",
+        "date": "2023-06-05",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9648113",
+        "date": "2023-06-05",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 360000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "HPaaron",
+    "location": {
+      "state": "Florida",
+      "county": "Orange",
+      "lat": 28.684655,
+      "lng": -81.544451
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 560000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9645678",
+        "date": "2023-05-24",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9787077",
+        "date": "2023-12-12",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9836179",
+        "date": "2025-01-02",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9839731",
+        "date": "2025-02-25",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9839832",
+        "date": "2025-02-26",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9839854",
+        "date": "2025-02-26",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 199.89
+      },
+      {
+        "workOrderId": "B9859244",
+        "date": "2025-09-04",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 485000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "HPP30-0506",
+    "location": {
+      "state": "Florida",
+      "county": "Lee",
+      "lat": 26.638489,
+      "lng": -81.969562
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Shingle",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 810000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9645895",
+        "date": "2023-05-25",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 125
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 720000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "HPP30-0448",
+    "location": {
+      "state": "Florida",
+      "county": "Lee",
+      "lat": 26.691844,
+      "lng": -81.931796
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 860000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9646125",
+        "date": "2023-05-26",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9646147",
+        "date": "2023-05-26",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0.25
+      },
+      {
+        "workOrderId": "B9646273",
+        "date": "2023-05-29",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 334
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 740000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "IH10058843",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.87239,
+      "lng": -82.33579
+    },
+    "building": {
+      "yearBuilt": 1992,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 2,
+      "replacementValue": 715000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "C9646312",
+        "date": "2023-05-29",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 150
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 595000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU9591",
+    "location": {
+      "state": "Florida",
+      "county": "Polk",
+      "lat": 28.0324345,
+      "lng": -81.6993561
+    },
+    "building": {
+      "yearBuilt": 1993,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 360000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9649615",
+        "date": "2023-06-09",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 315000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "RU3287",
+    "location": {
+      "state": "Florida",
+      "county": "Clay",
+      "lat": 29.9869537,
+      "lng": -81.6873169
+    },
+    "building": {
+      "yearBuilt": 2001,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 485000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9649788",
+        "date": "2023-06-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 435000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "RU7521",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.9878597,
+      "lng": -82.4448624
+    },
+    "building": {
+      "yearBuilt": 1996,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 850000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9649794",
+        "date": "2023-06-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 730000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "IH10004813",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 28.14822,
+      "lng": -82.36229
+    },
+    "building": {
+      "yearBuilt": 1999,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 755000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9650704",
+        "date": "2023-06-16",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 125
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 650000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU7172",
+    "location": {
+      "state": "Florida",
+      "county": "Pinellas",
+      "lat": 27.7473946,
+      "lng": -82.6379547
+    },
+    "building": {
+      "yearBuilt": 2004,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 690000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9650732",
+        "date": "2023-06-17",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 595000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU3473",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.2137566,
+      "lng": -82.7347107
+    },
+    "building": {
+      "yearBuilt": 2001,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 625000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9650734",
+        "date": "2023-06-17",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 540000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "RU6012",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.5285549,
+      "lng": -81.6396103
+    },
+    "building": {
+      "yearBuilt": 2013,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 2,
+      "replacementValue": 815000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9650745",
+        "date": "2023-06-18",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 700000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "RU9243",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.2604923,
+      "lng": -81.7740707
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 645000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9651879",
+        "date": "2023-06-21",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 555000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU5048",
+    "location": {
+      "state": "Florida",
+      "county": "Lake",
+      "lat": 28.8108253,
+      "lng": -81.6316071
+    },
+    "building": {
+      "yearBuilt": 1994,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 790000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9651930",
+        "date": "2023-06-23",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9651944",
+        "date": "2023-06-23",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9651946",
+        "date": "2023-06-23",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 685000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU11978",
+    "location": {
+      "state": "Florida",
+      "county": null,
+      "lat": 0,
+      "lng": 0
+    },
+    "building": {
+      "yearBuilt": 2015,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 435000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9651953",
+        "date": "2023-06-23",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 390000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU11948",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3550529,
+      "lng": -81.6592636
+    },
+    "building": {
+      "yearBuilt": 1992,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 450000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9651992",
+        "date": "2023-06-23",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 385000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU12041",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.7889481,
+      "lng": -81.2816849
+    },
+    "building": {
+      "yearBuilt": 2002,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 770000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9651997",
+        "date": "2023-06-23",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 695000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU3596",
+    "location": {
+      "state": "Florida",
+      "county": "Osceola",
+      "lat": 28.1741257,
+      "lng": -81.4796524
+    },
+    "building": {
+      "yearBuilt": 2010,
+      "roofType": "Concrete Tile",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 425000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9652014",
+        "date": "2023-06-24",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 370000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU9979",
+    "location": {
+      "state": "Florida",
+      "county": "Pinellas",
+      "lat": 27.9014893,
+      "lng": -82.7570877
+    },
+    "building": {
+      "yearBuilt": 2013,
+      "roofType": "Concrete Tile",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 455000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9652531",
+        "date": "2023-06-26",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9652541",
+        "date": "2023-06-26",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 405000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU9673",
+    "location": {
+      "state": "Florida",
+      "county": "Volusia",
+      "lat": 28.8718739,
+      "lng": -81.2485123
+    },
+    "building": {
+      "yearBuilt": 2001,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 775000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9652547",
+        "date": "2023-06-26",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9656430",
+        "date": "2023-07-08",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 645000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "RU4249",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.2886105,
+      "lng": -81.7831879
+    },
+    "building": {
+      "yearBuilt": 2015,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 860000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9652746",
+        "date": "2023-06-27",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 765000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "RU10474",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.9227543,
+      "lng": -82.3052521
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 480000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9653162",
+        "date": "2023-06-28",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9653179",
+        "date": "2023-06-28",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 425000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU6217",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.3045521,
+      "lng": -82.6825333
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 665000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9653985",
+        "date": "2023-06-30",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9672572",
+        "date": "2023-09-06",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9673089",
+        "date": "2023-09-11",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 570000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU3635",
+    "location": {
+      "state": "Florida",
+      "county": "Polk",
+      "lat": 27.9673252,
+      "lng": -81.9586411
+    },
+    "building": {
+      "yearBuilt": 1996,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 440000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9654017",
+        "date": "2023-06-30",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9654027",
+        "date": "2023-06-30",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 395000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "RU3300",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.2379665,
+      "lng": -81.7697906
+    },
+    "building": {
+      "yearBuilt": 1995,
+      "roofType": "Shingle",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 455000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9654155",
+        "date": "2023-07-02",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 390000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU5440",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3416481,
+      "lng": -81.5901947
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 875000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9654463",
+        "date": "2023-07-03",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9681883",
+        "date": "2023-10-18",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 755000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "RU4744",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.8875809,
+      "lng": -82.2901382
+    },
+    "building": {
+      "yearBuilt": 1993,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 415000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9656101",
+        "date": "2023-07-07",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 355000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU5444",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.2643433,
+      "lng": -81.794426
+    },
+    "building": {
+      "yearBuilt": 2002,
+      "roofType": "Shingle",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 345000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9656436",
+        "date": "2023-07-08",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 285000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "LLbp40559",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.9218,
+      "lng": -80.2832
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 1090000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9659976",
+        "date": "2023-07-13",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 1000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 935000,
+      "deductible": 27500
+    }
+  },
+  {
+    "propertyId": "RU12218",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.2849522,
+      "lng": -82.6966782
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 705000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9660657",
+        "date": "2023-07-14",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 585000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU5423",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.6489239,
+      "lng": -81.3598709
+    },
+    "building": {
+      "yearBuilt": 2010,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 500000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9661016",
+        "date": "2023-07-16",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9682232",
+        "date": "2023-10-20",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 435000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU6341",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.2346611,
+      "lng": -82.680336
+    },
+    "building": {
+      "yearBuilt": 2010,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 330000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9661022",
+        "date": "2023-07-16",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 285000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "IH10042499",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.11019,
+      "lng": -80.20429
+    },
+    "building": {
+      "yearBuilt": 2010,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 705000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9661550",
+        "date": "2023-07-17",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 1770
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 565000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "RU11121",
+    "location": {
+      "state": "Florida",
+      "county": "Polk",
+      "lat": 28.1278667,
+      "lng": -81.6573715
+    },
+    "building": {
+      "yearBuilt": 2009,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 440000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9661574",
+        "date": "2023-07-17",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 385000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU11910",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3534641,
+      "lng": -81.6967239
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 545000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9661576",
+        "date": "2023-07-17",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9684249",
+        "date": "2023-11-08",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 470000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU5884",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 28.0153866,
+      "lng": -82.4048309
+    },
+    "building": {
+      "yearBuilt": 2016,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 735000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9662711",
+        "date": "2023-07-19",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 655000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU8114",
+    "location": {
+      "state": "Florida",
+      "county": "Polk",
+      "lat": 28.0081863,
+      "lng": -81.7628784
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 540000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9665386",
+        "date": "2023-07-27",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 500000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU10735",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.2930832,
+      "lng": -81.5436859
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 810000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9667749",
+        "date": "2023-08-08",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 695000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU12060",
+    "location": {
+      "state": "Florida",
+      "county": "Orange",
+      "lat": 28.5651627,
+      "lng": -81.4687958
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Concrete Tile",
+      "constructionType": "Wood Frame",
+      "stories": 2,
+      "replacementValue": 480000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9667753",
+        "date": "2023-08-08",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 10000
+      },
+      {
+        "workOrderId": "B9679163",
+        "date": "2023-10-07",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 445000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "LLbr46843",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.1232,
+      "lng": -80.3385
+    },
+    "building": {
+      "yearBuilt": 2001,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 850000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9667843",
+        "date": "2023-08-09",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 1000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 705000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "LLbp47405",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.2575,
+      "lng": -80.1446
+    },
+    "building": {
+      "yearBuilt": 1997,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 920000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9670589",
+        "date": "2023-08-23",
+        "type": "Structural",
+        "cause": "Structural Damage / Investigation",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9670590",
+        "date": "2023-08-23",
+        "type": "Structural",
+        "cause": "Structural Damage / Investigation",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9670602",
+        "date": "2023-08-23",
+        "type": "Structural",
+        "cause": "Structural Damage / Investigation",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9670604",
+        "date": "2023-08-23",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9670609",
+        "date": "2023-08-23",
+        "type": "Structural",
+        "cause": "Structural Damage / Investigation",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9670612",
+        "date": "2023-08-23",
+        "type": "Glass",
+        "cause": "Glass / Window Breakage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9670614",
+        "date": "2023-08-23",
+        "type": "Glass",
+        "cause": "Glass / Window Breakage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9670624",
+        "date": "2023-08-23",
+        "type": "Glass",
+        "cause": "Glass / Window Breakage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 765000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "JPMCaaron",
+    "location": {
+      "state": "Florida",
+      "county": "Orange",
+      "lat": 28.390682,
+      "lng": -81.377899
+    },
+    "building": {
+      "yearBuilt": 2010,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 2,
+      "replacementValue": 1125000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9670678",
+        "date": "2023-08-24",
+        "type": "Environmental Health & Safety Restoration",
+        "cause": "Repairs & Maintenance",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9784944",
+        "date": "2023-11-17",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 10000
+      },
+      {
+        "workOrderId": "B9786799",
+        "date": "2023-12-08",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 325.63
+      },
+      {
+        "workOrderId": "B9802330",
+        "date": "2024-04-12",
+        "type": "Disaster Response",
+        "cause": "Storm / Disaster Response",
+        "cost": 112.86
+      },
+      {
+        "workOrderId": "B9816229",
+        "date": "2024-06-04",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 10000
+      },
+      {
+        "workOrderId": "B9817846",
+        "date": "2024-07-01",
+        "type": "Window Repair",
+        "cause": "Glass / Window Breakage",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9825579",
+        "date": "2024-09-25",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 62.86
+      },
+      {
+        "workOrderId": "B9825589",
+        "date": "2024-09-25",
+        "type": "Disaster Response",
+        "cause": "Storm / Disaster Response",
+        "cost": 10000
+      },
+      {
+        "workOrderId": "B9825607",
+        "date": "2024-09-25",
+        "type": "Disaster Response",
+        "cause": "Storm / Disaster Response",
+        "cost": 10000
+      },
+      {
+        "workOrderId": "B9851963",
+        "date": "2025-07-07",
+        "type": "Window Repair",
+        "cause": "Glass / Window Breakage",
+        "cost": 2.75
+      },
+      {
+        "workOrderId": "B9853746",
+        "date": "2025-07-17",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 2097.16
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 980000,
+      "deductible": 25000
+    }
+  },
+  {
+    "propertyId": "RU8905",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.276207,
+      "lng": -81.5378799
+    },
+    "building": {
+      "yearBuilt": 2017,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 800000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9671360",
+        "date": "2023-08-28",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 710000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU4613",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.2921772,
+      "lng": -82.6786194
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 725000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672167",
+        "date": "2023-09-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 645000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU4923",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.3143959,
+      "lng": -82.6873016
+    },
+    "building": {
+      "yearBuilt": 2009,
+      "roofType": "Concrete Tile",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 490000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672175",
+        "date": "2023-09-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 420000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU3310",
+    "location": {
+      "state": "Florida",
+      "county": "Manatee",
+      "lat": 27.4639702,
+      "lng": -82.5526428
+    },
+    "building": {
+      "yearBuilt": 2010,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 510000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672176",
+        "date": "2023-09-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 440000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU8340",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3777828,
+      "lng": -81.7184219
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 825000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672180",
+        "date": "2023-09-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 735000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU3319",
+    "location": {
+      "state": "Florida",
+      "county": "Marion",
+      "lat": 29.0139141,
+      "lng": -82.1871185
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 420000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672182",
+        "date": "2023-09-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 390000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "RU7908",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.2916622,
+      "lng": -81.5187607
+    },
+    "building": {
+      "yearBuilt": 2009,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 425000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672192",
+        "date": "2023-09-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9818461",
+        "date": "2024-07-08",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 365000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU5409",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3199539,
+      "lng": -81.7148209
+    },
+    "building": {
+      "yearBuilt": 2002,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 725000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672571",
+        "date": "2023-09-06",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 625000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU5559",
+    "location": {
+      "state": "Florida",
+      "county": "Marion",
+      "lat": 29.1383152,
+      "lng": -82.0921936
+    },
+    "building": {
+      "yearBuilt": 1993,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 490000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672575",
+        "date": "2023-09-06",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 425000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "JPMC142501",
+    "location": {
+      "state": "Florida",
+      "county": "Pinellas",
+      "lat": 27.960331,
+      "lng": -82.799769
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 810000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672659",
+        "date": "2023-09-07",
+        "type": "Disaster Response",
+        "cause": "Storm / Disaster Response",
+        "cost": 10000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 670000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "RU4338",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 28.0255566,
+      "lng": -82.4402847
+    },
+    "building": {
+      "yearBuilt": 2002,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 430000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9672842",
+        "date": "2023-09-08",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 355000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU11929",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.4277248,
+      "lng": -81.6810608
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 535000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9673432",
+        "date": "2023-09-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 475000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "RU12015",
+    "location": {
+      "state": "Florida",
+      "county": null,
+      "lat": 0,
+      "lng": 0
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 725000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9675754",
+        "date": "2023-09-16",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 655000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "RU9778",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3074017,
+      "lng": -81.7865982
+    },
+    "building": {
+      "yearBuilt": 2006,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 605000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9675796",
+        "date": "2023-09-17",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 520000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "RU6025",
+    "location": {
+      "state": "Florida",
+      "county": "Clay",
+      "lat": 30.1050377,
+      "lng": -81.7823486
+    },
+    "building": {
+      "yearBuilt": 1995,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Wood Frame",
+      "stories": 2,
+      "replacementValue": 405000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9675988",
+        "date": "2023-09-18",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 365000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "RU4220",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.9621754,
+      "lng": -82.2965775
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 480000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9675990",
+        "date": "2023-09-18",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 415000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "RU10613",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.3035126,
+      "lng": -82.691391
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 605000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9676001",
+        "date": "2023-09-18",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 500000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU6852",
+    "location": {
+      "state": "Florida",
+      "county": "Lake",
+      "lat": 28.3788471,
+      "lng": -81.6819077
+    },
+    "building": {
+      "yearBuilt": 1988,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 725000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9677790",
+        "date": "2023-09-24",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 655000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "RU11997",
+    "location": {
+      "state": "Florida",
+      "county": "Clay",
+      "lat": 30.1747608,
+      "lng": -81.7401352
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 495000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9678380",
+        "date": "2023-09-27",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 445000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU3501",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3495388,
+      "lng": -81.5680237
+    },
+    "building": {
+      "yearBuilt": 1995,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 395000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9678804",
+        "date": "2023-10-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9678805",
+        "date": "2023-10-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 340000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "RU11972",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3704987,
+      "lng": -81.5874786
+    },
+    "building": {
+      "yearBuilt": 1995,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 610000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9678832",
+        "date": "2023-10-02",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 505000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "IH10052435",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.7844,
+      "lng": -82.31971
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Shingle",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 880000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9678930",
+        "date": "2023-10-03",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 730000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "IH10104241",
+    "location": {
+      "state": "Florida",
+      "county": "Manatee",
+      "lat": 27.40467,
+      "lng": -82.50887
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 705000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9679436",
+        "date": "2023-10-09",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 605000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU5459",
+    "location": {
+      "state": "Florida",
+      "county": "Polk",
+      "lat": 28.0336494,
+      "lng": -81.7249146
+    },
+    "building": {
+      "yearBuilt": 2013,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 730000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9680111",
+        "date": "2023-10-11",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9680112",
+        "date": "2023-10-11",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9681000",
+        "date": "2023-10-13",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9681001",
+        "date": "2023-10-13",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 655000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU4228",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.2542076,
+      "lng": -81.7569122
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 2,
+      "replacementValue": 780000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9681039",
+        "date": "2023-10-15",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 645000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "IH10059166",
+    "location": {
+      "state": "Florida",
+      "county": "Polk",
+      "lat": 27.93655,
+      "lng": -82.00472
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Concrete Tile",
+      "constructionType": "Wood Frame",
+      "stories": 2,
+      "replacementValue": 535000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9682378",
+        "date": "2023-10-23",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9682444",
+        "date": "2023-10-24",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9682575",
+        "date": "2023-10-24",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9789047",
+        "date": "2024-01-03",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9789458",
+        "date": "2024-01-08",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9841186",
+        "date": "2025-03-12",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 480000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU7545",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.2182846,
+      "lng": -82.6766052
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 770000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9682665",
+        "date": "2023-10-24",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 660000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU3485",
+    "location": {
+      "state": "Florida",
+      "county": "Orange",
+      "lat": 28.5481281,
+      "lng": -81.4146729
+    },
+    "building": {
+      "yearBuilt": 2009,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 515000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9682679",
+        "date": "2023-10-24",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 465000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "HPV30-0142",
+    "location": {
+      "state": "Florida",
+      "county": "Manatee",
+      "lat": 27.478087,
+      "lng": -82.38938
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 1085000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9683597",
+        "date": "2023-11-02",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9683601",
+        "date": "2023-11-02",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9789306",
+        "date": "2024-01-05",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 935000,
+      "deductible": 27500
+    }
+  },
+  {
+    "propertyId": "RU9025",
+    "location": {
+      "state": "Florida",
+      "county": "Osceola",
+      "lat": 28.1818504,
+      "lng": -81.497963
+    },
+    "building": {
+      "yearBuilt": 1988,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 480000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9684248",
+        "date": "2023-11-08",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 60000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 430000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "JPMC151219",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.749595,
+      "lng": -80.254359
+    },
+    "building": {
+      "yearBuilt": 1998,
+      "roofType": "Shingle",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 560000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9784890",
+        "date": "2023-11-16",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 10000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 450000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "JPMCjane001",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.641134,
+      "lng": -81.441482
+    },
+    "building": {
+      "yearBuilt": 2000,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 530000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9786638",
+        "date": "2023-12-07",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 10000
+      },
+      {
+        "workOrderId": "B9786883",
+        "date": "2023-12-08",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 10000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 460000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "HPV30-0027",
+    "location": {
+      "state": "Florida",
+      "county": "Palm Beach",
+      "lat": 26.693453,
+      "lng": -80.244887
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 960000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9789211",
+        "date": "2024-01-04",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 825000,
+      "deductible": 25000
+    }
+  },
+  {
+    "propertyId": "HPP30-0342",
+    "location": {
+      "state": "Florida",
+      "county": "St. Johns",
+      "lat": 30.100887,
+      "lng": -81.619984
+    },
+    "building": {
+      "yearBuilt": 1989,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 635000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9794313",
+        "date": "2024-02-01",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 550000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU12227",
+    "location": {
+      "state": "Florida",
+      "county": "Pinellas",
+      "lat": 28.1524029,
+      "lng": -82.7448807
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 490000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9800335",
+        "date": "2024-03-21",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 420000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "IH11111780",
+    "location": {
+      "state": "Florida",
+      "county": "Polk",
+      "lat": 27.9503,
+      "lng": -81.89416
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 2,
+      "replacementValue": 390000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9800883",
+        "date": "2024-03-29",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 210
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 350000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "IH10004610",
+    "location": {
+      "state": "Florida",
+      "county": "Pinellas",
+      "lat": 27.83205,
+      "lng": -82.69422
+    },
+    "building": {
+      "yearBuilt": 2000,
+      "roofType": "Shingle",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 620000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9800989",
+        "date": "2024-04-01",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 535000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "IH10003105",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.252,
+      "lng": -80.22338
+    },
+    "building": {
+      "yearBuilt": 2013,
+      "roofType": "Shingle",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 990000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9801640",
+        "date": "2024-04-08",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 850000,
+      "deductible": 25000
+    }
+  },
+  {
+    "propertyId": "HPV30-0001",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.750181,
+      "lng": -81.304614
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 415000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9802724",
+        "date": "2024-04-16",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 360000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "HPV30-0005",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.174708,
+      "lng": -82.295378
+    },
+    "building": {
+      "yearBuilt": 2001,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 345000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9802735",
+        "date": "2024-04-16",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 285000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "ABCT81002956",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.356745,
+      "lng": -81.483358
+    },
+    "building": {
+      "yearBuilt": 1998,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 495000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9802749",
+        "date": "2024-04-16",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 425000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "IH11111628",
+    "location": {
+      "state": "Florida",
+      "county": "Brevard",
+      "lat": 27.98624,
+      "lng": -80.658081
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 885000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9802993",
+        "date": "2024-04-17",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 790000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "HPP30-0454",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 27.868324,
+      "lng": -82.239108
+    },
+    "building": {
+      "yearBuilt": 2004,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 835000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9803398",
+        "date": "2024-04-19",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9803691",
+        "date": "2024-04-22",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 695000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "HPP30-0520",
+    "location": {
+      "state": "Florida",
+      "county": "Orange",
+      "lat": 28.490809,
+      "lng": -81.585342
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 720000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9803404",
+        "date": "2024-04-19",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9803696",
+        "date": "2024-04-22",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 625000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "HPP30-0072",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.638357,
+      "lng": -81.12641
+    },
+    "building": {
+      "yearBuilt": 2000,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Wood Frame",
+      "stories": 2,
+      "replacementValue": 380000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9803480",
+        "date": "2024-04-19",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9803777",
+        "date": "2024-04-22",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 340000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "HPP30-0160",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.638989,
+      "lng": -81.152993
+    },
+    "building": {
+      "yearBuilt": 1997,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 800000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9803483",
+        "date": "2024-04-19",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9803780",
+        "date": "2024-04-22",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 720000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "IH11111434",
+    "location": {
+      "state": "Florida",
+      "county": "Brevard",
+      "lat": 28.30773,
+      "lng": -80.72713
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 615000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9815225",
+        "date": "2024-05-21",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9833527",
+        "date": "2024-11-22",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9833528",
+        "date": "2024-11-22",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9833530",
+        "date": "2024-11-22",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 530000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "IH10033361",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.23544,
+      "lng": -80.25857
+    },
+    "building": {
+      "yearBuilt": 2002,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 980000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9815727",
+        "date": "2024-05-29",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 785000,
+      "deductible": 27500
+    }
+  },
+  {
+    "propertyId": "JPMCcy001",
+    "location": {
+      "state": "Florida",
+      "county": "Flagler",
+      "lat": 29.556635,
+      "lng": -81.208871
+    },
+    "building": {
+      "yearBuilt": 2013,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 945000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9817838",
+        "date": "2024-07-01",
+        "type": "Window Repair",
+        "cause": "Glass / Window Breakage",
+        "cost": 10000
+      },
+      {
+        "workOrderId": "B9817942",
+        "date": "2024-07-02",
+        "type": "Window Repair",
+        "cause": "Glass / Window Breakage",
+        "cost": 10000
+      },
+      {
+        "workOrderId": "B9830666",
+        "date": "2024-10-26",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 10000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 880000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "RU3932",
+    "location": {
+      "state": "Florida",
+      "county": "Osceola",
+      "lat": 28.1281033,
+      "lng": -81.449295
+    },
+    "building": {
+      "yearBuilt": 1993,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 705000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9818410",
+        "date": "2024-07-07",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 635000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "RU6364",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.2013988,
+      "lng": -81.7947311
+    },
+    "building": {
+      "yearBuilt": 1994,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 645000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9818412",
+        "date": "2024-07-07",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 555000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "RU4788",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.2344818,
+      "lng": -82.6859055
+    },
+    "building": {
+      "yearBuilt": 2000,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 470000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9818414",
+        "date": "2024-07-07",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 405000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU2804",
+    "location": {
+      "state": "Florida",
+      "county": "Clay",
+      "lat": 30.1308918,
+      "lng": -81.7811813
+    },
+    "building": {
+      "yearBuilt": 1991,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 420000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9818580",
+        "date": "2024-07-09",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 380000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "RU7425",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.1927185,
+      "lng": -81.7630005
+    },
+    "building": {
+      "yearBuilt": 2008,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 375000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9818654",
+        "date": "2024-07-10",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 325000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "RU8471",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 28.0626926,
+      "lng": -82.5344849
+    },
+    "building": {
+      "yearBuilt": 2007,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 495000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9818671",
+        "date": "2024-07-10",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 425000,
+      "deductible": 10000
+    }
+  },
+  {
+    "propertyId": "RU8285",
+    "location": {
+      "state": "Florida",
+      "county": "Osceola",
+      "lat": 28.2198811,
+      "lng": -81.4303894
+    },
+    "building": {
+      "yearBuilt": 1990,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 755000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9818917",
+        "date": "2024-07-15",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 300
+      },
+      {
+        "workOrderId": "B9818918",
+        "date": "2024-07-15",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 655000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "IH10032110",
+    "location": {
+      "state": "Florida",
+      "county": "Volusia",
+      "lat": 28.95471,
+      "lng": -81.24593
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 840000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9819450",
+        "date": "2024-07-19",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 720000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "RU4918",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3975563,
+      "lng": -81.718277
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 770000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9819488",
+        "date": "2024-07-19",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 660000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "RU10603",
+    "location": {
+      "state": "Florida",
+      "county": "Orange",
+      "lat": 28.5672894,
+      "lng": -81.5120239
+    },
+    "building": {
+      "yearBuilt": 2005,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 915000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9819489",
+        "date": "2024-07-19",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 825000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "MYPM20240611075038454",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.762081,
+      "lng": -80.1949
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Shingle",
+      "constructionType": "Reinforced Masonry",
+      "stories": 2,
+      "replacementValue": 755000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9823946",
+        "date": "2024-09-06",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 1000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 650000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "SIGaaron",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.641134,
+      "lng": -81.441482
+    },
+    "building": {
+      "yearBuilt": 1997,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 820000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9830903",
+        "date": "2024-10-29",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 26.4
+      },
+      {
+        "workOrderId": "B9833244",
+        "date": "2024-11-20",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 500
+      },
+      {
+        "workOrderId": "B9853485",
+        "date": "2025-07-15",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 715000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "JPMC142744",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.11729,
+      "lng": -80.262282
+    },
+    "building": {
+      "yearBuilt": 2007,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 670000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9833675",
+        "date": "2024-11-27",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 10000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 535000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "PF77578266",
+    "location": {
+      "state": "Florida",
+      "county": "Orange",
+      "lat": 28.4381799,
+      "lng": -81.4728076
+    },
+    "building": {
+      "yearBuilt": 2008,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 780000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9835939",
+        "date": "2024-12-30",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 18.56
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 700000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "PF59967981",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.814804,
+      "lng": -80.3246267
+    },
+    "building": {
+      "yearBuilt": 1997,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 1020000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9836802",
+        "date": "2025-01-14",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 1296.81
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 845000,
+      "deductible": 25000
+    }
+  },
+  {
+    "propertyId": "IH10064433",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 25.99283,
+      "lng": -80.23804
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 740000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9837309",
+        "date": "2025-01-23",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 75
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 615000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "IH10051505",
+    "location": {
+      "state": "Florida",
+      "county": "Palm Beach",
+      "lat": 26.67244,
+      "lng": -80.20625
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Concrete Tile",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 900000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9839940",
+        "date": "2025-02-26",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9839946",
+        "date": "2025-02-26",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 745000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "IHpw110383",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 28.05003,
+      "lng": -82.6056
+    },
+    "building": {
+      "yearBuilt": 1994,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 2,
+      "replacementValue": 640000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9845434",
+        "date": "2025-05-05",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 530000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "SA13514",
+    "location": {
+      "state": "Florida",
+      "county": "Pinellas",
+      "lat": 27.895072,
+      "lng": -82.805724
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 605000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9846596",
+        "date": "2025-05-15",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 540000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "ASG20250701191226",
+    "location": {
+      "state": "Florida",
+      "county": null,
+      "lat": 0,
+      "lng": 0
+    },
+    "building": {
+      "yearBuilt": 2004,
+      "roofType": "Shingle",
+      "constructionType": "Masonry",
+      "stories": 2,
+      "replacementValue": 465000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9851597",
+        "date": "2025-07-02",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 420000,
+      "deductible": 7500
+    }
+  },
+  {
+    "propertyId": "PET2424",
+    "location": {
+      "state": "Florida",
+      "county": "Palm Beach",
+      "lat": 26.725312,
+      "lng": -80.090299
+    },
+    "building": {
+      "yearBuilt": 2015,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 510000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9851791",
+        "date": "2025-07-03",
+        "type": "Glass",
+        "cause": "Glass / Window Breakage",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9851792",
+        "date": "2025-07-03",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 1000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 455000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "IH10018071",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.2449,
+      "lng": -80.20298
+    },
+    "building": {
+      "yearBuilt": 2012,
+      "roofType": "Shingle",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 540000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9852233",
+        "date": "2025-07-08",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 0
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 450000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "PF94445148",
+    "location": {
+      "state": "Florida",
+      "county": "Orange",
+      "lat": 28.3840877,
+      "lng": -81.3162796
+    },
+    "building": {
+      "yearBuilt": 2002,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 670000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9853601",
+        "date": "2025-07-16",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9862742",
+        "date": "2025-10-13",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9865246",
+        "date": "2025-10-31",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9874842",
+        "date": "2025-11-27",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9875824",
+        "date": "2025-12-05",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 200
+      },
+      {
+        "workOrderId": "B9877441",
+        "date": "2025-12-23",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 400
+      },
+      {
+        "workOrderId": "B9877523",
+        "date": "2025-12-24",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 200
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 605000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "IH10058542",
+    "location": {
+      "state": "Florida",
+      "county": "Manatee",
+      "lat": 27.5639,
+      "lng": -82.48327
+    },
+    "building": {
+      "yearBuilt": 1998,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 785000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9853664",
+        "date": "2025-07-16",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 650000,
+      "deductible": 20000
+    }
+  },
+  {
+    "propertyId": "IH002",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.957949,
+      "lng": -80.239287
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 880000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9854378",
+        "date": "2025-07-23",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9854382",
+        "date": "2025-07-23",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9854611",
+        "date": "2025-07-24",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9854612",
+        "date": "2025-07-24",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 0
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 755000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "IH10005583",
+    "location": {
+      "state": "Florida",
+      "county": "Pasco",
+      "lat": 28.17756,
+      "lng": -82.36478
+    },
+    "building": {
+      "yearBuilt": 2000,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 1,
+      "replacementValue": 475000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9859206",
+        "date": "2025-09-03",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 395000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "RU5878",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.3410683,
+      "lng": -81.5674133
+    },
+    "building": {
+      "yearBuilt": 2015,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 845000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9861339",
+        "date": "2025-09-25",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 300
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 725000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "IH10035537",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.29627,
+      "lng": -80.21457
+    },
+    "building": {
+      "yearBuilt": 2009,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 1170000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9875330",
+        "date": "2025-12-02",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9876631",
+        "date": "2025-12-15",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9876633",
+        "date": "2025-12-15",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9876650",
+        "date": "2025-12-15",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9876748",
+        "date": "2025-12-16",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9880687",
+        "date": "2026-01-26",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 970000,
+      "deductible": 30000
+    }
+  },
+  {
+    "propertyId": "LL888888",
+    "location": {
+      "state": "Florida",
+      "county": "Manatee",
+      "lat": 27.476312,
+      "lng": -82.427251
+    },
+    "building": {
+      "yearBuilt": 1993,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 630000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9877413",
+        "date": "2025-12-23",
+        "type": "Glass",
+        "cause": "Glass / Window Breakage",
+        "cost": 500
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 540000,
+      "deductible": 12500
+    }
+  },
+  {
+    "propertyId": "JPMC150421",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.771645,
+      "lng": -80.255787
+    },
+    "building": {
+      "yearBuilt": 2009,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 760000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9878406",
+        "date": "2026-01-02",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 10000
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 610000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "IH10018656",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.18561,
+      "lng": -80.23369
+    },
+    "building": {
+      "yearBuilt": 2001,
+      "roofType": "Shingle",
+      "constructionType": "Reinforced Masonry",
+      "stories": 2,
+      "replacementValue": 710000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9881216",
+        "date": "2026-01-29",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 11
+      },
+      {
+        "workOrderId": "B9881217",
+        "date": "2026-01-29",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 11
+      },
+      {
+        "workOrderId": "B9881218",
+        "date": "2026-01-29",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 11
+      },
+      {
+        "workOrderId": "B9881220",
+        "date": "2026-01-29",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 11
+      },
+      {
+        "workOrderId": "B9881221",
+        "date": "2026-01-29",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 11
+      },
+      {
+        "workOrderId": "B9881222",
+        "date": "2026-01-29",
+        "type": "Exterior",
+        "cause": "Exterior Weathering / Damage",
+        "cost": 11
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 590000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "ARTLOC-26000005615-HWBP-1",
+    "location": {
+      "state": "Florida",
+      "county": "Palm Beach",
+      "lat": 26.6645732,
+      "lng": -80.0530655
+    },
+    "building": {
+      "yearBuilt": 1993,
+      "roofType": "Shingle",
+      "constructionType": "Wood Frame",
+      "stories": 2,
+      "replacementValue": 640000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9883873",
+        "date": "2026-03-03",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 350
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 530000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "IH11",
+    "location": {
+      "state": "Florida",
+      "county": "Lake",
+      "lat": 28.850672,
+      "lng": -81.903183
+    },
+    "building": {
+      "yearBuilt": 2011,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 815000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9887417",
+        "date": "2026-04-03",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      },
+      {
+        "workOrderId": "B9887422",
+        "date": "2026-04-03",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 760000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "IH10004669",
+    "location": {
+      "state": "Florida",
+      "county": "Hillsborough",
+      "lat": 28.03251,
+      "lng": -82.61514
+    },
+    "building": {
+      "yearBuilt": 2018,
+      "roofType": "Concrete Tile",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 960000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9887418",
+        "date": "2026-04-03",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 855000,
+      "deductible": 22500
+    }
+  },
+  {
+    "propertyId": "ART6756AA2B0987C876",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.4799174,
+      "lng": -80.4645919
+    },
+    "building": {
+      "yearBuilt": 2008,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 535000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9888291",
+        "date": "2026-04-15",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 350
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 430000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "TRI12200063",
+    "location": {
+      "state": "Florida",
+      "county": "Duval",
+      "lat": 30.21829,
+      "lng": -81.82063
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Concrete Tile",
+      "constructionType": "Masonry",
+      "stories": 1,
+      "replacementValue": 695000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9889328",
+        "date": "2026-04-23",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 350
+      },
+      {
+        "workOrderId": "B9889333",
+        "date": "2026-04-23",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 350
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 600000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "IH11111833",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.56594,
+      "lng": -80.40629
+    },
+    "building": {
+      "yearBuilt": 1998,
+      "roofType": "Shingle",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 590000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9889523",
+        "date": "2026-04-27",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      },
+      {
+        "workOrderId": "B9890297",
+        "date": "2026-05-06",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 490000,
+      "deductible": 15000
+    }
+  },
+  {
+    "propertyId": "ART082001E1ED9BBBF6",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.1478965,
+      "lng": -80.3205741
+    },
+    "building": {
+      "yearBuilt": 1997,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 915000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9889792",
+        "date": "2026-04-29",
+        "type": "Roof Repair",
+        "cause": "Wind / Weather Damage",
+        "cost": 350
+      },
+      {
+        "workOrderId": "B9891228",
+        "date": "2026-05-15",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 350
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 730000,
+      "deductible": 25000
+    }
+  },
+  {
+    "propertyId": "IH10003063",
+    "location": {
+      "state": "Florida",
+      "county": "Miami-Dade",
+      "lat": 25.93298,
+      "lng": -80.32907
+    },
+    "building": {
+      "yearBuilt": 2014,
+      "roofType": "Shingle",
+      "constructionType": "Concrete Block",
+      "stories": 2,
+      "replacementValue": 675000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9891056",
+        "date": "2026-05-14",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 0
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 580000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "IH10052064",
+    "location": {
+      "state": "Florida",
+      "county": "Seminole",
+      "lat": 28.64374,
+      "lng": -81.15736
+    },
+    "building": {
+      "yearBuilt": 1994,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Block",
+      "stories": 1,
+      "replacementValue": 800000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9891236",
+        "date": "2026-05-15",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 1000
+      },
+      {
+        "workOrderId": "B9891237",
+        "date": "2026-05-15",
+        "type": "Roof Repair",
+        "cause": "Weather Damage",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 695000,
+      "deductible": 17500
+    }
+  },
+  {
+    "propertyId": "IH10032676",
+    "location": {
+      "state": "Florida",
+      "county": "Broward",
+      "lat": 26.11872,
+      "lng": -80.19205
+    },
+    "building": {
+      "yearBuilt": 2003,
+      "roofType": "Standing Seam Metal",
+      "constructionType": "Reinforced Masonry",
+      "stories": 1,
+      "replacementValue": 1145000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9891579",
+        "date": "2026-05-19",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 250
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 950000,
+      "deductible": 27500
+    }
+  },
+  {
+    "propertyId": "TRI92200079",
+    "location": {
+      "state": "Florida",
+      "county": "Clay",
+      "lat": 30.16871,
+      "lng": -81.75031
+    },
+    "building": {
+      "yearBuilt": 1988,
+      "roofType": "Modified Bitumen",
+      "constructionType": "Concrete Tilt-Up",
+      "stories": 1,
+      "replacementValue": 615000
+    },
+    "workOrders": [
+      {
+        "workOrderId": "B9893158",
+        "date": "2026-06-05",
+        "type": "Doors/Windows/Siding",
+        "cause": "Door / Window / Siding Repair",
+        "cost": 350
+      }
+    ],
+    "insurance": {
+      "coverageLimit": 555000,
+      "deductible": 10000
+    }
+  }
+]
