@@ -155,6 +155,69 @@
         }
       }
     },
+    "/api/risk/storm-center/properties": {
+      "get": {
+        "tags": [
+          "Risk"
+        ],
+        "summary": "Get properties near the storm center",
+        "description": "Returns properties within radiusKm of the selected storm timeline center point. Defaults radiusKm to the timeline point impactRadiusKm when omitted.",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": false,
+            "description": "Optional weather event ID. If omitted, the API selects the event that contains the requested time.",
+            "schema": {
+              "type": "string",
+              "example": "FL-HUR-2026-FCST-01"
+            }
+          },
+          {
+            "name": "time",
+            "in": "query",
+            "required": false,
+            "description": "Timeline timestamp used to locate the storm center.",
+            "schema": {
+              "type": "string",
+              "example": "2026-08-17T06:00:00Z"
+            }
+          },
+          {
+            "name": "radiusKm",
+            "in": "query",
+            "required": false,
+            "description": "Search radius in kilometers around the storm center. Defaults to the timeline point impactRadiusKm, or 50 when unavailable.",
+            "schema": {
+              "type": "number",
+              "example": 80
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Storm-center related properties response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StormCenterPropertiesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid timeline point or radius",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/ai/recommendations": {
       "post": {
         "tags": [
@@ -692,6 +755,129 @@
         "properties": {
           "error": {
             "type": "string"
+          }
+        }
+      },
+      "StormCenterPropertiesResponse": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string"
+          },
+          "eventName": {
+            "type": "string"
+          },
+          "eventType": {
+            "type": "string"
+          },
+          "analysisTime": {
+            "type": "string"
+          },
+          "scenarioStage": {
+            "type": "string"
+          },
+          "stormCenter": {
+            "type": "object",
+            "properties": {
+              "lat": {
+                "type": "number"
+              },
+              "lng": {
+                "type": "number"
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          },
+          "radiusKm": {
+            "type": "number"
+          },
+          "matchedProperties": {
+            "type": "integer"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StormCenterPropertyResult"
+            }
+          },
+          "timelinePoint": {
+            "type": "object"
+          },
+          "metadata": {
+            "type": "object"
+          }
+        }
+      },
+      "StormCenterPropertyResult": {
+        "type": "object",
+        "properties": {
+          "propertyId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "market": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "county": {
+            "type": "string"
+          },
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          },
+          "assetType": {
+            "type": "string"
+          },
+          "units": {
+            "type": "integer"
+          },
+          "distanceKm": {
+            "type": "number"
+          },
+          "isAffected": {
+            "type": "boolean"
+          },
+          "riskScore": {
+            "type": "integer"
+          },
+          "riskLevel": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ]
+          },
+          "estimatedRepairExposure": {
+            "type": "number"
+          },
+          "recommendedActions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "recommendedDraftWorkOrders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DraftWorkOrder"
+            }
+          },
+          "recommendedContractors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
           }
         }
       }

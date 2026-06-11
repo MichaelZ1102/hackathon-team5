@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from math import asin, cos, radians, sin, sqrt
 from pathlib import Path
 from uuid import uuid4
 
@@ -114,6 +115,101 @@ def get_risk_properties():
         return jsonify({"error": str(exc)}), 400
 
     return jsonify(result)
+
+
+@app.route("/api/risk/storm-center/properties", methods=["GET"])
+def get_properties_by_storm_center():
+    analysis_time = request.args.get("time", DEFAULT_ANALYSIS_TIME)
+    event_id = request.args.get("eventId")
+
+    try:
+        analysis_time = normalize_analysis_time(analysis_time)
+        weather_data = load_json("weather_events.json")
+        weather_event = select_weather_event_for_time(
+            weather_data, analysis_time, event_id
+        )
+        timeline_point = find_timeline_point(weather_event, analysis_time)
+        if not timeline_point:
+            available_times = ", ".join(
+                point["timestamp"] for point in weather_event.get("timeline", [])
+            )
+            return (
+                jsonify(
+                    {
+                        "error": (
+                            f"No weather timeline point found for {analysis_time} "
+                            f"in event {weather_event['id']}. Available times: {available_times}"
+                        )
+                    }
+                ),
+                400,
+            )
+
+        center, center_source = resolve_storm_center(timeline_point)
+        radius_km = parse_positive_float_arg(
+            "radiusKm", timeline_point.get("impactRadiusKm") or 50
+        )
+        risk_result = analyze_risk(analysis_time, weather_event["id"])
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+
+    properties_data = load_json("properties.json")
+    risk_by_property_id = {
+        property_result["propertyId"]: property_result
+        for property_result in risk_result["properties"]
+    }
+    related_properties = []
+
+    for property_item in properties_data["properties"]:
+        distance_km = calculate_distance_km(
+            center["lat"], center["lng"], property_item["lat"], property_item["lng"]
+        )
+        if distance_km > radius_km:
+            continue
+
+        risk_property = risk_by_property_id.get(property_item["propertyId"])
+        related_properties.append(
+            build_storm_center_property_result(
+                property_item, risk_property, distance_km
+            )
+        )
+
+    related_properties.sort(key=lambda item: (item["distanceKm"], item["propertyId"]))
+
+    return jsonify(
+        {
+            "eventId": weather_event["id"],
+            "eventName": weather_event["name"],
+            "eventType": weather_event["type"],
+            "analysisTime": timeline_point["timestamp"],
+            "scenarioStage": timeline_point.get("phase", timeline_point.get("stageId")),
+            "stormCenter": {
+                "lat": center["lat"],
+                "lng": center["lng"],
+                "source": center_source,
+            },
+            "radiusKm": radius_km,
+            "matchedProperties": len(related_properties),
+            "properties": related_properties,
+            "timelinePoint": {
+                "stageId": timeline_point.get("stageId"),
+                "phase": timeline_point.get("phase"),
+                "windSpeedMph": timeline_point.get("windSpeedMph"),
+                "precipitationMm": timeline_point.get("precipitationMm"),
+                "snowfallCm": timeline_point.get("snowfallCm"),
+                "impactRadiusKm": timeline_point.get("impactRadiusKm"),
+                "confidence": timeline_point.get("confidence"),
+            },
+            "metadata": {
+                "dataType": "synthetic_demo_data",
+                "distanceFormula": "haversine",
+                "importantNote": (
+                    "Related properties are selected by distance from the storm center "
+                    "within radiusKm. This output is for demo purposes only."
+                ),
+            },
+        }
+    )
 
 
 @app.route("/api/ai/recommendations", methods=["POST", "OPTIONS"])
@@ -318,6 +414,88 @@ def find_property(analysis_result, property_id):
         if property_result["propertyId"] == property_id:
             return property_result
     return None
+
+
+def find_timeline_point(weather_event, analysis_time):
+    return next(
+        (
+            point
+            for point in weather_event.get("timeline", [])
+            if point["timestamp"] == analysis_time
+        ),
+        None,
+    )
+
+
+def resolve_storm_center(timeline_point):
+    if timeline_point.get("center"):
+        return timeline_point["center"], "timelinePoint.center"
+
+    geometry = timeline_point.get("geometry", {})
+    coordinates = geometry.get("coordinates")
+    if geometry.get("type") == "Point" and coordinates and len(coordinates) >= 2:
+        return {"lat": coordinates[1], "lng": coordinates[0]}, "timelinePoint.geometry"
+
+    raise ValueError("Selected timeline point does not include a storm center")
+
+
+def parse_positive_float_arg(name, default_value):
+    raw_value = request.args.get(name, default_value)
+    try:
+        value = float(raw_value)
+    except (TypeError, ValueError):
+        raise ValueError(f"{name} must be a positive number")
+
+    if value <= 0:
+        raise ValueError(f"{name} must be a positive number")
+
+    return value
+
+
+def calculate_distance_km(lat1, lng1, lat2, lng2):
+    earth_radius_km = 6371.0088
+    lat1_rad = radians(lat1)
+    lat2_rad = radians(lat2)
+    delta_lat = radians(lat2 - lat1)
+    delta_lng = radians(lng2 - lng1)
+
+    a = (
+        sin(delta_lat / 2) ** 2
+        + cos(lat1_rad) * cos(lat2_rad) * sin(delta_lng / 2) ** 2
+    )
+    return round(earth_radius_km * 2 * asin(sqrt(a)), 2)
+
+
+def build_storm_center_property_result(property_item, risk_property, distance_km):
+    result = {
+        "propertyId": property_item["propertyId"],
+        "name": property_item["name"],
+        "market": property_item["market"],
+        "city": property_item["city"],
+        "county": property_item["county"],
+        "lat": property_item["lat"],
+        "lng": property_item["lng"],
+        "assetType": property_item["assetType"],
+        "units": property_item["units"],
+        "distanceKm": distance_km,
+        "isAffected": bool(risk_property),
+    }
+
+    if risk_property:
+        result.update(
+            {
+                "riskScore": risk_property["riskScore"],
+                "riskLevel": risk_property["riskLevel"],
+                "estimatedRepairExposure": risk_property["estimatedRepairExposure"],
+                "recommendedActions": risk_property["recommendedActions"],
+                "recommendedDraftWorkOrders": risk_property[
+                    "recommendedDraftWorkOrders"
+                ],
+                "recommendedContractors": risk_property["recommendedContractors"],
+            }
+        )
+
+    return result
 
 
 def property_not_found_response(analysis_result, property_id):
