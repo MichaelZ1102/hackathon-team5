@@ -42,3 +42,4 @@ pnpm-debug.log*
 *.swo
 .DS_Store
 Thumbs.db
+flask_api/storage/

@@ -7,12 +7,15 @@ import requests
 from flask import Flask, jsonify, request
 from flask_swagger_ui import get_swaggerui_blueprint
 
+from services.ai_copilot_adapter import run_ai_copilot_analysis
+from services.analysis_scope import resolve_analysis_scope
 from services.content_generator import (
     build_notification_draft,
     build_portfolio_recommendation,
     build_property_recommendation,
 )
 from services.data_loader import load_json, write_json
+from services.portfolio_intelligence_api import build_portfolio_intelligence
 from services.risk_engine import (
     DEFAULT_ANALYSIS_TIME,
     DEFAULT_EVENT_ID,
@@ -115,6 +118,34 @@ def get_risk_properties():
         return jsonify({"error": str(exc)}), 400
 
     return jsonify(result)
+
+
+@app.route("/api/portfolio/intelligence", methods=["GET"])
+def get_portfolio_intelligence():
+    """Read-only Layer 1 Portfolio Intelligence (Phases A + B + C).
+
+    Aggregates assetHealthScore, stormImpactLevel, riskScore_v2, lossForecast,
+    insuranceGap, capitalROI (incl. bestCapitalAction), and the final
+    priorityRanking. Does not modify any state and does not touch Layer 2 /
+    the JS engine / riskScore_v1.
+
+    Optional query parameters define the analysis scope:
+      - portfolioId   (default FL-DEMO)
+      - analysisYear  (default 2026; bounds the work-order window and
+                       valuation validity)
+      - stormEventId  (default: the current demo storm)
+    Calls without parameters keep the previous (default-scope) behavior.
+    """
+    try:
+        scope = resolve_analysis_scope(
+            portfolio_id=request.args.get("portfolioId"),
+            analysis_year=request.args.get("analysisYear"),
+            storm_event_id=request.args.get("stormEventId"),
+        )
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+
+    return jsonify(build_portfolio_intelligence(scope=scope))
 
 
 @app.route("/api/risk/storm-center/properties", methods=["GET"])
@@ -234,6 +265,34 @@ def post_ai_recommendations():
         return jsonify(build_property_recommendation(result, property_result))
 
     return jsonify(build_portfolio_recommendation(result))
+
+
+@app.route("/api/ai-copilot/analyze", methods=["POST", "OPTIONS"])
+def post_ai_copilot_analyze():
+    if request.method == "OPTIONS":
+        return "", 204
+
+    body = request.get_json(silent=True) or {}
+    task_type = body.get("taskType", "portfolio_review")
+    user_question = body.get("userQuestion", "")
+    data_context = body.get("dataContext") or {}
+    # Analysis scope: {"portfolioId": ..., "analysisYear": ..., "stormEventId": ...}.
+    # All fields optional; the backend builds the scoped state itself, so the
+    # frontend never passes raw portfolio data here.
+    scenario = body.get("scenario") or {}
+    # Default to the compact state built from the Portfolio Intelligence output;
+    # callers can opt into the legacy full state with {"compact": false}.
+    compact = body.get("compact", True)
+
+    try:
+        result = run_ai_copilot_analysis(
+            task_type, user_question, data_context, compact=compact, scenario=scenario
+        )
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+
+    status_code = 502 if result.get("mode") == "error" else 200
+    return jsonify(result), status_code
 
 
 @app.route("/api/notifications/draft", methods=["POST", "OPTIONS"])
