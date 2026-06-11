@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetName": "Florida Tornado Response Weather Timeline",
-    "scenarioDate": "2026-06-12",
+    "scenarioDate": "2026-06-11",
     "dataType": "synthetic_demo_data",
     "note": "Uses real Florida county and city names with plausible severe-weather values for hackathon demo purposes."
   },
