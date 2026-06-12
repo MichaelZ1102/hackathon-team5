@@ -28,7 +28,7 @@ from services.analysis_scope import (
 from services.ai_copilot_adapter import build_compact_ai_copilot_state
 
 
-DEMO_STORM_ID = "TOR-FL-2026-0612"
+DEMO_STORM_ID = "FL-HUR-2026-FCST-01"
 
 _AI_PLATFORM_ENV_VARS = (
     "AI_PLATFORM_AGENT_ENDPOINT",
@@ -90,10 +90,13 @@ def test_default_scope_works_and_is_reported(client):
     assert scope["portfolioId"] == DEFAULT_PORTFOLIO_ID
     assert scope["analysisYear"] == DEFAULT_ANALYSIS_YEAR
     assert scope["stormEventId"] == DEMO_STORM_ID
-    # The default scope must select the full demo dataset (no behavior change).
-    assert scope["workOrdersExcluded"] == 0
+    # The 290-property dataset includes stale 2023/2024 work orders that the
+    # default 24-month window must exclude; all valuations are dated <= 2026.
+    assert scope["workOrdersInScope"] > 0
+    assert scope["workOrdersExcluded"] > 0
+    assert scope["valuationsValidForYear"] == 290
     assert scope["valuationsExcluded"] == 0
-    assert data["portfolioSummary"]["totalProperties"] == 14
+    assert data["portfolioSummary"]["totalProperties"] == 290
 
 
 def test_explicit_default_scope_matches_parameterless_call(client):

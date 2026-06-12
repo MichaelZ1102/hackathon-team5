@@ -315,13 +315,13 @@ def test_compute_all_asset_health_on_real_data():
     """Every result from the real mock data conforms to the schema."""
     results = compute_all_asset_health()
 
-    assert len(results) == 14  # current portfolio size
+    assert len(results) == 290  # current portfolio size (main dataset, 2026-06)
     seen_ids = set()
     for result in results:
         _assert_valid_shape(result)
         assert result["metric"] == ASSET_HEALTH_METRIC
         seen_ids.add(result["propertyId"])
-    assert len(seen_ids) == 14  # all unique
+    assert len(seen_ids) == 290  # all unique
 
     # Deterministic ordering: worst health first.
     scores = [r["score"] for r in results]

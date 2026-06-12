@@ -171,6 +171,8 @@ def build_compact_ai_copilot_state(task_type, user_question, data_context=None,
                 "riskScore_v2": rv.get("score"),
                 "riskBand": rv.get("band"),
                 "stormImpactLevel": si.get("level"),
+                "stormImpactScore": si.get("score"),
+                "distanceToStormPathMiles": si.get("distanceMiles"),
                 "lossForecast": lf.get("expectedLoss"),
                 "assetHealthScore": ah.get("score"),
                 "insuranceGap": ig.get("insuranceGap"),
@@ -199,6 +201,10 @@ def build_compact_ai_copilot_state(task_type, user_question, data_context=None,
     compact_summary = {
         "totalProperties": summary.get("totalProperties"),
         "severeImpactCount": summary.get("severeImpactCount"),
+        "affectedPropertyCount": summary.get("affectedPropertyCount"),
+        # All portfolio properties are evaluated; storm impact decays with
+        # distance to the storm path ("None" = outside meaningful range).
+        "stormImpactDistribution": diagnostics.get("stormImpactDistribution"),
         "highRiskCount": summary.get("highRiskCount"),
         "totalLossForecast": summary.get("totalLossForecast"),
         "averageAssetHealthScore": summary.get("averageAssetHealthScore"),
@@ -206,10 +212,10 @@ def build_compact_ai_copilot_state(task_type, user_question, data_context=None,
         "topPriorityPropertyId": summary.get("topPriorityPropertyId"),
         "topRiskDrivers": summary.get("topRiskDrivers", []),
         "calculationVersion": diagnostics.get("calculationVersion"),
-        # Aliases so the shared mock-response builder (which reads propertyCount /
-        # affectedPropertyCount) renders real numbers from the compact summary.
+        # Alias so the shared mock-response builder (which reads propertyCount)
+        # renders real numbers from the compact summary. affectedPropertyCount
+        # above is the real distance-decay rollup (Severe+High+Medium).
         "propertyCount": summary.get("totalProperties"),
-        "affectedPropertyCount": summary.get("severeImpactCount"),
     }
 
     state = {
@@ -427,7 +433,7 @@ def build_mock_ai_copilot_response(state):
     )
 
     key_findings = [
-        f"{summary.get('affectedPropertyCount', 0)} properties appear in the Layer 2 storm analysis.",
+        f"{summary.get('affectedPropertyCount', 0)} properties have Medium-or-worse storm impact (all properties are evaluated; impact decays with distance).",
         f"{len(watch_list)} assets are on the Copilot watch list.",
     ]
     if summary.get("totalLossForecast") is not None:

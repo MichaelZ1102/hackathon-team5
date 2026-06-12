@@ -2,25 +2,44 @@
   "meta": {
     "datasetName": "Simulated Storm Path",
     "dataType": "synthetic_demo_data",
-    "relatedEvent": "TOR-FL-2026-0612 (weather_events.json)",
+    "relatedEvent": "FL-HUR-2026-FCST-01 (weather_events.json)",
     "feeds": "stormImpactLevel (distance-from-path calculation)",
-    "note": "projectedPath crosses central Florida west-to-east, consistent with weather_events.json county timeline (Hillsborough/Pinellas -> Polk/Osceola -> Orange/Seminole/Brevard -> Volusia/Brevard). Synthetic demo data, not an official forecast track."
+    "note": "Projected path derived from the FL-HUR-2026-FCST-01 timeline centers in weather_events.json so Layer 1 and Layer 2 analyze the same storm. windSpeedMph is the timeline maximum; rainfallForecastInches converts the peak precipitationMm. Synthetic demo data, not an official forecast track."
   },
-  "stormEventId": "TOR-FL-2026-0612",
-  "eventName": "Central Florida Severe Storm and Tornado Risk",
-  "eventType": "Tornado-bearing severe storm system",
+  "stormEventId": "FL-HUR-2026-FCST-01",
+  "eventName": "Tropical Storm Marco (forecast)",
+  "eventType": "Hurricane (forecast)",
   "category": 2,
-  "windSpeedMph": 105,
-  "windRadiusMiles": 45,
-  "rainfallForecastInches": 7.5,
-  "impactWindowStart": "2026-06-12T08:00:00-04:00",
-  "impactWindowEnd": "2026-06-12T20:00:00-04:00",
+  "windSpeedMph": 103,
+  "windRadiusMiles": 68,
+  "rainfallForecastInches": 7.1,
+  "impactWindowStart": "2026-08-15T00:00:00Z",
+  "impactWindowEnd": "2026-08-18T12:00:00Z",
   "projectedPath": [
-    {"latitude": 27.85, "longitude": -82.60, "timestamp": "2026-06-12T08:00:00-04:00"},
-    {"latitude": 27.95, "longitude": -82.20, "timestamp": "2026-06-12T11:00:00-04:00"},
-    {"latitude": 28.25, "longitude": -81.55, "timestamp": "2026-06-12T13:00:00-04:00"},
-    {"latitude": 28.52, "longitude": -81.20, "timestamp": "2026-06-12T14:00:00-04:00"},
-    {"latitude": 28.55, "longitude": -80.85, "timestamp": "2026-06-12T17:00:00-04:00"},
-    {"latitude": 28.95, "longitude": -80.85, "timestamp": "2026-06-12T20:00:00-04:00"}
+    {
+      "latitude": 26.5,
+      "longitude": -84.0,
+      "timestamp": "2026-08-15T00:00:00Z"
+    },
+    {
+      "latitude": 27.0,
+      "longitude": -83.5,
+      "timestamp": "2026-08-16T12:00:00Z"
+    },
+    {
+      "latitude": 27.5,
+      "longitude": -82.8,
+      "timestamp": "2026-08-17T06:00:00Z"
+    },
+    {
+      "latitude": 27.8,
+      "longitude": -82.5,
+      "timestamp": "2026-08-17T18:00:00Z"
+    },
+    {
+      "latitude": 28.2,
+      "longitude": -82.0,
+      "timestamp": "2026-08-18T12:00:00Z"
+    }
   ]
 }

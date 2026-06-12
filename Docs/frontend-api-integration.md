@@ -14,7 +14,7 @@ This document describes the current backend API surface for the Property Portfol
 {
   "portfolioId": "FL-DEMO",
   "analysisYear": 2026,
-  "stormEventId": "TOR-FL-2026-0612"
+  "stormEventId": "FL-HUR-2026-FCST-01"
 }
 ```
 
@@ -52,10 +52,10 @@ Primary JSON datasets:
 
 | File | Main collection | Key fields | Used for |
 | --- | --- | --- | --- |
-| `mock_data/properties.json` | `properties[]` | `propertyId`, `name`, `market`, `city`, `county`, `lat`, `lng`, `assetType`, `units`, `yearBuilt`, `roofAgeYears`, `hvacAvgAgeYears`, `occupancyRate`, `exteriorCondition`, `treeCanopyRisk`, `floodZoneExposure` | Property master data, map/table display, asset vulnerability inputs |
-| `mock_data/weather_events.json` | `event`, `timeline[]` | `eventId`, timeline `time`, `stage`, `centerLat`, `centerLng`, `affectedCounties[]`, county `riskLevel`, `windSpeedMph`, `tornadoProbability`, `hailRisk` | Layer 2 storm timeline and county risk |
-| `mock_data/storm_path.json` | storm path object | `stormEventId`, `eventName`, `windSpeedMph`, `rainfallForecastInches`, `impactWindowStart`, `impactWindowEnd`, `projectedPath[]` | Layer 1 `stormImpactLevel` distance/path calculation |
-| `mock_data/work_orders.json` | `workOrders[]` | `workOrderId`, `propertyId`, `category`, `createdDate`, `completedDate`, `cost`, `status`, `isRepeatIssue`, `contractorId` | `assetHealthScore`, maintenance risk, draft work-order context |
+| `mock_data/properties.json` (290 properties) | `properties[]` | `propertyId`, `name`, `market`, `city`, `county`, `lat`, `lng`, `assetType`, `units`, `yearBuilt`, `roofAgeYears`, `hvacAvgAgeYears`, `occupancyRate`, `exteriorCondition`, `treeCanopyRisk`, `floodZoneExposure` | Property master data, map/table display, asset vulnerability inputs |
+| `mock_data/weather_events.json` | `events[]` (multi-event) | event `id`, `name`, `type`, `severity`, `timeRange`, `track`, timeline `timestamp`, `phase`, `center`, `windSpeedMph`, `precipitationMm`, `impactRadiusKm` | Layer 2 storm timeline; default event `FL-HUR-2026-FCST-01` |
+| `mock_data/storm_path.json` | storm path object | `stormEventId`, `eventName`, `windSpeedMph`, `rainfallForecastInches`, `impactWindowStart`, `impactWindowEnd`, `projectedPath[]` | Layer 1 storm distance-decay calculation; derived from the `FL-HUR-2026-FCST-01` timeline so Layer 1 and Layer 2 analyze the same storm |
+| `mock_data/work_orders.json` | `workOrders[]` | `workOrderId`, `propertyId`, `category`, `createdDate`, `completedDate`, `cost`, `status`, `isRepeatIssue`, `contractorId` | `assetHealthScore`, maintenance risk, draft work-order context (353 records spanning 2023-2026; the analysis-scope window excludes stale history) |
 | `mock_data/valuations.json` | `valuations[]` | `propertyId`, `replacementValue`, `marketValue`, `insuredValue`, `lastValuationDate` | `lossForecast`, `riskScore_v2` asset-value component |
 | `mock_data/lease_exposure.json` | `leaseExposure[]` | `propertyId`, `occupiedUnits`, `vacantUnits`, `renewalsDueNext90Days`, `averageMonthlyRent`, `atRiskResidentCount` | Layer 2 business/resident exposure |
 | `mock_data/contractors.json` | `contractors[]` | `contractorId`, `name`, `serviceType`, `serviceCounties`, `availableWithinHours`, `rating`, `averageCostLevel` | Embedded contractor recommendations in Layer 2 property results |
@@ -67,7 +67,7 @@ Important data relationships:
 
 - `propertyId` is the primary join key across properties, work orders, valuations, lease exposure, insurance policies, capital actions, and many Layer 1/Layer 2 outputs.
 - `contractorId` links historical work orders and contractor directory records, while current contractor recommendations are returned as embedded recommendation objects.
-- `stormEventId` links the default scenario (`TOR-FL-2026-0612`) to storm path and weather event context.
+- `stormEventId` links the default scenario (`FL-HUR-2026-FCST-01`) to storm path and weather event context.
 - The demo portfolio is `FL-DEMO`; the resolver falls back to this dataset when unknown portfolio IDs are supplied.
 - The default analysis year is `2026`; it controls valuation validity and the rolling work-order lookback window.
 - Each JSON file includes `meta` describing synthetic demo data. The API may return `meta`, `metadata`, or `diagnostics` depending on the endpoint; use these fields for non-blocking UI notes.
@@ -91,7 +91,7 @@ Frontend implications:
 const defaultScenario = {
   portfolioId: "FL-DEMO",
   analysisYear: 2026,
-  stormEventId: "TOR-FL-2026-0612",
+  stormEventId: "FL-HUR-2026-FCST-01",
 };
 ```
 
@@ -163,14 +163,14 @@ Calling without query parameters uses the default demo scenario:
 {
   "portfolioId": "FL-DEMO",
   "analysisYear": 2026,
-  "stormEventId": "TOR-FL-2026-0612"
+  "stormEventId": "FL-HUR-2026-FCST-01"
 }
 ```
 
 ## Example Request
 
 ```http
-GET /api/portfolio/intelligence?portfolioId=FL-DEMO&analysisYear=2026&stormEventId=TOR-FL-2026-0612
+GET /api/portfolio/intelligence?portfolioId=FL-DEMO&analysisYear=2026&stormEventId=FL-HUR-2026-FCST-01
 ```
 
 ```js
@@ -179,7 +179,7 @@ const response = await fetch(
     new URLSearchParams({
       portfolioId: "FL-DEMO",
       analysisYear: "2026",
-      stormEventId: "TOR-FL-2026-0612",
+      stormEventId: "FL-HUR-2026-FCST-01",
     })
 );
 const data = await response.json();
@@ -190,26 +190,29 @@ const data = await response.json();
 ```json
 {
   "portfolioSummary": {
-    "totalProperties": 14,
-    "severeImpactCount": 8,
-    "highRiskCount": 4,
-    "totalLossForecast": 23526415.74,
-    "averageAssetHealthScore": 63.2,
-    "totalInsuranceGap": 630502.4,
-    "topPriorityPropertyId": "FL-LAK-044",
+    "totalProperties": 290,
+    "severeImpactCount": 63,
+    "affectedPropertyCount": 217,
+    "highRiskCount": 31,
+    "totalLossForecast": 156240671.64,
+    "averageAssetHealthScore": 66.4,
+    "totalInsuranceGap": 2722571.53,
+    "topPriorityPropertyId": "STORMPATH-006",
     "topRiskDrivers": []
   },
   "propertyIntelligenceResults": [
     {
-      "propertyId": "FL-ORL-102",
-      "propertyName": "Orlando Lakeside Villas",
-      "county": "Orange",
+      "propertyId": "STORMPATH-006",
+      "propertyName": "St. Petersburg Harbor Apartments 0006",
+      "county": "Pinellas",
       "location": {
-        "city": "Orlando",
-        "market": "Orlando",
-        "lat": 28.5383,
-        "lng": -81.3792
+        "city": "St. Petersburg",
+        "market": "Tampa Bay",
+        "lat": 27.7731,
+        "lng": -82.64
       },
+      "distanceToStormPathMiles": 5.2,
+      "stormImpactScore": 100,
       "assetHealthScore": {},
       "stormImpactLevel": {},
       "riskScore_v2": {},
@@ -225,14 +228,16 @@ const data = await response.json();
   "watchList": [
     {
       "watchRank": 1,
-      "propertyId": "FL-ORL-102",
-      "propertyName": "Orlando Lakeside Villas",
-      "county": "Orange",
-      "riskScore_v2": 72,
+      "propertyId": "STORMPATH-006",
+      "propertyName": "St. Petersburg Harbor Apartments 0006",
+      "county": "Pinellas",
+      "riskScore_v2": 83,
       "riskBand": "High",
       "stormImpactLevel": "Severe",
-      "lossForecast": 3532464,
-      "assetHealthScore": 44,
+      "stormImpactScore": 100,
+      "distanceToStormPathMiles": 5.2,
+      "lossForecast": 4051368.19,
+      "assetHealthScore": 49,
       "drivers": [],
       "confidence": "High",
       "note": "Compatibility list (pre-Phase C sort); see finalPriorityList for the final priorityRanking."
@@ -241,19 +246,22 @@ const data = await response.json();
   "finalPriorityList": [
     {
       "priorityRank": 1,
-      "priorityScore": 82.6,
-      "propertyId": "FL-LAK-044",
-      "propertyName": "Lakeland Grove Apartments",
-      "county": "Polk",
-      "riskScore_v2": 80,
-      "lossForecast": 2680502.4,
-      "assetHealthScore": 24,
-      "insuranceGap": 630502.4,
+      "priorityScore": 83.1,
+      "propertyId": "STORMPATH-006",
+      "propertyName": "St. Petersburg Harbor Apartments 0006",
+      "county": "Pinellas",
+      "stormImpactLevel": "Severe",
+      "stormImpactScore": 100,
+      "distanceToStormPathMiles": 5.2,
+      "riskScore_v2": 83,
+      "lossForecast": 4051368.19,
+      "assetHealthScore": 49,
+      "insuranceGap": 1678368.19,
       "bestCapitalAction": {
-        "capitalActionId": "CAP-LAK-2",
+        "capitalActionId": "CAP-STORMPATH-006-2",
         "actionType": "Envelope Sealing",
-        "estimatedCost": 75000.0,
-        "capitalROI": 17.87
+        "estimatedCost": 112000.0,
+        "capitalROI": 18.09
       },
       "rankingDrivers": [],
       "confidence": "High"
@@ -261,14 +269,14 @@ const data = await response.json();
   ],
   "capitalActionResults": [
     {
-      "propertyId": "FL-ORL-102",
+      "propertyId": "STORMPATH-006",
       "metric": "capitalROI",
-      "capitalActionId": "CAP-ORL-1",
-      "actionType": "Roof Replacement",
-      "estimatedCost": 620000.0,
-      "estimatedRiskReduction": 0.24,
-      "estimatedAvoidedLoss": 4238956.8,
-      "capitalROI": 6.84,
+      "capitalActionId": "CAP-STORMPATH-006-2",
+      "actionType": "Envelope Sealing",
+      "estimatedCost": 112000.0,
+      "estimatedRiskReduction": 0.10,
+      "estimatedAvoidedLoss": 2025684.1,
+      "capitalROI": 18.09,
       "horizonYears": 5,
       "drivers": [],
       "confidence": "High",
@@ -280,16 +288,16 @@ const data = await response.json();
     "analysisScope": {
       "portfolioId": "FL-DEMO",
       "analysisYear": 2026,
-      "stormEventId": "TOR-FL-2026-0612",
-      "requestedStormEventId": "TOR-FL-2026-0612",
+      "stormEventId": "FL-HUR-2026-FCST-01",
+      "requestedStormEventId": "FL-HUR-2026-FCST-01",
       "workOrderWindow": {
         "start": "2024-12-31",
         "end": "2026-12-31",
         "lookbackMonths": 24
       },
-      "workOrdersInScope": 0,
-      "workOrdersExcluded": 0,
-      "valuationsValidForYear": 0,
+      "workOrdersInScope": 114,
+      "workOrdersExcluded": 239,
+      "valuationsValidForYear": 290,
       "valuationsExcluded": 0,
       "notes": []
     },
@@ -309,30 +317,59 @@ const data = await response.json();
 }
 ```
 
+## Storm Impact Decay Model
+
+Storm impact is **not binary** and **not county membership**: every portfolio
+property is evaluated, and impact decays with distance to the projected storm
+path.
+
+- `stormImpactScore` (0-100): base score by distance band — ≤10 mi: 95-100,
+  ≤25 mi: 80-94, ≤50 mi: 60-79, ≤100 mi: 30-59, ≤200 mi: 1-29, >200 mi: 0 —
+  with small intensity bonuses (wind ≥100 mph +5, rainfall ≥8 in +3, High
+  flood zone +5) that apply only to in-range properties.
+- `stormImpactLevel`: derived from the score — `Severe` (80+), `High` (60+),
+  `Medium` (30+), `Low` (1+), `None` (0). `None` means the property sits
+  outside meaningful storm impact range: its storm damage ratio is 0 (so
+  `lossForecast` is 0 when a valuation exists), but `riskScore_v2`,
+  `assetHealthScore`, `insuranceGap`, and `priorityRanking` are all still
+  computed — non-storm factors can still make a distant asset a priority.
+- `distanceToStormPathMiles`: the input distance, exposed per property for
+  display and sorting.
+- `portfolioSummary.affectedPropertyCount` = properties with level
+  `Severe`, `High`, or `Medium`. This is a derived distance-decay rollup —
+  **not** a county boolean (see `diagnostics.affectedDefinition`).
+- `diagnostics.stormImpactDistribution` gives the portfolio-wide count per
+  level; the five counts always sum to `totalProperties`.
+
+Frontend guidance: render all properties (the map/table is portfolio-wide, not
+an "affected list"), use `stormImpactScore` for continuous color/size scales,
+`stormImpactLevel` for chips/filters, and show `None` as evaluated-but-out-of-
+range rather than missing data.
+
 ## Phase C Example: insuranceGap (underinsured property)
 
-The demo dataset includes one intentionally underinsured property (FL-LAK-044; the carrier cut the windstorm limit at the 2026 renewal — see the `note` on `POL-LAK-044`). Its per-property `insuranceGap` object renders like this:
+The demo dataset includes one intentionally underinsured property (STORMPATH-006, the top-priority asset; the carrier cut the windstorm limit at the 2026 renewal — see the `note` on `POL-STORMPATH-006`). Its per-property `insuranceGap` object renders like this:
 
 ```json
 {
-  "propertyId": "FL-LAK-044",
+  "propertyId": "STORMPATH-006",
   "metric": "insuranceGap",
-  "insuranceGap": 630502.4,
-  "coverageLimit": 1750000.0,
-  "applicableDeductible": 300000.0,
-  "coveredAmount": 1750000.0,
+  "insuranceGap": 1678368.19,
+  "coverageLimit": 1900000.0,
+  "applicableDeductible": 473000.0,
+  "coveredAmount": 1900000.0,
   "deductibleType": "namedStorm",
-  "policyId": "POL-LAK-044",
+  "policyId": "POL-STORMPATH-006",
   "drivers": [
-    "namedStorm deductible $300,000 applied",
-    "Forecast loss $2,680,502 exceeds coverage by $630,502"
+    "namedStorm deductible $473,000 applied",
+    "Forecast loss $4,051,368 exceeds coverage by $1,678,368"
   ],
   "confidence": "High",
   "dataQualityNotes": []
 }
 ```
 
-Fully covered properties return the same shape with `"insuranceGap": 0.0`; properties whose policy or loss forecast is missing return `"insuranceGap": null` with explanatory `dataQualityNotes`. `portfolioSummary.totalInsuranceGap` sums the computable gaps (currently `630502.4`).
+Fully covered properties return the same shape with `"insuranceGap": 0.0`; properties whose policy or loss forecast is missing return `"insuranceGap": null` with explanatory `dataQualityNotes`. `portfolioSummary.totalInsuranceGap` sums the computable gaps (currently `2722571.53` across STORMPATH-006 and GPS0041213).
 
 ## Key Response Fields for Frontend Rendering
 
@@ -344,7 +381,10 @@ Fully covered properties return the same shape with `"insuranceGap": 0.0`; prope
 - `portfolioSummary.topRiskDrivers`: concise portfolio risk-driver list.
 - `propertyIntelligenceResults[]`: per-property calculated Layer 1 result envelope.
 - `propertyIntelligenceResults[].assetHealthScore`: calculated asset-health metric object.
-- `propertyIntelligenceResults[].stormImpactLevel`: calculated storm-impact metric object.
+- `propertyIntelligenceResults[].stormImpactLevel`: calculated storm-impact metric object. Levels are `Severe`/`High`/`Medium`/`Low`/`None` — ALL properties are evaluated; impact decays with distance to the storm path, and `None` means outside meaningful impact range (lossForecast 0, riskScore_v2 still computed).
+- `propertyIntelligenceResults[].stormImpactScore`: 0-100 distance-decayed score (top level, also inside the metric object).
+- `propertyIntelligenceResults[].distanceToStormPathMiles`: distance from the property to the projected storm path.
+- `diagnostics.stormImpactDistribution`: property counts per storm impact level; `portfolioSummary.affectedPropertyCount` = Severe+High+Medium (see `diagnostics.affectedDefinition` — not a county boolean).
 - `propertyIntelligenceResults[].riskScore_v2`: calculated Layer 1 risk score object.
 - `propertyIntelligenceResults[].lossForecast`: calculated loss forecast object.
 - `propertyIntelligenceResults[].insuranceGap`: uncovered forecast loss after deductible and coverage limit (Phase C).
@@ -401,7 +441,7 @@ Call after portfolio intelligence has loaded, or whenever scenario scope or user
   "scenario": {
     "portfolioId": "FL-DEMO",
     "analysisYear": 2026,
-    "stormEventId": "TOR-FL-2026-0612"
+    "stormEventId": "FL-HUR-2026-FCST-01"
   },
   "dataContext": {
     "requestedMetrics": ["insuranceGap", "capitalROI", "priorityRanking"]
@@ -455,7 +495,7 @@ const response = await fetch(`${apiBaseUrl}/api/ai-copilot/analyze`, {
     scenario: {
       portfolioId: "FL-DEMO",
       analysisYear: 2026,
-      stormEventId: "TOR-FL-2026-0612",
+      stormEventId: "FL-HUR-2026-FCST-01",
     },
     dataContext: {
       requestedMetrics: ["insuranceGap", "capitalROI", "priorityRanking"],
@@ -479,7 +519,7 @@ const data = await response.json();
     "analysisScope": {
       "portfolioId": "FL-DEMO",
       "analysisYear": 2026,
-      "stormEventId": "TOR-FL-2026-0612",
+      "stormEventId": "FL-HUR-2026-FCST-01",
       "workOrderWindow": {
         "start": "2024-12-31",
         "end": "2026-12-31",
@@ -592,7 +632,7 @@ Frontend should:
 
 ## Purpose
 
-Returns the synthetic tornado weather event and timeline points used by the Layer 2 operational response demo.
+Returns the selected synthetic weather event (default: forecast hurricane FL-HUR-2026-FCST-01) and its timeline points used by the Layer 2 operational response demo.
 
 This endpoint is a direct API view over the weather timeline JSON shape, not a live weather feed.
 
@@ -630,11 +670,15 @@ const data = await response.json();
   "event": {},
   "timeline": [
     {
-      "timestamp": "2026-06-12T14:00:00-04:00",
-      "stage": "Peak tornado risk",
-      "countyRisk": []
+      "timestamp": "2026-08-17T06:00:00Z",
+      "phase": "landfall",
+      "center": { "lat": 27.5, "lng": -82.8 },
+      "windSpeedMph": 103
     }
   ],
+  "timelinePoint": null,
+  "events": [],
+  "metadata": {},
   "meta": {}
 }
 ```
@@ -692,14 +736,14 @@ None.
 
 ## Default Behavior
 
-Uses the peak tornado-risk default analysis time.
+Uses the default landfall analysis time of the forecast hurricane event.
 
 ## Example Request
 
 ```js
 const response = await fetch(
   `${apiBaseUrl}/api/risk/properties?` +
-    new URLSearchParams({ time: "2026-06-12T14:00:00-04:00" })
+    new URLSearchParams({ time: "2026-08-17T06:00:00Z" })
 );
 const data = await response.json();
 ```
@@ -708,18 +752,18 @@ const data = await response.json();
 
 ```json
 {
-  "eventId": "TOR-FL-2026-0612",
-  "analysisTime": "2026-06-12T14:00:00-04:00",
-  "scenarioStage": "Peak tornado risk",
+  "eventId": "FL-HUR-2026-FCST-01",
+  "analysisTime": "2026-08-17T06:00:00Z",
+  "scenarioStage": "landfall",
   "portfolioSummary": {},
   "properties": [
     {
-      "propertyId": "FL-ORL-102",
-      "name": "Orlando Lakeside Villas",
-      "market": "Orlando",
-      "city": "Orlando",
-      "county": "Orange",
-      "riskScore": 81,
+      "propertyId": "SA000",
+      "name": "Tampa Commons A000",
+      "market": "Tampa",
+      "city": "Tampa",
+      "county": "Hillsborough",
+      "riskScore": 83,
       "riskLevel": "Critical",
       "estimatedRepairExposure": 78000,
       "scoreBreakdown": {},
@@ -778,8 +822,8 @@ Use for legacy/demo recommendation panels if needed. Prefer `/api/ai-copilot/ana
 
 ```json
 {
-  "time": "2026-06-12T14:00:00-04:00",
-  "propertyId": "FL-ORL-102"
+  "time": "2026-08-17T06:00:00Z",
+  "propertyId": "SA000"
 }
 ```
 
@@ -803,8 +847,8 @@ const response = await fetch(`${apiBaseUrl}/api/ai/recommendations`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    time: "2026-06-12T14:00:00-04:00",
-    propertyId: "FL-ORL-102",
+    time: "2026-08-17T06:00:00Z",
+    propertyId: "SA000",
   }),
 });
 ```
@@ -854,8 +898,8 @@ Call when a user opens a notification-draft workflow for a specific affected pro
 
 ```json
 {
-  "time": "2026-06-12T14:00:00-04:00",
-  "propertyId": "FL-ORL-102"
+  "time": "2026-08-17T06:00:00Z",
+  "propertyId": "SA000"
 }
 ```
 
@@ -878,8 +922,8 @@ const response = await fetch(`${apiBaseUrl}/api/notifications/draft`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    propertyId: "FL-ORL-102",
-    time: "2026-06-12T14:00:00-04:00",
+    propertyId: "SA000",
+    time: "2026-08-17T06:00:00Z",
   }),
 });
 ```
@@ -889,10 +933,10 @@ const response = await fetch(`${apiBaseUrl}/api/notifications/draft`, {
 ```json
 {
   "generationMode": "template",
-  "eventId": "TOR-FL-2026-0612",
-  "analysisTime": "2026-06-12T14:00:00-04:00",
-  "propertyId": "FL-ORL-102",
-  "propertyName": "Orlando Lakeside Villas",
+  "eventId": "FL-HUR-2026-FCST-01",
+  "analysisTime": "2026-08-17T06:00:00Z",
+  "propertyId": "SA000",
+  "propertyName": "Tampa Commons A000",
   "riskLevel": "Critical",
   "sms": "string",
   "pushNotification": {},
@@ -937,8 +981,8 @@ Call when a user views operational response tasks for a specific affected proper
 
 ```json
 {
-  "time": "2026-06-12T14:00:00-04:00",
-  "propertyId": "FL-ORL-102"
+  "time": "2026-08-17T06:00:00Z",
+  "propertyId": "SA000"
 }
 ```
 
@@ -961,8 +1005,8 @@ const response = await fetch(`${apiBaseUrl}/api/work-orders/draft`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    propertyId: "FL-ORL-102",
-    time: "2026-06-12T14:00:00-04:00",
+    propertyId: "SA000",
+    time: "2026-08-17T06:00:00Z",
   }),
 });
 ```
@@ -971,10 +1015,10 @@ const response = await fetch(`${apiBaseUrl}/api/work-orders/draft`, {
 
 ```json
 {
-  "eventId": "TOR-FL-2026-0612",
-  "analysisTime": "2026-06-12T14:00:00-04:00",
-  "propertyId": "FL-ORL-102",
-  "propertyName": "Orlando Lakeside Villas",
+  "eventId": "FL-HUR-2026-FCST-01",
+  "analysisTime": "2026-08-17T06:00:00Z",
+  "propertyId": "SA000",
+  "propertyName": "Tampa Commons A000",
   "riskLevel": "Critical",
   "riskScore": 81,
   "draftWorkOrders": [
@@ -1027,8 +1071,8 @@ Call only after the user explicitly confirms a draft work order.
 
 ```json
 {
-  "time": "2026-06-12T14:00:00-04:00",
-  "propertyId": "FL-ORL-102",
+  "time": "2026-08-17T06:00:00Z",
+  "propertyId": "SA000",
   "draftIndex": 0,
   "confirmedBy": "demo-user"
 }
@@ -1061,7 +1105,7 @@ const response = await fetch(`${apiBaseUrl}/api/work-orders/confirm`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    propertyId: "FL-ORL-102",
+    propertyId: "SA000",
     draftIndex: 0,
     confirmedBy: currentUserId ?? "demo-user",
   }),
@@ -1077,10 +1121,10 @@ const response = await fetch(`${apiBaseUrl}/api/work-orders/confirm`, {
   "status": "Confirmed",
   "confirmedAt": "2026-06-11T00:00:00+00:00",
   "confirmedBy": "demo-user",
-  "eventId": "TOR-FL-2026-0612",
-  "analysisTime": "2026-06-12T14:00:00-04:00",
-  "propertyId": "FL-ORL-102",
-  "propertyName": "Orlando Lakeside Villas",
+  "eventId": "FL-HUR-2026-FCST-01",
+  "analysisTime": "2026-08-17T06:00:00Z",
+  "propertyId": "SA000",
+  "propertyName": "Tampa Commons A000",
   "riskLevel": "Critical",
   "riskScore": 81,
   "draftIndex": 0,
@@ -1140,7 +1184,7 @@ A dedicated endpoint such as `GET /api/contractors/recommendations` or `POST /ap
 const defaultScenario = {
   portfolioId: "FL-DEMO",
   analysisYear: 2026,
-  stormEventId: "TOR-FL-2026-0612",
+  stormEventId: "FL-HUR-2026-FCST-01",
 };
 
 async function loadPortfolioIntelligence(scenario = defaultScenario) {
@@ -1208,7 +1252,7 @@ async function refreshScenario(scenario = defaultScenario) {
 
 # Known Gaps
 
-- Only one demo property (FL-LAK-044, intentionally underinsured per `insurance_policies.json` meta note) has a nonzero `insuranceGap`; all other coverage limits exceed their forecast losses.
+- Two demo properties are intentionally underinsured per the `insurance_policies.json` meta note: STORMPATH-006 (platform focal, $1.68M gap) and GPS0041213 (visible in the hackeron frontend's Tampa portfolio, $1.04M gap); all other coverage limits exceed their forecast losses.
 - `watchList` survives only for backward compatibility; new UI should read `finalPriorityList`.
 - No dedicated contractor recommendation endpoint exists; contractor recommendations are embedded in Layer 2 property results.
 - `POST /api/work-orders/confirm` creates a local mock confirmation, not a real external work-order system record.

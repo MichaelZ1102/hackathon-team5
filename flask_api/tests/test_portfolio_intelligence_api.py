@@ -46,7 +46,7 @@ def test_top_level_shape(client):
 def test_each_property_has_all_phase_a_b_metrics(client):
     data = client.get("/api/portfolio/intelligence").get_json()
     results = data["propertyIntelligenceResults"]
-    assert len(results) == 14
+    assert len(results) == 290
     for r in results:
         for key in (
             "propertyId", "propertyName", "county", "location",
@@ -68,7 +68,7 @@ def test_portfolio_summary_fields(client):
         "totalLossForecast", "averageAssetHealthScore", "topRiskDrivers",
     ):
         assert key in summary
-    assert summary["totalProperties"] == 14
+    assert summary["totalProperties"] == 290
     assert isinstance(summary["topRiskDrivers"], list)
 
 
@@ -162,5 +162,5 @@ def test_layer2_endpoints_still_work(client):
 def test_builder_callable_directly():
     """The aggregation builder works without the HTTP layer (used by AI Copilot later)."""
     payload = build_portfolio_intelligence()
-    assert payload["portfolioSummary"]["totalProperties"] == 14
-    assert len(payload["propertyIntelligenceResults"]) == 14
+    assert payload["portfolioSummary"]["totalProperties"] == 290
+    assert len(payload["propertyIntelligenceResults"]) == 290

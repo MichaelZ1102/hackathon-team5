@@ -3,23 +3,2909 @@
     "datasetName": "Property Valuations",
     "dataType": "synthetic_demo_data",
     "foreignKey": "propertyId -> properties.json",
-    "feeds": "lossForecast, riskScore_v2 (assetValue factor)",
-    "note": "All values USD. Synthetic demo data, not official appraisals."
+    "feeds": "lossForecast, riskScore_v2 (assetValue)",
+    "note": "Synthetic values derived deterministically from property attributes (units x per-unit cost by assetType, adjusted by assetClass and age, with an id-hash jitter). Regenerated 2026-06-12 for the 290-property dataset; not real valuations."
   },
   "valuations": [
-    {"propertyId": "FL-ORL-102", "replacementValue": 14800000, "marketValue": 17200000, "insuredValue": 14000000, "buildingValue": 12600000, "contentsValue": 1400000, "lastValuationDate": "2025-09-15", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-WPK-118", "replacementValue": 13900000, "marketValue": 18500000, "insuredValue": 13900000, "buildingValue": 12100000, "contentsValue": 1800000, "lastValuationDate": "2025-11-02", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-KIS-031", "replacementValue": 7200000, "marketValue": 8400000, "insuredValue": 6800000, "buildingValue": 6200000, "contentsValue": 1000000, "lastValuationDate": "2025-08-20", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-LAK-044", "replacementValue": 9600000, "marketValue": 10100000, "insuredValue": 8200000, "buildingValue": 8400000, "contentsValue": 1200000, "lastValuationDate": "2024-12-10", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-TPA-205", "replacementValue": 23400000, "marketValue": 29800000, "insuredValue": 23400000, "buildingValue": 20800000, "contentsValue": 2600000, "lastValuationDate": "2026-01-18", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-STP-077", "replacementValue": 8900000, "marketValue": 9600000, "insuredValue": 6500000, "buildingValue": 7900000, "contentsValue": 1000000, "lastValuationDate": "2024-10-05", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-MEL-066", "replacementValue": 7800000, "marketValue": 8200000, "insuredValue": 5800000, "buildingValue": 6900000, "contentsValue": 900000, "lastValuationDate": "2025-03-22", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-DAY-090", "replacementValue": 11200000, "marketValue": 12800000, "insuredValue": 10600000, "buildingValue": 9900000, "contentsValue": 1300000, "lastValuationDate": "2025-07-11", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-JAX-155", "replacementValue": 9100000, "marketValue": 10400000, "insuredValue": 8700000, "buildingValue": 8000000, "contentsValue": 1100000, "lastValuationDate": "2025-06-30", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-MIA-222", "replacementValue": 26800000, "marketValue": 35200000, "insuredValue": 24000000, "buildingValue": 23600000, "contentsValue": 3200000, "lastValuationDate": "2026-02-14", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-FMY-136", "replacementValue": 13600000, "marketValue": 15100000, "insuredValue": 9500000, "buildingValue": 12000000, "contentsValue": 1600000, "lastValuationDate": "2024-09-08", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-NAP-051", "replacementValue": 12400000, "marketValue": 19800000, "insuredValue": 12400000, "buildingValue": 10800000, "contentsValue": 1600000, "lastValuationDate": "2026-01-30", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-SRQ-084", "replacementValue": 8600000, "marketValue": 9300000, "insuredValue": 7000000, "buildingValue": 7600000, "contentsValue": 1000000, "lastValuationDate": "2024-11-19", "valuationMethod": "Cost Approach"},
-    {"propertyId": "FL-PBI-173", "replacementValue": 22100000, "marketValue": 28600000, "insuredValue": 22100000, "buildingValue": 19600000, "contentsValue": 2500000, "lastValuationDate": "2026-03-05", "valuationMethod": "Cost Approach"}
+    {
+      "propertyId": "GPS0041213",
+      "replacementValue": 10490000,
+      "marketValue": 11750000,
+      "insuredValue": 9970000,
+      "buildingValue": 9020000,
+      "contentsValue": 1260000,
+      "lastValuationDate": "2025-04-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "VIS000",
+      "replacementValue": 5860000,
+      "marketValue": 6560000,
+      "insuredValue": 5570000,
+      "buildingValue": 5040000,
+      "contentsValue": 700000,
+      "lastValuationDate": "2026-04-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU000",
+      "replacementValue": 2490000,
+      "marketValue": 2790000,
+      "insuredValue": 2370000,
+      "buildingValue": 2140000,
+      "contentsValue": 300000,
+      "lastValuationDate": "2026-03-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10042351",
+      "replacementValue": 7670000,
+      "marketValue": 8590000,
+      "insuredValue": 7290000,
+      "buildingValue": 6600000,
+      "contentsValue": 920000,
+      "lastValuationDate": "2025-07-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP24-0073",
+      "replacementValue": 4850000,
+      "marketValue": 5430000,
+      "insuredValue": 4610000,
+      "buildingValue": 4170000,
+      "contentsValue": 580000,
+      "lastValuationDate": "2025-08-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPV3000991",
+      "replacementValue": 1040000,
+      "marketValue": 1160000,
+      "insuredValue": 990000,
+      "buildingValue": 890000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2025-07-03",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "SA000",
+      "replacementValue": 5600000,
+      "marketValue": 6270000,
+      "insuredValue": 5320000,
+      "buildingValue": 4820000,
+      "contentsValue": 670000,
+      "lastValuationDate": "2026-01-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP30-0445",
+      "replacementValue": 1850000,
+      "marketValue": 2070000,
+      "insuredValue": 1760000,
+      "buildingValue": 1590000,
+      "contentsValue": 220000,
+      "lastValuationDate": "2025-09-01",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPaaron",
+      "replacementValue": 1020000,
+      "marketValue": 1140000,
+      "insuredValue": 970000,
+      "buildingValue": 880000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2025-11-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP30-0506",
+      "replacementValue": 6390000,
+      "marketValue": 7160000,
+      "insuredValue": 6070000,
+      "buildingValue": 5500000,
+      "contentsValue": 770000,
+      "lastValuationDate": "2025-11-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP30-0448",
+      "replacementValue": 6780000,
+      "marketValue": 7590000,
+      "insuredValue": 6440000,
+      "buildingValue": 5830000,
+      "contentsValue": 810000,
+      "lastValuationDate": "2025-05-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10058843",
+      "replacementValue": 8850000,
+      "marketValue": 9910000,
+      "insuredValue": 8410000,
+      "buildingValue": 7610000,
+      "contentsValue": 1060000,
+      "lastValuationDate": "2025-08-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU9591",
+      "replacementValue": 1610000,
+      "marketValue": 1800000,
+      "insuredValue": 1530000,
+      "buildingValue": 1380000,
+      "contentsValue": 190000,
+      "lastValuationDate": "2025-08-06",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3287",
+      "replacementValue": 860000,
+      "marketValue": 960000,
+      "insuredValue": 820000,
+      "buildingValue": 740000,
+      "contentsValue": 100000,
+      "lastValuationDate": "2025-11-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU7521",
+      "replacementValue": 1050000,
+      "marketValue": 1180000,
+      "insuredValue": 1000000,
+      "buildingValue": 900000,
+      "contentsValue": 130000,
+      "lastValuationDate": "2025-07-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10004813",
+      "replacementValue": 4730000,
+      "marketValue": 5300000,
+      "insuredValue": 4490000,
+      "buildingValue": 4070000,
+      "contentsValue": 570000,
+      "lastValuationDate": "2025-05-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU7172",
+      "replacementValue": 3020000,
+      "marketValue": 3380000,
+      "insuredValue": 2870000,
+      "buildingValue": 2600000,
+      "contentsValue": 360000,
+      "lastValuationDate": "2025-07-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3473",
+      "replacementValue": 2550000,
+      "marketValue": 2860000,
+      "insuredValue": 2420000,
+      "buildingValue": 2190000,
+      "contentsValue": 310000,
+      "lastValuationDate": "2025-10-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU6012",
+      "replacementValue": 13570000,
+      "marketValue": 15200000,
+      "insuredValue": 12890000,
+      "buildingValue": 11670000,
+      "contentsValue": 1630000,
+      "lastValuationDate": "2025-03-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU9243",
+      "replacementValue": 3320000,
+      "marketValue": 3720000,
+      "insuredValue": 3150000,
+      "buildingValue": 2860000,
+      "contentsValue": 400000,
+      "lastValuationDate": "2025-11-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5048",
+      "replacementValue": 9320000,
+      "marketValue": 10440000,
+      "insuredValue": 8850000,
+      "buildingValue": 8020000,
+      "contentsValue": 1120000,
+      "lastValuationDate": "2025-01-22",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU11978",
+      "replacementValue": 2310000,
+      "marketValue": 2590000,
+      "insuredValue": 2190000,
+      "buildingValue": 1990000,
+      "contentsValue": 280000,
+      "lastValuationDate": "2025-10-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU11948",
+      "replacementValue": 730000,
+      "marketValue": 820000,
+      "insuredValue": 690000,
+      "buildingValue": 630000,
+      "contentsValue": 90000,
+      "lastValuationDate": "2025-08-22",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU12041",
+      "replacementValue": 5080000,
+      "marketValue": 5690000,
+      "insuredValue": 4830000,
+      "buildingValue": 4370000,
+      "contentsValue": 610000,
+      "lastValuationDate": "2026-04-03",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3596",
+      "replacementValue": 2170000,
+      "marketValue": 2430000,
+      "insuredValue": 2060000,
+      "buildingValue": 1870000,
+      "contentsValue": 260000,
+      "lastValuationDate": "2025-09-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU9979",
+      "replacementValue": 2340000,
+      "marketValue": 2620000,
+      "insuredValue": 2220000,
+      "buildingValue": 2010000,
+      "contentsValue": 280000,
+      "lastValuationDate": "2025-08-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU9673",
+      "replacementValue": 11430000,
+      "marketValue": 12800000,
+      "insuredValue": 10860000,
+      "buildingValue": 9830000,
+      "contentsValue": 1370000,
+      "lastValuationDate": "2025-11-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4249",
+      "replacementValue": 7420000,
+      "marketValue": 8310000,
+      "insuredValue": 7050000,
+      "buildingValue": 6380000,
+      "contentsValue": 890000,
+      "lastValuationDate": "2026-03-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU10474",
+      "replacementValue": 2620000,
+      "marketValue": 2930000,
+      "insuredValue": 2490000,
+      "buildingValue": 2250000,
+      "contentsValue": 310000,
+      "lastValuationDate": "2025-07-03",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU6217",
+      "replacementValue": 3340000,
+      "marketValue": 3740000,
+      "insuredValue": 3170000,
+      "buildingValue": 2870000,
+      "contentsValue": 400000,
+      "lastValuationDate": "2026-01-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3635",
+      "replacementValue": 1900000,
+      "marketValue": 2130000,
+      "insuredValue": 1800000,
+      "buildingValue": 1630000,
+      "contentsValue": 230000,
+      "lastValuationDate": "2025-09-15",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3300",
+      "replacementValue": 1750000,
+      "marketValue": 1960000,
+      "insuredValue": 1660000,
+      "buildingValue": 1500000,
+      "contentsValue": 210000,
+      "lastValuationDate": "2025-12-07",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5440",
+      "replacementValue": 6740000,
+      "marketValue": 7550000,
+      "insuredValue": 6400000,
+      "buildingValue": 5800000,
+      "contentsValue": 810000,
+      "lastValuationDate": "2026-05-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4744",
+      "replacementValue": 1560000,
+      "marketValue": 1750000,
+      "insuredValue": 1480000,
+      "buildingValue": 1340000,
+      "contentsValue": 190000,
+      "lastValuationDate": "2025-10-09",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5444",
+      "replacementValue": 1970000,
+      "marketValue": 2210000,
+      "insuredValue": 1870000,
+      "buildingValue": 1690000,
+      "contentsValue": 240000,
+      "lastValuationDate": "2025-12-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "LLbp40559",
+      "replacementValue": 1690000,
+      "marketValue": 1890000,
+      "insuredValue": 1610000,
+      "buildingValue": 1450000,
+      "contentsValue": 200000,
+      "lastValuationDate": "2025-12-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU12218",
+      "replacementValue": 850000,
+      "marketValue": 950000,
+      "insuredValue": 810000,
+      "buildingValue": 730000,
+      "contentsValue": 100000,
+      "lastValuationDate": "2025-05-07",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5423",
+      "replacementValue": 2590000,
+      "marketValue": 2900000,
+      "insuredValue": 2460000,
+      "buildingValue": 2230000,
+      "contentsValue": 310000,
+      "lastValuationDate": "2026-01-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU6341",
+      "replacementValue": 2260000,
+      "marketValue": 2530000,
+      "insuredValue": 2150000,
+      "buildingValue": 1940000,
+      "contentsValue": 270000,
+      "lastValuationDate": "2026-01-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10042499",
+      "replacementValue": 1030000,
+      "marketValue": 1150000,
+      "insuredValue": 980000,
+      "buildingValue": 890000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2025-08-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU11121",
+      "replacementValue": 2180000,
+      "marketValue": 2440000,
+      "insuredValue": 2070000,
+      "buildingValue": 1870000,
+      "contentsValue": 260000,
+      "lastValuationDate": "2025-06-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU11910",
+      "replacementValue": 2730000,
+      "marketValue": 3060000,
+      "insuredValue": 2590000,
+      "buildingValue": 2350000,
+      "contentsValue": 330000,
+      "lastValuationDate": "2026-05-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5884",
+      "replacementValue": 5740000,
+      "marketValue": 6430000,
+      "insuredValue": 5450000,
+      "buildingValue": 4940000,
+      "contentsValue": 690000,
+      "lastValuationDate": "2025-10-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU8114",
+      "replacementValue": 2900000,
+      "marketValue": 3250000,
+      "insuredValue": 2760000,
+      "buildingValue": 2490000,
+      "contentsValue": 350000,
+      "lastValuationDate": "2025-04-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU10735",
+      "replacementValue": 6150000,
+      "marketValue": 6890000,
+      "insuredValue": 5840000,
+      "buildingValue": 5290000,
+      "contentsValue": 740000,
+      "lastValuationDate": "2025-03-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU12060",
+      "replacementValue": 9140000,
+      "marketValue": 10240000,
+      "insuredValue": 8680000,
+      "buildingValue": 7860000,
+      "contentsValue": 1100000,
+      "lastValuationDate": "2025-06-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "LLbr46843",
+      "replacementValue": 1130000,
+      "marketValue": 1270000,
+      "insuredValue": 1070000,
+      "buildingValue": 970000,
+      "contentsValue": 140000,
+      "lastValuationDate": "2025-04-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "LLbp47405",
+      "replacementValue": 1200000,
+      "marketValue": 1340000,
+      "insuredValue": 1140000,
+      "buildingValue": 1030000,
+      "contentsValue": 140000,
+      "lastValuationDate": "2026-04-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "JPMCaaron",
+      "replacementValue": 18300000,
+      "marketValue": 20500000,
+      "insuredValue": 17380000,
+      "buildingValue": 15740000,
+      "contentsValue": 2200000,
+      "lastValuationDate": "2025-07-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU8905",
+      "replacementValue": 1300000,
+      "marketValue": 1460000,
+      "insuredValue": 1240000,
+      "buildingValue": 1120000,
+      "contentsValue": 160000,
+      "lastValuationDate": "2025-12-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4613",
+      "replacementValue": 12900000,
+      "marketValue": 14450000,
+      "insuredValue": 12260000,
+      "buildingValue": 11090000,
+      "contentsValue": 1550000,
+      "lastValuationDate": "2025-10-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4923",
+      "replacementValue": 2630000,
+      "marketValue": 2950000,
+      "insuredValue": 2500000,
+      "buildingValue": 2260000,
+      "contentsValue": 320000,
+      "lastValuationDate": "2025-03-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3310",
+      "replacementValue": 2390000,
+      "marketValue": 2680000,
+      "insuredValue": 2270000,
+      "buildingValue": 2060000,
+      "contentsValue": 290000,
+      "lastValuationDate": "2025-11-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU8340",
+      "replacementValue": 1340000,
+      "marketValue": 1500000,
+      "insuredValue": 1270000,
+      "buildingValue": 1150000,
+      "contentsValue": 160000,
+      "lastValuationDate": "2025-06-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3319",
+      "replacementValue": 1030000,
+      "marketValue": 1150000,
+      "insuredValue": 980000,
+      "buildingValue": 890000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2025-12-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU7908",
+      "replacementValue": 1050000,
+      "marketValue": 1180000,
+      "insuredValue": 1000000,
+      "buildingValue": 900000,
+      "contentsValue": 130000,
+      "lastValuationDate": "2026-04-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5409",
+      "replacementValue": 4470000,
+      "marketValue": 5010000,
+      "insuredValue": 4250000,
+      "buildingValue": 3840000,
+      "contentsValue": 540000,
+      "lastValuationDate": "2025-12-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5559",
+      "replacementValue": 1740000,
+      "marketValue": 1950000,
+      "insuredValue": 1650000,
+      "buildingValue": 1500000,
+      "contentsValue": 210000,
+      "lastValuationDate": "2025-06-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "JPMC142501",
+      "replacementValue": 1090000,
+      "marketValue": 1220000,
+      "insuredValue": 1040000,
+      "buildingValue": 940000,
+      "contentsValue": 130000,
+      "lastValuationDate": "2025-01-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4338",
+      "replacementValue": 890000,
+      "marketValue": 1000000,
+      "insuredValue": 850000,
+      "buildingValue": 770000,
+      "contentsValue": 110000,
+      "lastValuationDate": "2025-03-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU11929",
+      "replacementValue": 1040000,
+      "marketValue": 1160000,
+      "insuredValue": 990000,
+      "buildingValue": 890000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2025-04-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU12015",
+      "replacementValue": 1140000,
+      "marketValue": 1280000,
+      "insuredValue": 1080000,
+      "buildingValue": 980000,
+      "contentsValue": 140000,
+      "lastValuationDate": "2025-06-07",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU9778",
+      "replacementValue": 1040000,
+      "marketValue": 1160000,
+      "insuredValue": 990000,
+      "buildingValue": 890000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2025-08-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU6025",
+      "replacementValue": 6110000,
+      "marketValue": 6840000,
+      "insuredValue": 5800000,
+      "buildingValue": 5250000,
+      "contentsValue": 730000,
+      "lastValuationDate": "2025-12-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4220",
+      "replacementValue": 2400000,
+      "marketValue": 2690000,
+      "insuredValue": 2280000,
+      "buildingValue": 2060000,
+      "contentsValue": 290000,
+      "lastValuationDate": "2025-07-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU10613",
+      "replacementValue": 2600000,
+      "marketValue": 2910000,
+      "insuredValue": 2470000,
+      "buildingValue": 2240000,
+      "contentsValue": 310000,
+      "lastValuationDate": "2025-04-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU6852",
+      "replacementValue": 3880000,
+      "marketValue": 4350000,
+      "insuredValue": 3690000,
+      "buildingValue": 3340000,
+      "contentsValue": 470000,
+      "lastValuationDate": "2025-10-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU11997",
+      "replacementValue": 2400000,
+      "marketValue": 2690000,
+      "insuredValue": 2280000,
+      "buildingValue": 2060000,
+      "contentsValue": 290000,
+      "lastValuationDate": "2025-04-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3501",
+      "replacementValue": 1770000,
+      "marketValue": 1980000,
+      "insuredValue": 1680000,
+      "buildingValue": 1520000,
+      "contentsValue": 210000,
+      "lastValuationDate": "2025-01-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU11972",
+      "replacementValue": 8820000,
+      "marketValue": 9880000,
+      "insuredValue": 8380000,
+      "buildingValue": 7590000,
+      "contentsValue": 1060000,
+      "lastValuationDate": "2025-06-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10052435",
+      "replacementValue": 5470000,
+      "marketValue": 6130000,
+      "insuredValue": 5200000,
+      "buildingValue": 4700000,
+      "contentsValue": 660000,
+      "lastValuationDate": "2025-12-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10104241",
+      "replacementValue": 11640000,
+      "marketValue": 13040000,
+      "insuredValue": 11060000,
+      "buildingValue": 10010000,
+      "contentsValue": 1400000,
+      "lastValuationDate": "2025-05-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5459",
+      "replacementValue": 5440000,
+      "marketValue": 6090000,
+      "insuredValue": 5170000,
+      "buildingValue": 4680000,
+      "contentsValue": 650000,
+      "lastValuationDate": "2025-08-05",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4228",
+      "replacementValue": 11090000,
+      "marketValue": 12420000,
+      "insuredValue": 10540000,
+      "buildingValue": 9540000,
+      "contentsValue": 1330000,
+      "lastValuationDate": "2025-08-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10059166",
+      "replacementValue": 9560000,
+      "marketValue": 10710000,
+      "insuredValue": 9080000,
+      "buildingValue": 8220000,
+      "contentsValue": 1150000,
+      "lastValuationDate": "2025-02-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU7545",
+      "replacementValue": 950000,
+      "marketValue": 1060000,
+      "insuredValue": 900000,
+      "buildingValue": 820000,
+      "contentsValue": 110000,
+      "lastValuationDate": "2025-06-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3485",
+      "replacementValue": 990000,
+      "marketValue": 1110000,
+      "insuredValue": 940000,
+      "buildingValue": 850000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2025-12-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPV30-0142",
+      "replacementValue": 15560000,
+      "marketValue": 17430000,
+      "insuredValue": 14780000,
+      "buildingValue": 13380000,
+      "contentsValue": 1870000,
+      "lastValuationDate": "2025-11-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU9025",
+      "replacementValue": 1860000,
+      "marketValue": 2080000,
+      "insuredValue": 1770000,
+      "buildingValue": 1600000,
+      "contentsValue": 220000,
+      "lastValuationDate": "2025-11-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "JPMC151219",
+      "replacementValue": 2220000,
+      "marketValue": 2490000,
+      "insuredValue": 2110000,
+      "buildingValue": 1910000,
+      "contentsValue": 270000,
+      "lastValuationDate": "2025-01-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "JPMCjane001",
+      "replacementValue": 2280000,
+      "marketValue": 2550000,
+      "insuredValue": 2170000,
+      "buildingValue": 1960000,
+      "contentsValue": 270000,
+      "lastValuationDate": "2025-02-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPV30-0027",
+      "replacementValue": 1490000,
+      "marketValue": 1670000,
+      "insuredValue": 1420000,
+      "buildingValue": 1280000,
+      "contentsValue": 180000,
+      "lastValuationDate": "2025-11-06",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP30-0342",
+      "replacementValue": 740000,
+      "marketValue": 830000,
+      "insuredValue": 700000,
+      "buildingValue": 640000,
+      "contentsValue": 90000,
+      "lastValuationDate": "2025-07-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU12227",
+      "replacementValue": 960000,
+      "marketValue": 1080000,
+      "insuredValue": 910000,
+      "buildingValue": 830000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2025-06-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH11111780",
+      "replacementValue": 7390000,
+      "marketValue": 8280000,
+      "insuredValue": 7020000,
+      "buildingValue": 6360000,
+      "contentsValue": 890000,
+      "lastValuationDate": "2025-06-22",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10004610",
+      "replacementValue": 2560000,
+      "marketValue": 2870000,
+      "insuredValue": 2430000,
+      "buildingValue": 2200000,
+      "contentsValue": 310000,
+      "lastValuationDate": "2025-02-09",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10003105",
+      "replacementValue": 14490000,
+      "marketValue": 16230000,
+      "insuredValue": 13770000,
+      "buildingValue": 12460000,
+      "contentsValue": 1740000,
+      "lastValuationDate": "2025-01-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPV30-0001",
+      "replacementValue": 2190000,
+      "marketValue": 2450000,
+      "insuredValue": 2080000,
+      "buildingValue": 1880000,
+      "contentsValue": 260000,
+      "lastValuationDate": "2025-07-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPV30-0005",
+      "replacementValue": 1950000,
+      "marketValue": 2180000,
+      "insuredValue": 1850000,
+      "buildingValue": 1680000,
+      "contentsValue": 230000,
+      "lastValuationDate": "2025-04-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "ABCT81002956",
+      "replacementValue": 840000,
+      "marketValue": 940000,
+      "insuredValue": 800000,
+      "buildingValue": 720000,
+      "contentsValue": 100000,
+      "lastValuationDate": "2026-03-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH11111628",
+      "replacementValue": 1380000,
+      "marketValue": 1550000,
+      "insuredValue": 1310000,
+      "buildingValue": 1190000,
+      "contentsValue": 170000,
+      "lastValuationDate": "2025-11-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP30-0454",
+      "replacementValue": 5630000,
+      "marketValue": 6310000,
+      "insuredValue": 5350000,
+      "buildingValue": 4840000,
+      "contentsValue": 680000,
+      "lastValuationDate": "2025-12-06",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP30-0520",
+      "replacementValue": 1030000,
+      "marketValue": 1150000,
+      "insuredValue": 980000,
+      "buildingValue": 890000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2026-01-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP30-0072",
+      "replacementValue": 6330000,
+      "marketValue": 7090000,
+      "insuredValue": 6010000,
+      "buildingValue": 5440000,
+      "contentsValue": 760000,
+      "lastValuationDate": "2025-10-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "HPP30-0160",
+      "replacementValue": 1000000,
+      "marketValue": 1120000,
+      "insuredValue": 950000,
+      "buildingValue": 860000,
+      "contentsValue": 120000,
+      "lastValuationDate": "2026-02-05",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH11111434",
+      "replacementValue": 3180000,
+      "marketValue": 3560000,
+      "insuredValue": 3020000,
+      "buildingValue": 2730000,
+      "contentsValue": 380000,
+      "lastValuationDate": "2025-02-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10033361",
+      "replacementValue": 13160000,
+      "marketValue": 14740000,
+      "insuredValue": 12500000,
+      "buildingValue": 11320000,
+      "contentsValue": 1580000,
+      "lastValuationDate": "2026-03-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "JPMCcy001",
+      "replacementValue": 16620000,
+      "marketValue": 18610000,
+      "insuredValue": 15790000,
+      "buildingValue": 14290000,
+      "contentsValue": 1990000,
+      "lastValuationDate": "2025-06-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU3932",
+      "replacementValue": 3980000,
+      "marketValue": 4460000,
+      "insuredValue": 3780000,
+      "buildingValue": 3420000,
+      "contentsValue": 480000,
+      "lastValuationDate": "2025-02-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU6364",
+      "replacementValue": 2400000,
+      "marketValue": 2690000,
+      "insuredValue": 2280000,
+      "buildingValue": 2060000,
+      "contentsValue": 290000,
+      "lastValuationDate": "2025-09-07",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4788",
+      "replacementValue": 2030000,
+      "marketValue": 2270000,
+      "insuredValue": 1930000,
+      "buildingValue": 1750000,
+      "contentsValue": 240000,
+      "lastValuationDate": "2025-03-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU2804",
+      "replacementValue": 1670000,
+      "marketValue": 1870000,
+      "insuredValue": 1590000,
+      "buildingValue": 1440000,
+      "contentsValue": 200000,
+      "lastValuationDate": "2026-03-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU7425",
+      "replacementValue": 1080000,
+      "marketValue": 1210000,
+      "insuredValue": 1030000,
+      "buildingValue": 930000,
+      "contentsValue": 130000,
+      "lastValuationDate": "2025-12-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU8471",
+      "replacementValue": 2390000,
+      "marketValue": 2680000,
+      "insuredValue": 2270000,
+      "buildingValue": 2060000,
+      "contentsValue": 290000,
+      "lastValuationDate": "2025-06-22",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU8285",
+      "replacementValue": 4040000,
+      "marketValue": 4520000,
+      "insuredValue": 3840000,
+      "buildingValue": 3470000,
+      "contentsValue": 480000,
+      "lastValuationDate": "2025-03-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10032110",
+      "replacementValue": 1320000,
+      "marketValue": 1480000,
+      "insuredValue": 1250000,
+      "buildingValue": 1140000,
+      "contentsValue": 160000,
+      "lastValuationDate": "2025-06-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU4918",
+      "replacementValue": 5740000,
+      "marketValue": 6430000,
+      "insuredValue": 5450000,
+      "buildingValue": 4940000,
+      "contentsValue": 690000,
+      "lastValuationDate": "2026-03-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU10603",
+      "replacementValue": 15220000,
+      "marketValue": 17050000,
+      "insuredValue": 14460000,
+      "buildingValue": 13090000,
+      "contentsValue": 1830000,
+      "lastValuationDate": "2025-07-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "MYPM20240611075038454",
+      "replacementValue": 12770000,
+      "marketValue": 14300000,
+      "insuredValue": 12130000,
+      "buildingValue": 10980000,
+      "contentsValue": 1530000,
+      "lastValuationDate": "2025-10-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "SIGaaron",
+      "replacementValue": 4910000,
+      "marketValue": 5500000,
+      "insuredValue": 4660000,
+      "buildingValue": 4220000,
+      "contentsValue": 590000,
+      "lastValuationDate": "2026-04-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "JPMC142744",
+      "replacementValue": 3220000,
+      "marketValue": 3610000,
+      "insuredValue": 3060000,
+      "buildingValue": 2770000,
+      "contentsValue": 390000,
+      "lastValuationDate": "2025-02-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "PF77578266",
+      "replacementValue": 5890000,
+      "marketValue": 6600000,
+      "insuredValue": 5600000,
+      "buildingValue": 5070000,
+      "contentsValue": 710000,
+      "lastValuationDate": "2026-03-03",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "PF59967981",
+      "replacementValue": 12080000,
+      "marketValue": 13530000,
+      "insuredValue": 11480000,
+      "buildingValue": 10390000,
+      "contentsValue": 1450000,
+      "lastValuationDate": "2025-12-06",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10064433",
+      "replacementValue": 1180000,
+      "marketValue": 1320000,
+      "insuredValue": 1120000,
+      "buildingValue": 1010000,
+      "contentsValue": 140000,
+      "lastValuationDate": "2025-05-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10051505",
+      "replacementValue": 11220000,
+      "marketValue": 12570000,
+      "insuredValue": 10660000,
+      "buildingValue": 9650000,
+      "contentsValue": 1350000,
+      "lastValuationDate": "2025-11-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IHpw110383",
+      "replacementValue": 740000,
+      "marketValue": 830000,
+      "insuredValue": 700000,
+      "buildingValue": 640000,
+      "contentsValue": 90000,
+      "lastValuationDate": "2025-10-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "SA13514",
+      "replacementValue": 1070000,
+      "marketValue": 1200000,
+      "insuredValue": 1020000,
+      "buildingValue": 920000,
+      "contentsValue": 130000,
+      "lastValuationDate": "2026-02-01",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "ASG20250701191226",
+      "replacementValue": 7080000,
+      "marketValue": 7930000,
+      "insuredValue": 6730000,
+      "buildingValue": 6090000,
+      "contentsValue": 850000,
+      "lastValuationDate": "2025-09-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "PET2424",
+      "replacementValue": 2520000,
+      "marketValue": 2820000,
+      "insuredValue": 2390000,
+      "buildingValue": 2170000,
+      "contentsValue": 300000,
+      "lastValuationDate": "2025-07-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10018071",
+      "replacementValue": 2770000,
+      "marketValue": 3100000,
+      "insuredValue": 2630000,
+      "buildingValue": 2380000,
+      "contentsValue": 330000,
+      "lastValuationDate": "2026-04-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "PF94445148",
+      "replacementValue": 2850000,
+      "marketValue": 3190000,
+      "insuredValue": 2710000,
+      "buildingValue": 2450000,
+      "contentsValue": 340000,
+      "lastValuationDate": "2025-03-07",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10058542",
+      "replacementValue": 4900000,
+      "marketValue": 5490000,
+      "insuredValue": 4660000,
+      "buildingValue": 4210000,
+      "contentsValue": 590000,
+      "lastValuationDate": "2025-08-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH002",
+      "replacementValue": 15060000,
+      "marketValue": 16870000,
+      "insuredValue": 14310000,
+      "buildingValue": 12950000,
+      "contentsValue": 1810000,
+      "lastValuationDate": "2025-03-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10005583",
+      "replacementValue": 2080000,
+      "marketValue": 2330000,
+      "insuredValue": 1980000,
+      "buildingValue": 1790000,
+      "contentsValue": 250000,
+      "lastValuationDate": "2025-05-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "RU5878",
+      "replacementValue": 6680000,
+      "marketValue": 7480000,
+      "insuredValue": 6350000,
+      "buildingValue": 5740000,
+      "contentsValue": 800000,
+      "lastValuationDate": "2025-10-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10035537",
+      "replacementValue": 16620000,
+      "marketValue": 18610000,
+      "insuredValue": 15790000,
+      "buildingValue": 14290000,
+      "contentsValue": 1990000,
+      "lastValuationDate": "2025-05-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "LL888888",
+      "replacementValue": 2300000,
+      "marketValue": 2580000,
+      "insuredValue": 2180000,
+      "buildingValue": 1980000,
+      "contentsValue": 280000,
+      "lastValuationDate": "2025-05-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "JPMC150421",
+      "replacementValue": 1120000,
+      "marketValue": 1250000,
+      "insuredValue": 1060000,
+      "buildingValue": 960000,
+      "contentsValue": 130000,
+      "lastValuationDate": "2025-08-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10018656",
+      "replacementValue": 10040000,
+      "marketValue": 11240000,
+      "insuredValue": 9540000,
+      "buildingValue": 8630000,
+      "contentsValue": 1200000,
+      "lastValuationDate": "2025-03-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "ARTLOC-26000005615-HWBP-1",
+      "replacementValue": 7800000,
+      "marketValue": 8740000,
+      "insuredValue": 7410000,
+      "buildingValue": 6710000,
+      "contentsValue": 940000,
+      "lastValuationDate": "2025-11-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH11",
+      "replacementValue": 5950000,
+      "marketValue": 6660000,
+      "insuredValue": 5650000,
+      "buildingValue": 5120000,
+      "contentsValue": 710000,
+      "lastValuationDate": "2025-02-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10004669",
+      "replacementValue": 14760000,
+      "marketValue": 16530000,
+      "insuredValue": 14020000,
+      "buildingValue": 12690000,
+      "contentsValue": 1770000,
+      "lastValuationDate": "2025-06-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "ART6756AA2B0987C876",
+      "replacementValue": 2910000,
+      "marketValue": 3260000,
+      "insuredValue": 2760000,
+      "buildingValue": 2500000,
+      "contentsValue": 350000,
+      "lastValuationDate": "2026-01-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "TRI12200063",
+      "replacementValue": 2980000,
+      "marketValue": 3340000,
+      "insuredValue": 2830000,
+      "buildingValue": 2560000,
+      "contentsValue": 360000,
+      "lastValuationDate": "2025-05-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH11111833",
+      "replacementValue": 2510000,
+      "marketValue": 2810000,
+      "insuredValue": 2380000,
+      "buildingValue": 2160000,
+      "contentsValue": 300000,
+      "lastValuationDate": "2026-01-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "ART082001E1ED9BBBF6",
+      "replacementValue": 1160000,
+      "marketValue": 1300000,
+      "insuredValue": 1100000,
+      "buildingValue": 1000000,
+      "contentsValue": 140000,
+      "lastValuationDate": "2025-05-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10003063",
+      "replacementValue": 11800000,
+      "marketValue": 13220000,
+      "insuredValue": 11210000,
+      "buildingValue": 10150000,
+      "contentsValue": 1420000,
+      "lastValuationDate": "2025-10-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10052064",
+      "replacementValue": 4230000,
+      "marketValue": 4740000,
+      "insuredValue": 4020000,
+      "buildingValue": 3640000,
+      "contentsValue": 510000,
+      "lastValuationDate": "2025-12-01",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "IH10032676",
+      "replacementValue": 13780000,
+      "marketValue": 15430000,
+      "insuredValue": 13090000,
+      "buildingValue": 11850000,
+      "contentsValue": 1650000,
+      "lastValuationDate": "2025-09-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "TRI92200079",
+      "replacementValue": 740000,
+      "marketValue": 830000,
+      "insuredValue": 700000,
+      "buildingValue": 640000,
+      "contentsValue": 90000,
+      "lastValuationDate": "2025-10-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-001",
+      "replacementValue": 5790000,
+      "marketValue": 6480000,
+      "insuredValue": 5500000,
+      "buildingValue": 4980000,
+      "contentsValue": 690000,
+      "lastValuationDate": "2025-11-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-002",
+      "replacementValue": 12770000,
+      "marketValue": 14300000,
+      "insuredValue": 12130000,
+      "buildingValue": 10980000,
+      "contentsValue": 1530000,
+      "lastValuationDate": "2025-03-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-003",
+      "replacementValue": 3620000,
+      "marketValue": 4050000,
+      "insuredValue": 3440000,
+      "buildingValue": 3110000,
+      "contentsValue": 430000,
+      "lastValuationDate": "2025-02-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-004",
+      "replacementValue": 10920000,
+      "marketValue": 12230000,
+      "insuredValue": 10370000,
+      "buildingValue": 9390000,
+      "contentsValue": 1310000,
+      "lastValuationDate": "2025-10-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-005",
+      "replacementValue": 5700000,
+      "marketValue": 6380000,
+      "insuredValue": 5420000,
+      "buildingValue": 4900000,
+      "contentsValue": 680000,
+      "lastValuationDate": "2025-01-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-006",
+      "replacementValue": 15770000,
+      "marketValue": 17660000,
+      "insuredValue": 14980000,
+      "buildingValue": 13560000,
+      "contentsValue": 1890000,
+      "lastValuationDate": "2025-02-09",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-007",
+      "replacementValue": 5350000,
+      "marketValue": 5990000,
+      "insuredValue": 5080000,
+      "buildingValue": 4600000,
+      "contentsValue": 640000,
+      "lastValuationDate": "2025-04-15",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-008",
+      "replacementValue": 10650000,
+      "marketValue": 11930000,
+      "insuredValue": 10120000,
+      "buildingValue": 9160000,
+      "contentsValue": 1280000,
+      "lastValuationDate": "2025-06-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-009",
+      "replacementValue": 2370000,
+      "marketValue": 2650000,
+      "insuredValue": 2250000,
+      "buildingValue": 2040000,
+      "contentsValue": 280000,
+      "lastValuationDate": "2025-01-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-010",
+      "replacementValue": 13480000,
+      "marketValue": 15100000,
+      "insuredValue": 12810000,
+      "buildingValue": 11590000,
+      "contentsValue": 1620000,
+      "lastValuationDate": "2025-07-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-011",
+      "replacementValue": 7830000,
+      "marketValue": 8770000,
+      "insuredValue": 7440000,
+      "buildingValue": 6730000,
+      "contentsValue": 940000,
+      "lastValuationDate": "2025-05-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-012",
+      "replacementValue": 3480000,
+      "marketValue": 3900000,
+      "insuredValue": 3310000,
+      "buildingValue": 2990000,
+      "contentsValue": 420000,
+      "lastValuationDate": "2025-07-15",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-013",
+      "replacementValue": 5770000,
+      "marketValue": 6460000,
+      "insuredValue": 5480000,
+      "buildingValue": 4960000,
+      "contentsValue": 690000,
+      "lastValuationDate": "2025-07-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-014",
+      "replacementValue": 12540000,
+      "marketValue": 14040000,
+      "insuredValue": 11910000,
+      "buildingValue": 10780000,
+      "contentsValue": 1500000,
+      "lastValuationDate": "2025-11-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-015",
+      "replacementValue": 6530000,
+      "marketValue": 7310000,
+      "insuredValue": 6200000,
+      "buildingValue": 5620000,
+      "contentsValue": 780000,
+      "lastValuationDate": "2025-12-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-016",
+      "replacementValue": 3190000,
+      "marketValue": 3570000,
+      "insuredValue": 3030000,
+      "buildingValue": 2740000,
+      "contentsValue": 380000,
+      "lastValuationDate": "2026-01-01",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-017",
+      "replacementValue": 5220000,
+      "marketValue": 5850000,
+      "insuredValue": 4960000,
+      "buildingValue": 4490000,
+      "contentsValue": 630000,
+      "lastValuationDate": "2025-06-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-018",
+      "replacementValue": 9340000,
+      "marketValue": 10460000,
+      "insuredValue": 8870000,
+      "buildingValue": 8030000,
+      "contentsValue": 1120000,
+      "lastValuationDate": "2025-05-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-019",
+      "replacementValue": 8230000,
+      "marketValue": 9220000,
+      "insuredValue": 7820000,
+      "buildingValue": 7080000,
+      "contentsValue": 990000,
+      "lastValuationDate": "2026-03-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-020",
+      "replacementValue": 3840000,
+      "marketValue": 4300000,
+      "insuredValue": 3650000,
+      "buildingValue": 3300000,
+      "contentsValue": 460000,
+      "lastValuationDate": "2025-02-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-021",
+      "replacementValue": 5890000,
+      "marketValue": 6600000,
+      "insuredValue": 5600000,
+      "buildingValue": 5070000,
+      "contentsValue": 710000,
+      "lastValuationDate": "2025-07-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-022",
+      "replacementValue": 8330000,
+      "marketValue": 9330000,
+      "insuredValue": 7910000,
+      "buildingValue": 7160000,
+      "contentsValue": 1000000,
+      "lastValuationDate": "2025-07-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-023",
+      "replacementValue": 10980000,
+      "marketValue": 12300000,
+      "insuredValue": 10430000,
+      "buildingValue": 9440000,
+      "contentsValue": 1320000,
+      "lastValuationDate": "2025-02-09",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-024",
+      "replacementValue": 2970000,
+      "marketValue": 3330000,
+      "insuredValue": 2820000,
+      "buildingValue": 2550000,
+      "contentsValue": 360000,
+      "lastValuationDate": "2025-03-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-001",
+      "replacementValue": 10200000,
+      "marketValue": 11420000,
+      "insuredValue": 9690000,
+      "buildingValue": 8770000,
+      "contentsValue": 1220000,
+      "lastValuationDate": "2026-05-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-002",
+      "replacementValue": 6630000,
+      "marketValue": 7430000,
+      "insuredValue": 6300000,
+      "buildingValue": 5700000,
+      "contentsValue": 800000,
+      "lastValuationDate": "2025-05-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-003",
+      "replacementValue": 3670000,
+      "marketValue": 4110000,
+      "insuredValue": 3490000,
+      "buildingValue": 3160000,
+      "contentsValue": 440000,
+      "lastValuationDate": "2025-04-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-004",
+      "replacementValue": 12480000,
+      "marketValue": 13980000,
+      "insuredValue": 11860000,
+      "buildingValue": 10730000,
+      "contentsValue": 1500000,
+      "lastValuationDate": "2025-01-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-005",
+      "replacementValue": 5980000,
+      "marketValue": 6700000,
+      "insuredValue": 5680000,
+      "buildingValue": 5140000,
+      "contentsValue": 720000,
+      "lastValuationDate": "2025-05-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-006",
+      "replacementValue": 3350000,
+      "marketValue": 3750000,
+      "insuredValue": 3180000,
+      "buildingValue": 2880000,
+      "contentsValue": 400000,
+      "lastValuationDate": "2025-02-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-007",
+      "replacementValue": 8840000,
+      "marketValue": 9900000,
+      "insuredValue": 8400000,
+      "buildingValue": 7600000,
+      "contentsValue": 1060000,
+      "lastValuationDate": "2026-05-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-008",
+      "replacementValue": 6000000,
+      "marketValue": 6720000,
+      "insuredValue": 5700000,
+      "buildingValue": 5160000,
+      "contentsValue": 720000,
+      "lastValuationDate": "2026-01-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-009",
+      "replacementValue": 2880000,
+      "marketValue": 3230000,
+      "insuredValue": 2740000,
+      "buildingValue": 2480000,
+      "contentsValue": 350000,
+      "lastValuationDate": "2026-01-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-010",
+      "replacementValue": 4620000,
+      "marketValue": 5170000,
+      "insuredValue": 4390000,
+      "buildingValue": 3970000,
+      "contentsValue": 550000,
+      "lastValuationDate": "2025-12-03",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-011",
+      "replacementValue": 3110000,
+      "marketValue": 3480000,
+      "insuredValue": 2950000,
+      "buildingValue": 2670000,
+      "contentsValue": 370000,
+      "lastValuationDate": "2025-06-15",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-012",
+      "replacementValue": 5430000,
+      "marketValue": 6080000,
+      "insuredValue": 5160000,
+      "buildingValue": 4670000,
+      "contentsValue": 650000,
+      "lastValuationDate": "2025-05-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-013",
+      "replacementValue": 6610000,
+      "marketValue": 7400000,
+      "insuredValue": 6280000,
+      "buildingValue": 5680000,
+      "contentsValue": 790000,
+      "lastValuationDate": "2025-05-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-014",
+      "replacementValue": 2740000,
+      "marketValue": 3070000,
+      "insuredValue": 2600000,
+      "buildingValue": 2360000,
+      "contentsValue": 330000,
+      "lastValuationDate": "2025-07-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-015",
+      "replacementValue": 7650000,
+      "marketValue": 8570000,
+      "insuredValue": 7270000,
+      "buildingValue": 6580000,
+      "contentsValue": 920000,
+      "lastValuationDate": "2025-01-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-016",
+      "replacementValue": 6240000,
+      "marketValue": 6990000,
+      "insuredValue": 5930000,
+      "buildingValue": 5370000,
+      "contentsValue": 750000,
+      "lastValuationDate": "2025-05-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-017",
+      "replacementValue": 2800000,
+      "marketValue": 3140000,
+      "insuredValue": 2660000,
+      "buildingValue": 2410000,
+      "contentsValue": 340000,
+      "lastValuationDate": "2025-09-03",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD-018",
+      "replacementValue": 5450000,
+      "marketValue": 6100000,
+      "insuredValue": 5180000,
+      "buildingValue": 4690000,
+      "contentsValue": 650000,
+      "lastValuationDate": "2025-07-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-001",
+      "replacementValue": 5500000,
+      "marketValue": 6160000,
+      "insuredValue": 5220000,
+      "buildingValue": 4730000,
+      "contentsValue": 660000,
+      "lastValuationDate": "2025-06-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-002",
+      "replacementValue": 11520000,
+      "marketValue": 12900000,
+      "insuredValue": 10940000,
+      "buildingValue": 9910000,
+      "contentsValue": 1380000,
+      "lastValuationDate": "2026-03-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-003",
+      "replacementValue": 3000000,
+      "marketValue": 3360000,
+      "insuredValue": 2850000,
+      "buildingValue": 2580000,
+      "contentsValue": 360000,
+      "lastValuationDate": "2025-08-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-004",
+      "replacementValue": 6880000,
+      "marketValue": 7710000,
+      "insuredValue": 6540000,
+      "buildingValue": 5920000,
+      "contentsValue": 830000,
+      "lastValuationDate": "2025-03-15",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-005",
+      "replacementValue": 9640000,
+      "marketValue": 10800000,
+      "insuredValue": 9160000,
+      "buildingValue": 8290000,
+      "contentsValue": 1160000,
+      "lastValuationDate": "2026-05-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-006",
+      "replacementValue": 3260000,
+      "marketValue": 3650000,
+      "insuredValue": 3100000,
+      "buildingValue": 2800000,
+      "contentsValue": 390000,
+      "lastValuationDate": "2025-03-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-007",
+      "replacementValue": 5970000,
+      "marketValue": 6690000,
+      "insuredValue": 5670000,
+      "buildingValue": 5130000,
+      "contentsValue": 720000,
+      "lastValuationDate": "2025-09-15",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-008",
+      "replacementValue": 8410000,
+      "marketValue": 9420000,
+      "insuredValue": 7990000,
+      "buildingValue": 7230000,
+      "contentsValue": 1010000,
+      "lastValuationDate": "2025-09-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-009",
+      "replacementValue": 10590000,
+      "marketValue": 11860000,
+      "insuredValue": 10060000,
+      "buildingValue": 9110000,
+      "contentsValue": 1270000,
+      "lastValuationDate": "2025-01-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-010",
+      "replacementValue": 5690000,
+      "marketValue": 6370000,
+      "insuredValue": 5410000,
+      "buildingValue": 4890000,
+      "contentsValue": 680000,
+      "lastValuationDate": "2025-03-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-011",
+      "replacementValue": 11640000,
+      "marketValue": 13040000,
+      "insuredValue": 11060000,
+      "buildingValue": 10010000,
+      "contentsValue": 1400000,
+      "lastValuationDate": "2025-11-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-012",
+      "replacementValue": 3850000,
+      "marketValue": 4310000,
+      "insuredValue": 3660000,
+      "buildingValue": 3310000,
+      "contentsValue": 460000,
+      "lastValuationDate": "2026-03-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-013",
+      "replacementValue": 6430000,
+      "marketValue": 7200000,
+      "insuredValue": 6110000,
+      "buildingValue": 5530000,
+      "contentsValue": 770000,
+      "lastValuationDate": "2025-08-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-014",
+      "replacementValue": 9750000,
+      "marketValue": 10920000,
+      "insuredValue": 9260000,
+      "buildingValue": 8380000,
+      "contentsValue": 1170000,
+      "lastValuationDate": "2026-04-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-015",
+      "replacementValue": 9550000,
+      "marketValue": 10700000,
+      "insuredValue": 9070000,
+      "buildingValue": 8210000,
+      "contentsValue": 1150000,
+      "lastValuationDate": "2025-01-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-016",
+      "replacementValue": 8990000,
+      "marketValue": 10070000,
+      "insuredValue": 8540000,
+      "buildingValue": 7730000,
+      "contentsValue": 1080000,
+      "lastValuationDate": "2025-02-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-017",
+      "replacementValue": 5740000,
+      "marketValue": 6430000,
+      "insuredValue": 5450000,
+      "buildingValue": 4940000,
+      "contentsValue": 690000,
+      "lastValuationDate": "2025-02-03",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-FPH-018",
+      "replacementValue": 3620000,
+      "marketValue": 4050000,
+      "insuredValue": 3440000,
+      "buildingValue": 3110000,
+      "contentsValue": 430000,
+      "lastValuationDate": "2025-03-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-001",
+      "replacementValue": 13260000,
+      "marketValue": 14850000,
+      "insuredValue": 12600000,
+      "buildingValue": 11400000,
+      "contentsValue": 1590000,
+      "lastValuationDate": "2026-03-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-002",
+      "replacementValue": 6120000,
+      "marketValue": 6850000,
+      "insuredValue": 5810000,
+      "buildingValue": 5260000,
+      "contentsValue": 730000,
+      "lastValuationDate": "2025-10-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-003",
+      "replacementValue": 10710000,
+      "marketValue": 12000000,
+      "insuredValue": 10170000,
+      "buildingValue": 9210000,
+      "contentsValue": 1290000,
+      "lastValuationDate": "2025-04-07",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-004",
+      "replacementValue": 4440000,
+      "marketValue": 4970000,
+      "insuredValue": 4220000,
+      "buildingValue": 3820000,
+      "contentsValue": 530000,
+      "lastValuationDate": "2026-04-15",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-005",
+      "replacementValue": 10920000,
+      "marketValue": 12230000,
+      "insuredValue": 10370000,
+      "buildingValue": 9390000,
+      "contentsValue": 1310000,
+      "lastValuationDate": "2025-08-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-006",
+      "replacementValue": 6940000,
+      "marketValue": 7770000,
+      "insuredValue": 6590000,
+      "buildingValue": 5970000,
+      "contentsValue": 830000,
+      "lastValuationDate": "2025-08-05",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-007",
+      "replacementValue": 13060000,
+      "marketValue": 14630000,
+      "insuredValue": 12410000,
+      "buildingValue": 11230000,
+      "contentsValue": 1570000,
+      "lastValuationDate": "2025-03-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-008",
+      "replacementValue": 6490000,
+      "marketValue": 7270000,
+      "insuredValue": 6170000,
+      "buildingValue": 5580000,
+      "contentsValue": 780000,
+      "lastValuationDate": "2025-02-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-009",
+      "replacementValue": 11260000,
+      "marketValue": 12610000,
+      "insuredValue": 10700000,
+      "buildingValue": 9680000,
+      "contentsValue": 1350000,
+      "lastValuationDate": "2025-11-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-010",
+      "replacementValue": 3680000,
+      "marketValue": 4120000,
+      "insuredValue": 3500000,
+      "buildingValue": 3160000,
+      "contentsValue": 440000,
+      "lastValuationDate": "2025-03-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-011",
+      "replacementValue": 7160000,
+      "marketValue": 8020000,
+      "insuredValue": 6800000,
+      "buildingValue": 6160000,
+      "contentsValue": 860000,
+      "lastValuationDate": "2026-01-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-012",
+      "replacementValue": 3890000,
+      "marketValue": 4360000,
+      "insuredValue": 3700000,
+      "buildingValue": 3350000,
+      "contentsValue": 470000,
+      "lastValuationDate": "2025-03-09",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-013",
+      "replacementValue": 12100000,
+      "marketValue": 13550000,
+      "insuredValue": 11500000,
+      "buildingValue": 10410000,
+      "contentsValue": 1450000,
+      "lastValuationDate": "2025-12-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-014",
+      "replacementValue": 7320000,
+      "marketValue": 8200000,
+      "insuredValue": 6950000,
+      "buildingValue": 6300000,
+      "contentsValue": 880000,
+      "lastValuationDate": "2025-10-09",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-015",
+      "replacementValue": 10550000,
+      "marketValue": 11820000,
+      "insuredValue": 10020000,
+      "buildingValue": 9070000,
+      "contentsValue": 1270000,
+      "lastValuationDate": "2025-03-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-016",
+      "replacementValue": 7710000,
+      "marketValue": 8640000,
+      "insuredValue": 7320000,
+      "buildingValue": 6630000,
+      "contentsValue": 930000,
+      "lastValuationDate": "2025-04-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-017",
+      "replacementValue": 3390000,
+      "marketValue": 3800000,
+      "insuredValue": 3220000,
+      "buildingValue": 2920000,
+      "contentsValue": 410000,
+      "lastValuationDate": "2025-08-24",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-SFG-018",
+      "replacementValue": 8580000,
+      "marketValue": 9610000,
+      "insuredValue": 8150000,
+      "buildingValue": 7380000,
+      "contentsValue": 1030000,
+      "lastValuationDate": "2025-02-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-001",
+      "replacementValue": 8540000,
+      "marketValue": 9560000,
+      "insuredValue": 8110000,
+      "buildingValue": 7340000,
+      "contentsValue": 1020000,
+      "lastValuationDate": "2025-08-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-002",
+      "replacementValue": 5820000,
+      "marketValue": 6520000,
+      "insuredValue": 5530000,
+      "buildingValue": 5010000,
+      "contentsValue": 700000,
+      "lastValuationDate": "2025-03-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-003",
+      "replacementValue": 2950000,
+      "marketValue": 3300000,
+      "insuredValue": 2800000,
+      "buildingValue": 2540000,
+      "contentsValue": 350000,
+      "lastValuationDate": "2026-04-03",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-004",
+      "replacementValue": 8180000,
+      "marketValue": 9160000,
+      "insuredValue": 7770000,
+      "buildingValue": 7030000,
+      "contentsValue": 980000,
+      "lastValuationDate": "2025-12-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-005",
+      "replacementValue": 11690000,
+      "marketValue": 13090000,
+      "insuredValue": 11110000,
+      "buildingValue": 10050000,
+      "contentsValue": 1400000,
+      "lastValuationDate": "2025-12-06",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-006",
+      "replacementValue": 2010000,
+      "marketValue": 2250000,
+      "insuredValue": 1910000,
+      "buildingValue": 1730000,
+      "contentsValue": 240000,
+      "lastValuationDate": "2025-09-22",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-007",
+      "replacementValue": 7790000,
+      "marketValue": 8720000,
+      "insuredValue": 7400000,
+      "buildingValue": 6700000,
+      "contentsValue": 930000,
+      "lastValuationDate": "2025-10-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-008",
+      "replacementValue": 6640000,
+      "marketValue": 7440000,
+      "insuredValue": 6310000,
+      "buildingValue": 5710000,
+      "contentsValue": 800000,
+      "lastValuationDate": "2025-10-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-009",
+      "replacementValue": 3220000,
+      "marketValue": 3610000,
+      "insuredValue": 3060000,
+      "buildingValue": 2770000,
+      "contentsValue": 390000,
+      "lastValuationDate": "2025-05-26",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-010",
+      "replacementValue": 5070000,
+      "marketValue": 5680000,
+      "insuredValue": 4820000,
+      "buildingValue": 4360000,
+      "contentsValue": 610000,
+      "lastValuationDate": "2025-01-22",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-011",
+      "replacementValue": 11010000,
+      "marketValue": 12330000,
+      "insuredValue": 10460000,
+      "buildingValue": 9470000,
+      "contentsValue": 1320000,
+      "lastValuationDate": "2025-09-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-012",
+      "replacementValue": 2190000,
+      "marketValue": 2450000,
+      "insuredValue": 2080000,
+      "buildingValue": 1880000,
+      "contentsValue": 260000,
+      "lastValuationDate": "2025-03-09",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-013",
+      "replacementValue": 13940000,
+      "marketValue": 15610000,
+      "insuredValue": 13240000,
+      "buildingValue": 11990000,
+      "contentsValue": 1670000,
+      "lastValuationDate": "2025-10-27",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-014",
+      "replacementValue": 7730000,
+      "marketValue": 8660000,
+      "insuredValue": 7340000,
+      "buildingValue": 6650000,
+      "contentsValue": 930000,
+      "lastValuationDate": "2025-02-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-015",
+      "replacementValue": 3300000,
+      "marketValue": 3700000,
+      "insuredValue": 3140000,
+      "buildingValue": 2840000,
+      "contentsValue": 400000,
+      "lastValuationDate": "2025-01-12",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-016",
+      "replacementValue": 6090000,
+      "marketValue": 6820000,
+      "insuredValue": 5790000,
+      "buildingValue": 5240000,
+      "contentsValue": 730000,
+      "lastValuationDate": "2025-06-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-017",
+      "replacementValue": 10160000,
+      "marketValue": 11380000,
+      "insuredValue": 9650000,
+      "buildingValue": 8740000,
+      "contentsValue": 1220000,
+      "lastValuationDate": "2025-06-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-018",
+      "replacementValue": 2010000,
+      "marketValue": 2250000,
+      "insuredValue": 1910000,
+      "buildingValue": 1730000,
+      "contentsValue": 240000,
+      "lastValuationDate": "2025-03-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-019",
+      "replacementValue": 12250000,
+      "marketValue": 13720000,
+      "insuredValue": 11640000,
+      "buildingValue": 10540000,
+      "contentsValue": 1470000,
+      "lastValuationDate": "2025-06-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-020",
+      "replacementValue": 4770000,
+      "marketValue": 5340000,
+      "insuredValue": 4530000,
+      "buildingValue": 4100000,
+      "contentsValue": 570000,
+      "lastValuationDate": "2026-01-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-021",
+      "replacementValue": 2910000,
+      "marketValue": 3260000,
+      "insuredValue": 2760000,
+      "buildingValue": 2500000,
+      "contentsValue": 350000,
+      "lastValuationDate": "2025-05-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-022",
+      "replacementValue": 6390000,
+      "marketValue": 7160000,
+      "insuredValue": 6070000,
+      "buildingValue": 5500000,
+      "contentsValue": 770000,
+      "lastValuationDate": "2025-02-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-023",
+      "replacementValue": 9450000,
+      "marketValue": 10580000,
+      "insuredValue": 8980000,
+      "buildingValue": 8130000,
+      "contentsValue": 1130000,
+      "lastValuationDate": "2025-06-01",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD1-024",
+      "replacementValue": 2190000,
+      "marketValue": 2450000,
+      "insuredValue": 2080000,
+      "buildingValue": 1880000,
+      "contentsValue": 260000,
+      "lastValuationDate": "2025-11-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-001",
+      "replacementValue": 8460000,
+      "marketValue": 9480000,
+      "insuredValue": 8040000,
+      "buildingValue": 7280000,
+      "contentsValue": 1020000,
+      "lastValuationDate": "2026-02-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-002",
+      "replacementValue": 5820000,
+      "marketValue": 6520000,
+      "insuredValue": 5530000,
+      "buildingValue": 5010000,
+      "contentsValue": 700000,
+      "lastValuationDate": "2026-03-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-003",
+      "replacementValue": 2950000,
+      "marketValue": 3300000,
+      "insuredValue": 2800000,
+      "buildingValue": 2540000,
+      "contentsValue": 350000,
+      "lastValuationDate": "2025-01-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-004",
+      "replacementValue": 7710000,
+      "marketValue": 8640000,
+      "insuredValue": 7320000,
+      "buildingValue": 6630000,
+      "contentsValue": 930000,
+      "lastValuationDate": "2025-01-22",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-005",
+      "replacementValue": 11930000,
+      "marketValue": 13360000,
+      "insuredValue": 11330000,
+      "buildingValue": 10260000,
+      "contentsValue": 1430000,
+      "lastValuationDate": "2025-02-06",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-006",
+      "replacementValue": 2140000,
+      "marketValue": 2400000,
+      "insuredValue": 2030000,
+      "buildingValue": 1840000,
+      "contentsValue": 260000,
+      "lastValuationDate": "2025-04-10",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-007",
+      "replacementValue": 8180000,
+      "marketValue": 9160000,
+      "insuredValue": 7770000,
+      "buildingValue": 7030000,
+      "contentsValue": 980000,
+      "lastValuationDate": "2025-07-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-008",
+      "replacementValue": 6840000,
+      "marketValue": 7660000,
+      "insuredValue": 6500000,
+      "buildingValue": 5880000,
+      "contentsValue": 820000,
+      "lastValuationDate": "2025-08-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-009",
+      "replacementValue": 3070000,
+      "marketValue": 3440000,
+      "insuredValue": 2920000,
+      "buildingValue": 2640000,
+      "contentsValue": 370000,
+      "lastValuationDate": "2025-01-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-010",
+      "replacementValue": 5230000,
+      "marketValue": 5860000,
+      "insuredValue": 4970000,
+      "buildingValue": 4500000,
+      "contentsValue": 630000,
+      "lastValuationDate": "2025-10-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-011",
+      "replacementValue": 11590000,
+      "marketValue": 12980000,
+      "insuredValue": 11010000,
+      "buildingValue": 9970000,
+      "contentsValue": 1390000,
+      "lastValuationDate": "2025-09-18",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-012",
+      "replacementValue": 2060000,
+      "marketValue": 2310000,
+      "insuredValue": 1960000,
+      "buildingValue": 1770000,
+      "contentsValue": 250000,
+      "lastValuationDate": "2025-07-06",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-013",
+      "replacementValue": 13400000,
+      "marketValue": 15010000,
+      "insuredValue": 12730000,
+      "buildingValue": 11520000,
+      "contentsValue": 1610000,
+      "lastValuationDate": "2025-01-06",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-014",
+      "replacementValue": 7650000,
+      "marketValue": 8570000,
+      "insuredValue": 7270000,
+      "buildingValue": 6580000,
+      "contentsValue": 920000,
+      "lastValuationDate": "2025-04-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-015",
+      "replacementValue": 3270000,
+      "marketValue": 3660000,
+      "insuredValue": 3110000,
+      "buildingValue": 2810000,
+      "contentsValue": 390000,
+      "lastValuationDate": "2025-07-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-016",
+      "replacementValue": 6220000,
+      "marketValue": 6970000,
+      "insuredValue": 5910000,
+      "buildingValue": 5350000,
+      "contentsValue": 750000,
+      "lastValuationDate": "2025-11-19",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-017",
+      "replacementValue": 9760000,
+      "marketValue": 10930000,
+      "insuredValue": 9270000,
+      "buildingValue": 8390000,
+      "contentsValue": 1170000,
+      "lastValuationDate": "2025-07-09",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-018",
+      "replacementValue": 2030000,
+      "marketValue": 2270000,
+      "insuredValue": 1930000,
+      "buildingValue": 1750000,
+      "contentsValue": 240000,
+      "lastValuationDate": "2025-01-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-019",
+      "replacementValue": 12380000,
+      "marketValue": 13870000,
+      "insuredValue": 11760000,
+      "buildingValue": 10650000,
+      "contentsValue": 1490000,
+      "lastValuationDate": "2025-12-16",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-020",
+      "replacementValue": 4530000,
+      "marketValue": 5070000,
+      "insuredValue": 4300000,
+      "buildingValue": 3900000,
+      "contentsValue": 540000,
+      "lastValuationDate": "2025-10-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-021",
+      "replacementValue": 3180000,
+      "marketValue": 3560000,
+      "insuredValue": 3020000,
+      "buildingValue": 2730000,
+      "contentsValue": 380000,
+      "lastValuationDate": "2025-03-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-022",
+      "replacementValue": 6720000,
+      "marketValue": 7530000,
+      "insuredValue": 6380000,
+      "buildingValue": 5780000,
+      "contentsValue": 810000,
+      "lastValuationDate": "2025-05-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-023",
+      "replacementValue": 9640000,
+      "marketValue": 10800000,
+      "insuredValue": 9160000,
+      "buildingValue": 8290000,
+      "contentsValue": 1160000,
+      "lastValuationDate": "2025-10-22",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD2-024",
+      "replacementValue": 2020000,
+      "marketValue": 2260000,
+      "insuredValue": 1920000,
+      "buildingValue": 1740000,
+      "contentsValue": 240000,
+      "lastValuationDate": "2025-06-07",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-001",
+      "replacementValue": 8540000,
+      "marketValue": 9560000,
+      "insuredValue": 8110000,
+      "buildingValue": 7340000,
+      "contentsValue": 1020000,
+      "lastValuationDate": "2025-11-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-002",
+      "replacementValue": 5760000,
+      "marketValue": 6450000,
+      "insuredValue": 5470000,
+      "buildingValue": 4950000,
+      "contentsValue": 690000,
+      "lastValuationDate": "2026-01-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-003",
+      "replacementValue": 2980000,
+      "marketValue": 3340000,
+      "insuredValue": 2830000,
+      "buildingValue": 2560000,
+      "contentsValue": 360000,
+      "lastValuationDate": "2025-07-08",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-004",
+      "replacementValue": 7400000,
+      "marketValue": 8290000,
+      "insuredValue": 7030000,
+      "buildingValue": 6360000,
+      "contentsValue": 890000,
+      "lastValuationDate": "2025-08-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-005",
+      "replacementValue": 12420000,
+      "marketValue": 13910000,
+      "insuredValue": 11800000,
+      "buildingValue": 10680000,
+      "contentsValue": 1490000,
+      "lastValuationDate": "2025-11-02",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-006",
+      "replacementValue": 2070000,
+      "marketValue": 2320000,
+      "insuredValue": 1970000,
+      "buildingValue": 1780000,
+      "contentsValue": 250000,
+      "lastValuationDate": "2025-04-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-007",
+      "replacementValue": 8020000,
+      "marketValue": 8980000,
+      "insuredValue": 7620000,
+      "buildingValue": 6900000,
+      "contentsValue": 960000,
+      "lastValuationDate": "2025-07-01",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-008",
+      "replacementValue": 6970000,
+      "marketValue": 7810000,
+      "insuredValue": 6620000,
+      "buildingValue": 5990000,
+      "contentsValue": 840000,
+      "lastValuationDate": "2025-03-14",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-009",
+      "replacementValue": 3070000,
+      "marketValue": 3440000,
+      "insuredValue": 2920000,
+      "buildingValue": 2640000,
+      "contentsValue": 370000,
+      "lastValuationDate": "2026-01-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-010",
+      "replacementValue": 5330000,
+      "marketValue": 5970000,
+      "insuredValue": 5060000,
+      "buildingValue": 4580000,
+      "contentsValue": 640000,
+      "lastValuationDate": "2025-05-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-011",
+      "replacementValue": 12050000,
+      "marketValue": 13500000,
+      "insuredValue": 11450000,
+      "buildingValue": 10360000,
+      "contentsValue": 1450000,
+      "lastValuationDate": "2025-07-20",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-012",
+      "replacementValue": 2110000,
+      "marketValue": 2360000,
+      "insuredValue": 2000000,
+      "buildingValue": 1810000,
+      "contentsValue": 250000,
+      "lastValuationDate": "2025-06-05",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-013",
+      "replacementValue": 13670000,
+      "marketValue": 15310000,
+      "insuredValue": 12990000,
+      "buildingValue": 11760000,
+      "contentsValue": 1640000,
+      "lastValuationDate": "2025-12-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-014",
+      "replacementValue": 7730000,
+      "marketValue": 8660000,
+      "insuredValue": 7340000,
+      "buildingValue": 6650000,
+      "contentsValue": 930000,
+      "lastValuationDate": "2025-12-04",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-015",
+      "replacementValue": 3340000,
+      "marketValue": 3740000,
+      "insuredValue": 3170000,
+      "buildingValue": 2870000,
+      "contentsValue": 400000,
+      "lastValuationDate": "2025-02-13",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-016",
+      "replacementValue": 6090000,
+      "marketValue": 6820000,
+      "insuredValue": 5790000,
+      "buildingValue": 5240000,
+      "contentsValue": 730000,
+      "lastValuationDate": "2026-02-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-017",
+      "replacementValue": 10670000,
+      "marketValue": 11950000,
+      "insuredValue": 10140000,
+      "buildingValue": 9180000,
+      "contentsValue": 1280000,
+      "lastValuationDate": "2025-07-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-018",
+      "replacementValue": 2170000,
+      "marketValue": 2430000,
+      "insuredValue": 2060000,
+      "buildingValue": 1870000,
+      "contentsValue": 260000,
+      "lastValuationDate": "2025-04-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-019",
+      "replacementValue": 12130000,
+      "marketValue": 13590000,
+      "insuredValue": 11520000,
+      "buildingValue": 10430000,
+      "contentsValue": 1460000,
+      "lastValuationDate": "2025-07-23",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-020",
+      "replacementValue": 4580000,
+      "marketValue": 5130000,
+      "insuredValue": 4350000,
+      "buildingValue": 3940000,
+      "contentsValue": 550000,
+      "lastValuationDate": "2025-10-17",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-021",
+      "replacementValue": 3060000,
+      "marketValue": 3430000,
+      "insuredValue": 2910000,
+      "buildingValue": 2630000,
+      "contentsValue": 370000,
+      "lastValuationDate": "2025-05-11",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-022",
+      "replacementValue": 6720000,
+      "marketValue": 7530000,
+      "insuredValue": 6380000,
+      "buildingValue": 5780000,
+      "contentsValue": 810000,
+      "lastValuationDate": "2025-11-25",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-023",
+      "replacementValue": 9160000,
+      "marketValue": 10260000,
+      "insuredValue": 8700000,
+      "buildingValue": 7880000,
+      "contentsValue": 1100000,
+      "lastValuationDate": "2025-12-21",
+      "valuationMethod": "Cost Approach"
+    },
+    {
+      "propertyId": "STORMPATH-HLD3-024",
+      "replacementValue": 2230000,
+      "marketValue": 2500000,
+      "insuredValue": 2120000,
+      "buildingValue": 1920000,
+      "contentsValue": 270000,
+      "lastValuationDate": "2025-08-27",
+      "valuationMethod": "Cost Approach"
+    }
   ]
 }

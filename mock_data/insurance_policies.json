@@ -4,22 +4,5060 @@
     "dataType": "synthetic_demo_data",
     "foreignKey": "propertyId -> properties.json",
     "feeds": "insuranceGap",
-    "note": "Deductibles in USD unless suffixed _pct. Synthetic demo data, not real policy terms. POL-LAK-044 is intentionally underinsured (limit cut at 2026 renewal) so the demo shows a nonzero insuranceGap."
+    "note": "Deductibles in USD. Synthetic policies derived deterministically from the regenerated valuations (limit 90-100% of replacementValue, windstorm deductible 2%, named-storm 3%). Regenerated 2026-06-12 for the 290-property dataset; not real policy terms. POL-STORMPATH-006 and POL-GPS0041213 are intentionally underinsured (limits cut at 2026 renewal) so the demo shows nonzero insuranceGap values."
   },
   "policies": [
-    {"policyId": "POL-ORL-102", "propertyId": "FL-ORL-102", "carrier": "Demo Mutual", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 14000000, "windstormDeductible": 280000, "floodDeductible": 0, "namedStormDeductible": 420000, "exclusions": ["Unmaintained roof damage"], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-WPK-118", "propertyId": "FL-WPK-118", "carrier": "Sunshine P&C", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 13900000, "windstormDeductible": 200000, "floodDeductible": 0, "namedStormDeductible": 350000, "exclusions": [], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-KIS-031", "propertyId": "FL-KIS-031", "carrier": "Demo Mutual", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 6800000, "windstormDeductible": 150000, "floodDeductible": 0, "namedStormDeductible": 200000, "exclusions": [], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-LAK-044", "propertyId": "FL-LAK-044", "carrier": "Heartland Insure", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 1750000, "windstormDeductible": 250000, "floodDeductible": 0, "namedStormDeductible": 300000, "exclusions": ["Roof over 20 years actual cash value only"], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31", "note": "Carrier cut the limit at the 2026 renewal due to roof age/condition; intentionally underinsured to exercise insuranceGap in the demo."},
-    {"policyId": "POL-TPA-205", "propertyId": "FL-TPA-205", "carrier": "Gulf Coast Assurance", "coverageTypes": ["Property", "Windstorm", "Flood"], "coverageLimit": 23400000, "windstormDeductible": 300000, "floodDeductible": 250000, "namedStormDeductible": 500000, "exclusions": [], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-STP-077", "propertyId": "FL-STP-077", "carrier": "Bayfront Risk", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 6500000, "windstormDeductible": 450000, "floodDeductible": 0, "namedStormDeductible": 650000, "exclusions": ["Flood", "Storm surge", "Unmaintained roof damage"], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-MEL-066", "propertyId": "FL-MEL-066", "carrier": "Atlantic Coastal", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 5800000, "windstormDeductible": 400000, "floodDeductible": 0, "namedStormDeductible": 580000, "exclusions": ["Flood", "Storm surge"], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-DAY-090", "propertyId": "FL-DAY-090", "carrier": "Sunshine P&C", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 10600000, "windstormDeductible": 220000, "floodDeductible": 0, "namedStormDeductible": 380000, "exclusions": [], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-JAX-155", "propertyId": "FL-JAX-155", "carrier": "Demo Mutual", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 8700000, "windstormDeductible": 180000, "floodDeductible": 0, "namedStormDeductible": 300000, "exclusions": [], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-MIA-222", "propertyId": "FL-MIA-222", "carrier": "Gulf Coast Assurance", "coverageTypes": ["Property", "Windstorm", "Flood"], "coverageLimit": 24000000, "windstormDeductible": 480000, "floodDeductible": 300000, "namedStormDeductible": 720000, "exclusions": [], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-FMY-136", "propertyId": "FL-FMY-136", "carrier": "Bayfront Risk", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 9500000, "windstormDeductible": 500000, "floodDeductible": 0, "namedStormDeductible": 700000, "exclusions": ["Flood", "Storm surge", "Roof over 20 years actual cash value only"], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-NAP-051", "propertyId": "FL-NAP-051", "carrier": "Gulf Coast Assurance", "coverageTypes": ["Property", "Windstorm", "Flood"], "coverageLimit": 12400000, "windstormDeductible": 260000, "floodDeductible": 200000, "namedStormDeductible": 500000, "exclusions": [], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-SRQ-084", "propertyId": "FL-SRQ-084", "carrier": "Atlantic Coastal", "coverageTypes": ["Property", "Windstorm"], "coverageLimit": 7000000, "windstormDeductible": 350000, "floodDeductible": 0, "namedStormDeductible": 480000, "exclusions": ["Storm surge", "Unmaintained roof damage"], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"},
-    {"policyId": "POL-PBI-173", "propertyId": "FL-PBI-173", "carrier": "Gulf Coast Assurance", "coverageTypes": ["Property", "Windstorm", "Flood"], "coverageLimit": 22100000, "windstormDeductible": 300000, "floodDeductible": 250000, "namedStormDeductible": 550000, "exclusions": [], "policyStartDate": "2026-01-01", "policyEndDate": "2026-12-31"}
+    {
+      "policyId": "POL-GPS0041213",
+      "propertyId": "GPS0041213",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1200000,
+      "windstormDeductible": 210000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 315000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31",
+      "note": "Carrier cut the windstorm limit at the 2026 renewal due to roof age/condition; intentionally underinsured so the frontend demo portfolio (Tampa / PF-002) shows a visible insuranceGap."
+    },
+    {
+      "policyId": "POL-VIS000",
+      "propertyId": "VIS000",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 5510000,
+      "windstormDeductible": 117000,
+      "floodDeductible": 59000,
+      "namedStormDeductible": 176000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU000",
+      "propertyId": "RU000",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2370000,
+      "windstormDeductible": 50000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 75000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10042351",
+      "propertyId": "IH10042351",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 7290000,
+      "windstormDeductible": 153000,
+      "floodDeductible": 77000,
+      "namedStormDeductible": 230000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP24-0073",
+      "propertyId": "HPP24-0073",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4560000,
+      "windstormDeductible": 97000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 146000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPV3000991",
+      "propertyId": "HPV3000991",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1020000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 31000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-SA000",
+      "propertyId": "SA000",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5100000,
+      "windstormDeductible": 112000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 168000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP30-0445",
+      "propertyId": "HPP30-0445",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1660000,
+      "windstormDeductible": 37000,
+      "floodDeductible": 18000,
+      "namedStormDeductible": 56000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPaaron",
+      "propertyId": "HPaaron",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 970000,
+      "windstormDeductible": 20000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 31000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP30-0506",
+      "propertyId": "HPP30-0506",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 6260000,
+      "windstormDeductible": 128000,
+      "floodDeductible": 64000,
+      "namedStormDeductible": 192000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP30-0448",
+      "propertyId": "HPP30-0448",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 6440000,
+      "windstormDeductible": 136000,
+      "floodDeductible": 68000,
+      "namedStormDeductible": 203000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10058843",
+      "propertyId": "IH10058843",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7960000,
+      "windstormDeductible": 177000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 266000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU9591",
+      "propertyId": "RU9591",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1470000,
+      "windstormDeductible": 32000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 48000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3287",
+      "propertyId": "RU3287",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 780000,
+      "windstormDeductible": 17000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 26000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU7521",
+      "propertyId": "RU7521",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 960000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 32000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10004813",
+      "propertyId": "IH10004813",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4590000,
+      "windstormDeductible": 95000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 142000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU7172",
+      "propertyId": "RU7172",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2930000,
+      "windstormDeductible": 60000,
+      "floodDeductible": 30000,
+      "namedStormDeductible": 91000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3473",
+      "propertyId": "RU3473",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2470000,
+      "windstormDeductible": 51000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 76000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU6012",
+      "propertyId": "RU6012",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 13430000,
+      "windstormDeductible": 271000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 407000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU9243",
+      "propertyId": "RU9243",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3320000,
+      "windstormDeductible": 66000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 100000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5048",
+      "propertyId": "RU5048",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 8670000,
+      "windstormDeductible": 186000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 280000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU11978",
+      "propertyId": "RU11978",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2260000,
+      "windstormDeductible": 46000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 69000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU11948",
+      "propertyId": "RU11948",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 690000,
+      "windstormDeductible": 15000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 22000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU12041",
+      "propertyId": "RU12041",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4930000,
+      "windstormDeductible": 102000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 152000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3596",
+      "propertyId": "RU3596",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2000000,
+      "windstormDeductible": 43000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 65000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU9979",
+      "propertyId": "RU9979",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2150000,
+      "windstormDeductible": 47000,
+      "floodDeductible": 23000,
+      "namedStormDeductible": 70000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU9673",
+      "propertyId": "RU9673",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 10400000,
+      "windstormDeductible": 229000,
+      "floodDeductible": 114000,
+      "namedStormDeductible": 343000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4249",
+      "propertyId": "RU4249",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7050000,
+      "windstormDeductible": 148000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 223000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU10474",
+      "propertyId": "RU10474",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2440000,
+      "windstormDeductible": 52000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 79000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU6217",
+      "propertyId": "RU6217",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3340000,
+      "windstormDeductible": 67000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 100000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3635",
+      "propertyId": "RU3635",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1750000,
+      "windstormDeductible": 38000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 57000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3300",
+      "propertyId": "RU3300",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1590000,
+      "windstormDeductible": 35000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 52000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5440",
+      "propertyId": "RU5440",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6340000,
+      "windstormDeductible": 135000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 202000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4744",
+      "propertyId": "RU4744",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1400000,
+      "windstormDeductible": 31000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 47000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5444",
+      "propertyId": "RU5444",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1910000,
+      "windstormDeductible": 39000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 59000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-LLbp40559",
+      "propertyId": "LLbp40559",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1570000,
+      "windstormDeductible": 34000,
+      "floodDeductible": 17000,
+      "namedStormDeductible": 51000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU12218",
+      "propertyId": "RU12218",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 770000,
+      "windstormDeductible": 17000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 26000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5423",
+      "propertyId": "RU5423",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2510000,
+      "windstormDeductible": 52000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 78000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU6341",
+      "propertyId": "RU6341",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2100000,
+      "windstormDeductible": 45000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 68000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10042499",
+      "propertyId": "IH10042499",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1000000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 10000,
+      "namedStormDeductible": 31000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU11121",
+      "propertyId": "RU11121",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2030000,
+      "windstormDeductible": 44000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 65000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU11910",
+      "propertyId": "RU11910",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2700000,
+      "windstormDeductible": 55000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 82000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5884",
+      "propertyId": "RU5884",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5510000,
+      "windstormDeductible": 115000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 172000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU8114",
+      "propertyId": "RU8114",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2610000,
+      "windstormDeductible": 58000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 87000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU10735",
+      "propertyId": "RU10735",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5780000,
+      "windstormDeductible": 123000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 184000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU12060",
+      "propertyId": "RU12060",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 8320000,
+      "windstormDeductible": 183000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 274000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-LLbr46843",
+      "propertyId": "LLbr46843",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1070000,
+      "windstormDeductible": 23000,
+      "floodDeductible": 11000,
+      "namedStormDeductible": 34000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-LLbp47405",
+      "propertyId": "LLbp47405",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1080000,
+      "windstormDeductible": 24000,
+      "floodDeductible": 12000,
+      "namedStormDeductible": 36000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-JPMCaaron",
+      "propertyId": "JPMCaaron",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 17570000,
+      "windstormDeductible": 366000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 549000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU8905",
+      "propertyId": "RU8905",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1210000,
+      "windstormDeductible": 26000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 39000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4613",
+      "propertyId": "RU4613",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 11740000,
+      "windstormDeductible": 258000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 387000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4923",
+      "propertyId": "RU4923",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2600000,
+      "windstormDeductible": 53000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 79000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3310",
+      "propertyId": "RU3310",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2170000,
+      "windstormDeductible": 48000,
+      "floodDeductible": 24000,
+      "namedStormDeductible": 72000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU8340",
+      "propertyId": "RU8340",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1330000,
+      "windstormDeductible": 27000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 40000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3319",
+      "propertyId": "RU3319",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1010000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 31000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU7908",
+      "propertyId": "RU7908",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1030000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 32000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5409",
+      "propertyId": "RU5409",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4290000,
+      "windstormDeductible": 89000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 134000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5559",
+      "propertyId": "RU5559",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1570000,
+      "windstormDeductible": 35000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 52000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-JPMC142501",
+      "propertyId": "JPMC142501",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1040000,
+      "windstormDeductible": 22000,
+      "floodDeductible": 11000,
+      "namedStormDeductible": 33000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4338",
+      "propertyId": "RU4338",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 840000,
+      "windstormDeductible": 18000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 27000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU11929",
+      "propertyId": "RU11929",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1010000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 31000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU12015",
+      "propertyId": "RU12015",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1140000,
+      "windstormDeductible": 23000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 34000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU9778",
+      "propertyId": "RU9778",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 960000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 31000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU6025",
+      "propertyId": "RU6025",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6050000,
+      "windstormDeductible": 122000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 183000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4220",
+      "propertyId": "RU4220",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2180000,
+      "windstormDeductible": 48000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 72000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU10613",
+      "propertyId": "RU10613",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2470000,
+      "windstormDeductible": 52000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 78000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU6852",
+      "propertyId": "RU6852",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3690000,
+      "windstormDeductible": 78000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 116000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU11997",
+      "propertyId": "RU11997",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2280000,
+      "windstormDeductible": 48000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 72000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3501",
+      "propertyId": "RU3501",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1610000,
+      "windstormDeductible": 35000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 53000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU11972",
+      "propertyId": "RU11972",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7940000,
+      "windstormDeductible": 176000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 265000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10052435",
+      "propertyId": "IH10052435",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5200000,
+      "windstormDeductible": 109000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 164000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10104241",
+      "propertyId": "IH10104241",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 11170000,
+      "windstormDeductible": 233000,
+      "floodDeductible": 116000,
+      "namedStormDeductible": 349000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5459",
+      "propertyId": "RU5459",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5440000,
+      "windstormDeductible": 109000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 163000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4228",
+      "propertyId": "RU4228",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 11090000,
+      "windstormDeductible": 222000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 333000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10059166",
+      "propertyId": "IH10059166",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 9560000,
+      "windstormDeductible": 191000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 287000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU7545",
+      "propertyId": "RU7545",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 930000,
+      "windstormDeductible": 19000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 28000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3485",
+      "propertyId": "RU3485",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 980000,
+      "windstormDeductible": 20000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 30000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPV30-0142",
+      "propertyId": "HPV30-0142",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 14780000,
+      "windstormDeductible": 311000,
+      "floodDeductible": 156000,
+      "namedStormDeductible": 467000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU9025",
+      "propertyId": "RU9025",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1840000,
+      "windstormDeductible": 37000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 56000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-JPMC151219",
+      "propertyId": "JPMC151219",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2110000,
+      "windstormDeductible": 44000,
+      "floodDeductible": 22000,
+      "namedStormDeductible": 67000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-JPMCjane001",
+      "propertyId": "JPMCjane001",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2230000,
+      "windstormDeductible": 46000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 68000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPV30-0027",
+      "propertyId": "HPV30-0027",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1370000,
+      "windstormDeductible": 30000,
+      "floodDeductible": 15000,
+      "namedStormDeductible": 45000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP30-0342",
+      "propertyId": "HPP30-0342",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 670000,
+      "windstormDeductible": 15000,
+      "floodDeductible": 7000,
+      "namedStormDeductible": 22000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU12227",
+      "propertyId": "RU12227",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 960000,
+      "windstormDeductible": 19000,
+      "floodDeductible": 10000,
+      "namedStormDeductible": 29000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH11111780",
+      "propertyId": "IH11111780",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7090000,
+      "windstormDeductible": 148000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 222000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10004610",
+      "propertyId": "IH10004610",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2560000,
+      "windstormDeductible": 51000,
+      "floodDeductible": 26000,
+      "namedStormDeductible": 77000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10003105",
+      "propertyId": "IH10003105",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 14490000,
+      "windstormDeductible": 290000,
+      "floodDeductible": 145000,
+      "namedStormDeductible": 435000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPV30-0001",
+      "propertyId": "HPV30-0001",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2080000,
+      "windstormDeductible": 44000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 66000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPV30-0005",
+      "propertyId": "HPV30-0005",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1810000,
+      "windstormDeductible": 39000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 58000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-ABCT81002956",
+      "propertyId": "ABCT81002956",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 760000,
+      "windstormDeductible": 17000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 25000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH11111628",
+      "propertyId": "IH11111628",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1280000,
+      "windstormDeductible": 28000,
+      "floodDeductible": 14000,
+      "namedStormDeductible": 41000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP30-0454",
+      "propertyId": "HPP30-0454",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5180000,
+      "windstormDeductible": 113000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 169000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP30-0520",
+      "propertyId": "HPP30-0520",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 960000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 31000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP30-0072",
+      "propertyId": "HPP30-0072",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6330000,
+      "windstormDeductible": 127000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 190000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-HPP30-0160",
+      "propertyId": "HPP30-0160",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1000000,
+      "windstormDeductible": 20000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 30000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH11111434",
+      "propertyId": "IH11111434",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3150000,
+      "windstormDeductible": 64000,
+      "floodDeductible": 32000,
+      "namedStormDeductible": 95000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10033361",
+      "propertyId": "IH10033361",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 12110000,
+      "windstormDeductible": 263000,
+      "floodDeductible": 132000,
+      "namedStormDeductible": 395000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-JPMCcy001",
+      "propertyId": "JPMCcy001",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 15460000,
+      "windstormDeductible": 332000,
+      "floodDeductible": 166000,
+      "namedStormDeductible": 499000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU3932",
+      "propertyId": "RU3932",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3660000,
+      "windstormDeductible": 80000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 119000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU6364",
+      "propertyId": "RU6364",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2330000,
+      "windstormDeductible": 48000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 72000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4788",
+      "propertyId": "RU4788",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1970000,
+      "windstormDeductible": 41000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 61000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU2804",
+      "propertyId": "RU2804",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1600000,
+      "windstormDeductible": 33000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 50000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU7425",
+      "propertyId": "RU7425",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1040000,
+      "windstormDeductible": 22000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 32000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU8471",
+      "propertyId": "RU8471",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2250000,
+      "windstormDeductible": 48000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 72000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU8285",
+      "propertyId": "RU8285",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3720000,
+      "windstormDeductible": 81000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 121000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10032110",
+      "propertyId": "IH10032110",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1240000,
+      "windstormDeductible": 26000,
+      "floodDeductible": 13000,
+      "namedStormDeductible": 40000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU4918",
+      "propertyId": "RU4918",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5170000,
+      "windstormDeductible": 115000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 172000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU10603",
+      "propertyId": "RU10603",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 13850000,
+      "windstormDeductible": 304000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 457000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-MYPM20240611075038454",
+      "propertyId": "MYPM20240611075038454",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 12770000,
+      "windstormDeductible": 255000,
+      "floodDeductible": 128000,
+      "namedStormDeductible": 383000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-SIGaaron",
+      "propertyId": "SIGaaron",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4420000,
+      "windstormDeductible": 98000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 147000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-JPMC142744",
+      "propertyId": "JPMC142744",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3060000,
+      "windstormDeductible": 64000,
+      "floodDeductible": 32000,
+      "namedStormDeductible": 97000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-PF77578266",
+      "propertyId": "PF77578266",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5770000,
+      "windstormDeductible": 118000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 177000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-PF59967981",
+      "propertyId": "PF59967981",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 11960000,
+      "windstormDeductible": 242000,
+      "floodDeductible": 121000,
+      "namedStormDeductible": 362000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10064433",
+      "propertyId": "IH10064433",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1180000,
+      "windstormDeductible": 24000,
+      "floodDeductible": 12000,
+      "namedStormDeductible": 35000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10051505",
+      "propertyId": "IH10051505",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 11000000,
+      "windstormDeductible": 224000,
+      "floodDeductible": 112000,
+      "namedStormDeductible": 337000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IHpw110383",
+      "propertyId": "IHpw110383",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 710000,
+      "windstormDeductible": 15000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 22000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-SA13514",
+      "propertyId": "SA13514",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1070000,
+      "windstormDeductible": 21000,
+      "floodDeductible": 11000,
+      "namedStormDeductible": 32000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-ASG20250701191226",
+      "propertyId": "ASG20250701191226",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7080000,
+      "windstormDeductible": 142000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 212000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-PET2424",
+      "propertyId": "PET2424",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2270000,
+      "windstormDeductible": 50000,
+      "floodDeductible": 25000,
+      "namedStormDeductible": 76000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10018071",
+      "propertyId": "IH10018071",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2520000,
+      "windstormDeductible": 55000,
+      "floodDeductible": 28000,
+      "namedStormDeductible": 83000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-PF94445148",
+      "propertyId": "PF94445148",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2710000,
+      "windstormDeductible": 57000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 86000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10058542",
+      "propertyId": "IH10058542",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 4700000,
+      "windstormDeductible": 98000,
+      "floodDeductible": 49000,
+      "namedStormDeductible": 147000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH002",
+      "propertyId": "IH002",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 14010000,
+      "windstormDeductible": 301000,
+      "floodDeductible": 151000,
+      "namedStormDeductible": 452000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10005583",
+      "propertyId": "IH10005583",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2080000,
+      "windstormDeductible": 42000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 62000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-RU5878",
+      "propertyId": "RU5878",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6550000,
+      "windstormDeductible": 134000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 200000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10035537",
+      "propertyId": "IH10035537",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 15120000,
+      "windstormDeductible": 332000,
+      "floodDeductible": 166000,
+      "namedStormDeductible": 499000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-LL888888",
+      "propertyId": "LL888888",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2250000,
+      "windstormDeductible": 46000,
+      "floodDeductible": 23000,
+      "namedStormDeductible": 69000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-JPMC150421",
+      "propertyId": "JPMC150421",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1030000,
+      "windstormDeductible": 22000,
+      "floodDeductible": 11000,
+      "namedStormDeductible": 34000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10018656",
+      "propertyId": "IH10018656",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 9540000,
+      "windstormDeductible": 201000,
+      "floodDeductible": 100000,
+      "namedStormDeductible": 301000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-ARTLOC-26000005615-HWBP-1",
+      "propertyId": "ARTLOC-26000005615-HWBP-1",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 7720000,
+      "windstormDeductible": 156000,
+      "floodDeductible": 78000,
+      "namedStormDeductible": 234000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH11",
+      "propertyId": "IH11",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5530000,
+      "windstormDeductible": 119000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 178000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10004669",
+      "propertyId": "IH10004669",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 13730000,
+      "windstormDeductible": 295000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 443000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-ART6756AA2B0987C876",
+      "propertyId": "ART6756AA2B0987C876",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2910000,
+      "windstormDeductible": 58000,
+      "floodDeductible": 29000,
+      "namedStormDeductible": 87000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-TRI12200063",
+      "propertyId": "TRI12200063",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2980000,
+      "windstormDeductible": 60000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 89000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH11111833",
+      "propertyId": "IH11111833",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2360000,
+      "windstormDeductible": 50000,
+      "floodDeductible": 25000,
+      "namedStormDeductible": 75000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-ART082001E1ED9BBBF6",
+      "propertyId": "ART082001E1ED9BBBF6",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1150000,
+      "windstormDeductible": 23000,
+      "floodDeductible": 12000,
+      "namedStormDeductible": 35000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10003063",
+      "propertyId": "IH10003063",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 11330000,
+      "windstormDeductible": 236000,
+      "floodDeductible": 118000,
+      "namedStormDeductible": 354000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10052064",
+      "propertyId": "IH10052064",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4230000,
+      "windstormDeductible": 85000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 127000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-IH10032676",
+      "propertyId": "IH10032676",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 12950000,
+      "windstormDeductible": 276000,
+      "floodDeductible": 138000,
+      "namedStormDeductible": 413000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-TRI92200079",
+      "propertyId": "TRI92200079",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 720000,
+      "windstormDeductible": 15000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 22000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-001",
+      "propertyId": "STORMPATH-001",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 5500000,
+      "windstormDeductible": 116000,
+      "floodDeductible": 58000,
+      "namedStormDeductible": 174000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-002",
+      "propertyId": "STORMPATH-002",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 12390000,
+      "windstormDeductible": 255000,
+      "floodDeductible": 128000,
+      "namedStormDeductible": 383000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-003",
+      "propertyId": "STORMPATH-003",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3510000,
+      "windstormDeductible": 72000,
+      "floodDeductible": 36000,
+      "namedStormDeductible": 109000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-004",
+      "propertyId": "STORMPATH-004",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 9830000,
+      "windstormDeductible": 218000,
+      "floodDeductible": 109000,
+      "namedStormDeductible": 328000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-005",
+      "propertyId": "STORMPATH-005",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 5130000,
+      "windstormDeductible": 114000,
+      "floodDeductible": 57000,
+      "namedStormDeductible": 171000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-006",
+      "propertyId": "STORMPATH-006",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 1900000,
+      "windstormDeductible": 315000,
+      "floodDeductible": 158000,
+      "namedStormDeductible": 473000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31",
+      "note": "Carrier cut the windstorm limit at the 2026 renewal due to roof age/condition; intentionally underinsured to exercise insuranceGap in the demo."
+    },
+    {
+      "policyId": "POL-STORMPATH-007",
+      "propertyId": "STORMPATH-007",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 4820000,
+      "windstormDeductible": 107000,
+      "floodDeductible": 54000,
+      "namedStormDeductible": 160000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-008",
+      "propertyId": "STORMPATH-008",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 9800000,
+      "windstormDeductible": 213000,
+      "floodDeductible": 106000,
+      "namedStormDeductible": 320000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-009",
+      "propertyId": "STORMPATH-009",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2250000,
+      "windstormDeductible": 47000,
+      "floodDeductible": 24000,
+      "namedStormDeductible": 71000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-010",
+      "propertyId": "STORMPATH-010",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 12940000,
+      "windstormDeductible": 270000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 404000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-011",
+      "propertyId": "STORMPATH-011",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7130000,
+      "windstormDeductible": 157000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 235000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-012",
+      "propertyId": "STORMPATH-012",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3130000,
+      "windstormDeductible": 70000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 104000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-013",
+      "propertyId": "STORMPATH-013",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5420000,
+      "windstormDeductible": 115000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 173000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-014",
+      "propertyId": "STORMPATH-014",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 11290000,
+      "windstormDeductible": 251000,
+      "floodDeductible": 125000,
+      "namedStormDeductible": 376000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-015",
+      "propertyId": "STORMPATH-015",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 5940000,
+      "windstormDeductible": 131000,
+      "floodDeductible": 65000,
+      "namedStormDeductible": 196000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-016",
+      "propertyId": "STORMPATH-016",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3060000,
+      "windstormDeductible": 64000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 96000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-017",
+      "propertyId": "STORMPATH-017",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 4700000,
+      "windstormDeductible": 104000,
+      "floodDeductible": 52000,
+      "namedStormDeductible": 157000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-018",
+      "propertyId": "STORMPATH-018",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 8870000,
+      "windstormDeductible": 187000,
+      "floodDeductible": 93000,
+      "namedStormDeductible": 280000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-019",
+      "propertyId": "STORMPATH-019",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7900000,
+      "windstormDeductible": 165000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 247000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-020",
+      "propertyId": "STORMPATH-020",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3490000,
+      "windstormDeductible": 77000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 115000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-021",
+      "propertyId": "STORMPATH-021",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5830000,
+      "windstormDeductible": 118000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 177000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-022",
+      "propertyId": "STORMPATH-022",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 8080000,
+      "windstormDeductible": 167000,
+      "floodDeductible": 83000,
+      "namedStormDeductible": 250000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-023",
+      "propertyId": "STORMPATH-023",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 10870000,
+      "windstormDeductible": 220000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 329000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-024",
+      "propertyId": "STORMPATH-024",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2880000,
+      "windstormDeductible": 59000,
+      "floodDeductible": 30000,
+      "namedStormDeductible": 89000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-001",
+      "propertyId": "STORMPATH-HLD-001",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 9890000,
+      "windstormDeductible": 204000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 306000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-002",
+      "propertyId": "STORMPATH-HLD-002",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6360000,
+      "windstormDeductible": 133000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 199000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-003",
+      "propertyId": "STORMPATH-HLD-003",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3490000,
+      "windstormDeductible": 73000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 110000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-004",
+      "propertyId": "STORMPATH-HLD-004",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 12360000,
+      "windstormDeductible": 250000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 374000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-005",
+      "propertyId": "STORMPATH-HLD-005",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5800000,
+      "windstormDeductible": 120000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 179000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-006",
+      "propertyId": "STORMPATH-HLD-006",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3320000,
+      "windstormDeductible": 67000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 100000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-007",
+      "propertyId": "STORMPATH-HLD-007",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 8040000,
+      "windstormDeductible": 177000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 265000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-008",
+      "propertyId": "STORMPATH-HLD-008",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5940000,
+      "windstormDeductible": 120000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 180000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-009",
+      "propertyId": "STORMPATH-HLD-009",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2880000,
+      "windstormDeductible": 58000,
+      "floodDeductible": 29000,
+      "namedStormDeductible": 86000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-010",
+      "propertyId": "STORMPATH-HLD-010",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 4300000,
+      "windstormDeductible": 92000,
+      "floodDeductible": 46000,
+      "namedStormDeductible": 139000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-011",
+      "propertyId": "STORMPATH-HLD-011",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3110000,
+      "windstormDeductible": 62000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 93000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-012",
+      "propertyId": "STORMPATH-HLD-012",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5000000,
+      "windstormDeductible": 109000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 163000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-013",
+      "propertyId": "STORMPATH-HLD-013",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6540000,
+      "windstormDeductible": 132000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 198000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-014",
+      "propertyId": "STORMPATH-HLD-014",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2490000,
+      "windstormDeductible": 55000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 82000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-015",
+      "propertyId": "STORMPATH-HLD-015",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7340000,
+      "windstormDeductible": 153000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 230000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-016",
+      "propertyId": "STORMPATH-HLD-016",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6050000,
+      "windstormDeductible": 125000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 187000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-017",
+      "propertyId": "STORMPATH-HLD-017",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2660000,
+      "windstormDeductible": 56000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 84000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD-018",
+      "propertyId": "STORMPATH-HLD-018",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5230000,
+      "windstormDeductible": 109000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 164000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-001",
+      "propertyId": "STORMPATH-FPH-001",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 5340000,
+      "windstormDeductible": 110000,
+      "floodDeductible": 55000,
+      "namedStormDeductible": 165000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-002",
+      "propertyId": "STORMPATH-FPH-002",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 10830000,
+      "windstormDeductible": 230000,
+      "floodDeductible": 115000,
+      "namedStormDeductible": 346000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-003",
+      "propertyId": "STORMPATH-FPH-003",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2760000,
+      "windstormDeductible": 60000,
+      "floodDeductible": 30000,
+      "namedStormDeductible": 90000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-004",
+      "propertyId": "STORMPATH-FPH-004",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 6330000,
+      "windstormDeductible": 138000,
+      "floodDeductible": 69000,
+      "namedStormDeductible": 206000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-005",
+      "propertyId": "STORMPATH-FPH-005",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 9250000,
+      "windstormDeductible": 193000,
+      "floodDeductible": 96000,
+      "namedStormDeductible": 289000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-006",
+      "propertyId": "STORMPATH-FPH-006",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3190000,
+      "windstormDeductible": 65000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 98000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-007",
+      "propertyId": "STORMPATH-FPH-007",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5550000,
+      "windstormDeductible": 119000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 179000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-008",
+      "propertyId": "STORMPATH-FPH-008",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 7910000,
+      "windstormDeductible": 168000,
+      "floodDeductible": 84000,
+      "namedStormDeductible": 252000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-009",
+      "propertyId": "STORMPATH-FPH-009",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 9640000,
+      "windstormDeductible": 212000,
+      "floodDeductible": 106000,
+      "namedStormDeductible": 318000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-010",
+      "propertyId": "STORMPATH-FPH-010",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 5180000,
+      "windstormDeductible": 114000,
+      "floodDeductible": 57000,
+      "namedStormDeductible": 171000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-011",
+      "propertyId": "STORMPATH-FPH-011",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 11290000,
+      "windstormDeductible": 233000,
+      "floodDeductible": 116000,
+      "namedStormDeductible": 349000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-012",
+      "propertyId": "STORMPATH-FPH-012",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3460000,
+      "windstormDeductible": 77000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 116000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-013",
+      "propertyId": "STORMPATH-FPH-013",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 6430000,
+      "windstormDeductible": 129000,
+      "floodDeductible": 64000,
+      "namedStormDeductible": 193000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-014",
+      "propertyId": "STORMPATH-FPH-014",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 9260000,
+      "windstormDeductible": 195000,
+      "floodDeductible": 98000,
+      "namedStormDeductible": 292000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-015",
+      "propertyId": "STORMPATH-FPH-015",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 9170000,
+      "windstormDeductible": 191000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 286000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-016",
+      "propertyId": "STORMPATH-FPH-016",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 8270000,
+      "windstormDeductible": 180000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 270000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-017",
+      "propertyId": "STORMPATH-FPH-017",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 5510000,
+      "windstormDeductible": 115000,
+      "floodDeductible": 57000,
+      "namedStormDeductible": 172000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-FPH-018",
+      "propertyId": "STORMPATH-FPH-018",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3580000,
+      "windstormDeductible": 72000,
+      "floodDeductible": 36000,
+      "namedStormDeductible": 109000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-001",
+      "propertyId": "STORMPATH-SFG-001",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 12460000,
+      "windstormDeductible": 265000,
+      "floodDeductible": 133000,
+      "namedStormDeductible": 398000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-002",
+      "propertyId": "STORMPATH-SFG-002",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 6120000,
+      "windstormDeductible": 122000,
+      "floodDeductible": 61000,
+      "namedStormDeductible": 184000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-003",
+      "propertyId": "STORMPATH-SFG-003",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 10170000,
+      "windstormDeductible": 214000,
+      "floodDeductible": 107000,
+      "namedStormDeductible": 321000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-004",
+      "propertyId": "STORMPATH-SFG-004",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 4400000,
+      "windstormDeductible": 89000,
+      "floodDeductible": 44000,
+      "namedStormDeductible": 133000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-005",
+      "propertyId": "STORMPATH-SFG-005",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 10160000,
+      "windstormDeductible": 218000,
+      "floodDeductible": 109000,
+      "namedStormDeductible": 328000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-006",
+      "propertyId": "STORMPATH-SFG-006",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6520000,
+      "windstormDeductible": 139000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 208000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-007",
+      "propertyId": "STORMPATH-SFG-007",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 12800000,
+      "windstormDeductible": 261000,
+      "floodDeductible": 131000,
+      "namedStormDeductible": 392000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-008",
+      "propertyId": "STORMPATH-SFG-008",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 5970000,
+      "windstormDeductible": 130000,
+      "floodDeductible": 65000,
+      "namedStormDeductible": 195000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-009",
+      "propertyId": "STORMPATH-SFG-009",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 10360000,
+      "windstormDeductible": 225000,
+      "floodDeductible": 113000,
+      "namedStormDeductible": 338000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-010",
+      "propertyId": "STORMPATH-SFG-010",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3610000,
+      "windstormDeductible": 74000,
+      "floodDeductible": 37000,
+      "namedStormDeductible": 110000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-011",
+      "propertyId": "STORMPATH-SFG-011",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6870000,
+      "windstormDeductible": 143000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 215000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-012",
+      "propertyId": "STORMPATH-SFG-012",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 3620000,
+      "windstormDeductible": 78000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 117000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-013",
+      "propertyId": "STORMPATH-SFG-013",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 11740000,
+      "windstormDeductible": 242000,
+      "floodDeductible": 121000,
+      "namedStormDeductible": 363000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-014",
+      "propertyId": "STORMPATH-SFG-014",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7030000,
+      "windstormDeductible": 146000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 220000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-015",
+      "propertyId": "STORMPATH-SFG-015",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 9810000,
+      "windstormDeductible": 211000,
+      "floodDeductible": 106000,
+      "namedStormDeductible": 316000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-016",
+      "propertyId": "STORMPATH-SFG-016",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7630000,
+      "windstormDeductible": 154000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 231000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-017",
+      "propertyId": "STORMPATH-SFG-017",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3290000,
+      "windstormDeductible": 68000,
+      "floodDeductible": 34000,
+      "namedStormDeductible": 102000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-SFG-018",
+      "propertyId": "STORMPATH-SFG-018",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 8150000,
+      "windstormDeductible": 172000,
+      "floodDeductible": 86000,
+      "namedStormDeductible": 257000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-001",
+      "propertyId": "STORMPATH-HLD1-001",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 8200000,
+      "windstormDeductible": 171000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 256000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-002",
+      "propertyId": "STORMPATH-HLD1-002",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5760000,
+      "windstormDeductible": 116000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 175000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-003",
+      "propertyId": "STORMPATH-HLD1-003",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2740000,
+      "windstormDeductible": 59000,
+      "floodDeductible": 30000,
+      "namedStormDeductible": 88000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-004",
+      "propertyId": "STORMPATH-HLD1-004",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7770000,
+      "windstormDeductible": 164000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 245000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-005",
+      "propertyId": "STORMPATH-HLD1-005",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 10750000,
+      "windstormDeductible": 234000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 351000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-006",
+      "propertyId": "STORMPATH-HLD1-006",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1970000,
+      "windstormDeductible": 40000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 60000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-007",
+      "propertyId": "STORMPATH-HLD1-007",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7090000,
+      "windstormDeductible": 156000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 234000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-008",
+      "propertyId": "STORMPATH-HLD1-008",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6370000,
+      "windstormDeductible": 133000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 199000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-009",
+      "propertyId": "STORMPATH-HLD1-009",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2960000,
+      "windstormDeductible": 64000,
+      "floodDeductible": 32000,
+      "namedStormDeductible": 97000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-010",
+      "propertyId": "STORMPATH-HLD1-010",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4610000,
+      "windstormDeductible": 101000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 152000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-011",
+      "propertyId": "STORMPATH-HLD1-011",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 10350000,
+      "windstormDeductible": 220000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 330000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-012",
+      "propertyId": "STORMPATH-HLD1-012",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2060000,
+      "windstormDeductible": 44000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 66000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-013",
+      "propertyId": "STORMPATH-HLD1-013",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 12820000,
+      "windstormDeductible": 279000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 418000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-014",
+      "propertyId": "STORMPATH-HLD1-014",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7580000,
+      "windstormDeductible": 155000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 232000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-015",
+      "propertyId": "STORMPATH-HLD1-015",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3300000,
+      "windstormDeductible": 66000,
+      "floodDeductible": 33000,
+      "namedStormDeductible": 99000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-016",
+      "propertyId": "STORMPATH-HLD1-016",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5850000,
+      "windstormDeductible": 122000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 183000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-017",
+      "propertyId": "STORMPATH-HLD1-017",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 9450000,
+      "windstormDeductible": 203000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 305000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-018",
+      "propertyId": "STORMPATH-HLD1-018",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2010000,
+      "windstormDeductible": 40000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 60000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-019",
+      "propertyId": "STORMPATH-HLD1-019",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 11520000,
+      "windstormDeductible": 245000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 368000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-020",
+      "propertyId": "STORMPATH-HLD1-020",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4670000,
+      "windstormDeductible": 95000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 143000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-021",
+      "propertyId": "STORMPATH-HLD1-021",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2820000,
+      "windstormDeductible": 58000,
+      "floodDeductible": 29000,
+      "namedStormDeductible": 87000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-022",
+      "propertyId": "STORMPATH-HLD1-022",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5750000,
+      "windstormDeductible": 128000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 192000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-023",
+      "propertyId": "STORMPATH-HLD1-023",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 8500000,
+      "windstormDeductible": 189000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 284000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD1-024",
+      "propertyId": "STORMPATH-HLD1-024",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1970000,
+      "windstormDeductible": 44000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 66000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-001",
+      "propertyId": "STORMPATH-HLD2-001",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7610000,
+      "windstormDeductible": 169000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 254000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-002",
+      "propertyId": "STORMPATH-HLD2-002",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5470000,
+      "windstormDeductible": 116000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 175000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-003",
+      "propertyId": "STORMPATH-HLD2-003",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2860000,
+      "windstormDeductible": 59000,
+      "floodDeductible": 30000,
+      "namedStormDeductible": 88000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-004",
+      "propertyId": "STORMPATH-HLD2-004",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7250000,
+      "windstormDeductible": 154000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 231000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-005",
+      "propertyId": "STORMPATH-HLD2-005",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 11450000,
+      "windstormDeductible": 239000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 358000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-006",
+      "propertyId": "STORMPATH-HLD2-006",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1990000,
+      "windstormDeductible": 43000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 64000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-007",
+      "propertyId": "STORMPATH-HLD2-007",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7770000,
+      "windstormDeductible": 164000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 245000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-008",
+      "propertyId": "STORMPATH-HLD2-008",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6840000,
+      "windstormDeductible": 137000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 205000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-009",
+      "propertyId": "STORMPATH-HLD2-009",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2950000,
+      "windstormDeductible": 61000,
+      "floodDeductible": 31000,
+      "namedStormDeductible": 92000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-010",
+      "propertyId": "STORMPATH-HLD2-010",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4810000,
+      "windstormDeductible": 105000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 157000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-011",
+      "propertyId": "STORMPATH-HLD2-011",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 10550000,
+      "windstormDeductible": 232000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 348000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-012",
+      "propertyId": "STORMPATH-HLD2-012",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2020000,
+      "windstormDeductible": 41000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 62000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-013",
+      "propertyId": "STORMPATH-HLD2-013",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 12190000,
+      "windstormDeductible": 268000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 402000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-014",
+      "propertyId": "STORMPATH-HLD2-014",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7040000,
+      "windstormDeductible": 153000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 230000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-015",
+      "propertyId": "STORMPATH-HLD2-015",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3110000,
+      "windstormDeductible": 65000,
+      "floodDeductible": 33000,
+      "namedStormDeductible": 98000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-016",
+      "propertyId": "STORMPATH-HLD2-016",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5910000,
+      "windstormDeductible": 124000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 187000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-017",
+      "propertyId": "STORMPATH-HLD2-017",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 9370000,
+      "windstormDeductible": 195000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 293000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-018",
+      "propertyId": "STORMPATH-HLD2-018",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1950000,
+      "windstormDeductible": 41000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 61000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-019",
+      "propertyId": "STORMPATH-HLD2-019",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 11510000,
+      "windstormDeductible": 248000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 371000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-020",
+      "propertyId": "STORMPATH-HLD2-020",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4120000,
+      "windstormDeductible": 91000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 136000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-021",
+      "propertyId": "STORMPATH-HLD2-021",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3120000,
+      "windstormDeductible": 64000,
+      "floodDeductible": 32000,
+      "namedStormDeductible": 95000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-022",
+      "propertyId": "STORMPATH-HLD2-022",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6180000,
+      "windstormDeductible": 134000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 202000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-023",
+      "propertyId": "STORMPATH-HLD2-023",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 9250000,
+      "windstormDeductible": 193000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 289000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD2-024",
+      "propertyId": "STORMPATH-HLD2-024",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 1940000,
+      "windstormDeductible": 40000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 61000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-001",
+      "propertyId": "STORMPATH-HLD3-001",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 8280000,
+      "windstormDeductible": 171000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 256000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-002",
+      "propertyId": "STORMPATH-HLD3-002",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5700000,
+      "windstormDeductible": 115000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 173000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-003",
+      "propertyId": "STORMPATH-HLD3-003",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2950000,
+      "windstormDeductible": 60000,
+      "floodDeductible": 30000,
+      "namedStormDeductible": 89000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-004",
+      "propertyId": "STORMPATH-HLD3-004",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7250000,
+      "windstormDeductible": 148000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 222000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-005",
+      "propertyId": "STORMPATH-HLD3-005",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 11550000,
+      "windstormDeductible": 248000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 373000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-006",
+      "propertyId": "STORMPATH-HLD3-006",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2070000,
+      "windstormDeductible": 41000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 62000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-007",
+      "propertyId": "STORMPATH-HLD3-007",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7700000,
+      "windstormDeductible": 160000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 241000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-008",
+      "propertyId": "STORMPATH-HLD3-008",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6970000,
+      "windstormDeductible": 139000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 209000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-009",
+      "propertyId": "STORMPATH-HLD3-009",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 2860000,
+      "windstormDeductible": 61000,
+      "floodDeductible": 31000,
+      "namedStormDeductible": 92000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-010",
+      "propertyId": "STORMPATH-HLD3-010",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4960000,
+      "windstormDeductible": 107000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 160000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-011",
+      "propertyId": "STORMPATH-HLD3-011",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 11090000,
+      "windstormDeductible": 241000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 362000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-012",
+      "propertyId": "STORMPATH-HLD3-012",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2090000,
+      "windstormDeductible": 42000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 63000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-013",
+      "propertyId": "STORMPATH-HLD3-013",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 12850000,
+      "windstormDeductible": 273000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 410000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-014",
+      "propertyId": "STORMPATH-HLD3-014",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 7650000,
+      "windstormDeductible": 155000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 232000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-015",
+      "propertyId": "STORMPATH-HLD3-015",
+      "carrier": "Atlantic Coastal",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3070000,
+      "windstormDeductible": 67000,
+      "floodDeductible": 33000,
+      "namedStormDeductible": 100000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-016",
+      "propertyId": "STORMPATH-HLD3-016",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 5480000,
+      "windstormDeductible": 122000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 183000,
+      "exclusions": [],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-017",
+      "propertyId": "STORMPATH-HLD3-017",
+      "carrier": "Gulf Coast Assurance",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 10670000,
+      "windstormDeductible": 213000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 320000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-018",
+      "propertyId": "STORMPATH-HLD3-018",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2080000,
+      "windstormDeductible": 43000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 65000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-019",
+      "propertyId": "STORMPATH-HLD3-019",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 10920000,
+      "windstormDeductible": 243000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 364000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-020",
+      "propertyId": "STORMPATH-HLD3-020",
+      "carrier": "Heartland Insure",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 4400000,
+      "windstormDeductible": 92000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 137000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-021",
+      "propertyId": "STORMPATH-HLD3-021",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm",
+        "Flood"
+      ],
+      "coverageLimit": 3060000,
+      "windstormDeductible": 61000,
+      "floodDeductible": 31000,
+      "namedStormDeductible": 92000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-022",
+      "propertyId": "STORMPATH-HLD3-022",
+      "carrier": "Sunshine P&C",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 6590000,
+      "windstormDeductible": 134000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 202000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-023",
+      "propertyId": "STORMPATH-HLD3-023",
+      "carrier": "Demo Mutual",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 8790000,
+      "windstormDeductible": 183000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 275000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    },
+    {
+      "policyId": "POL-STORMPATH-HLD3-024",
+      "propertyId": "STORMPATH-HLD3-024",
+      "carrier": "Bayfront Risk",
+      "coverageTypes": [
+        "Property",
+        "Windstorm"
+      ],
+      "coverageLimit": 2050000,
+      "windstormDeductible": 45000,
+      "floodDeductible": 0,
+      "namedStormDeductible": 67000,
+      "exclusions": [
+        "Roof over 20 years actual cash value only"
+      ],
+      "policyStartDate": "2026-01-01",
+      "policyEndDate": "2026-12-31"
+    }
   ]
 }

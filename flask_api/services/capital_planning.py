@@ -37,10 +37,10 @@ from services.analysis_scope import (
 from services.data_loader import load_json
 from services.layer1_schema import (
     RISK_V2_COMPONENTS,
-    STORM_IMPACT_LEVELS,
     make_loss_forecast_result,
     make_risk_v2_result,
     make_storm_impact_result,
+    storm_level_for_score,
 )
 from services.portfolio_intelligence import (
     _group_work_orders_by_property,
@@ -49,22 +49,47 @@ from services.portfolio_intelligence import (
 
 
 # ===========================================================================
-# 1) stormImpactLevel
+# 1) stormImpactLevel  (distance-decay scoring model)
 # ===========================================================================
-# Distance thresholds (statute miles) to the projected storm path, combined
-# with hazard adjustments, then bucketed into Low/Medium/High/Severe.
-# Mirrors the design doc's distance-driven logic (section 6) but uses real
-# great-circle distance to the path polyline rather than county membership.
+# EVERY portfolio property is evaluated — never only "affected" ones. Storm
+# impact is a 0-100 stormImpactScore that decays with distance to the
+# projected storm path, then is bumped by hazard intensity. The qualitative
+# stormImpactLevel (Severe/High/Medium/Low/None) derives from the score:
+#
+#   Base score by distance band (linear decay inside each band):
+#     <=  10 mi : 95-100
+#     <=  25 mi : 80-94
+#     <=  50 mi : 60-79
+#     <= 100 mi : 30-59
+#     <= 200 mi : 1-29
+#     >  200 mi : 0          -> level "None" (outside meaningful impact)
+#
+#   Hazard adjustments (only when the base score > 0 — a storm cannot make a
+#   property outside its reach "affected"):
+#     storm wind >= 100 mph            : +5
+#     forecast rainfall >= 8 in        : +3
+#     property in a High flood zone    : +5
+#
+#   Score -> level: 80+ Severe, 60+ High, 30+ Medium, 1+ Low, 0 None
+#   (see layer1_schema.STORM_IMPACT_SCORE_BANDS).
 
-# Distance thresholds (statute miles) used by the combined level logic below.
-STORM_DIST_SEVERE = 25    # within this AND high wind -> Severe
-STORM_DIST_HIGH = 50      # within this OR heavy rain -> High
-STORM_DIST_MEDIUM = 100   # within this -> Medium; beyond -> Low
+# (upper distance bound, score at far edge, score at near edge)
+STORM_SCORE_DISTANCE_BANDS = (
+    (10.0, 95, 100),
+    (25.0, 80, 94),
+    (50.0, 60, 79),
+    (100.0, 30, 59),
+    (200.0, 1, 29),
+)
+STORM_MAX_IMPACT_DISTANCE_MILES = 200.0
 
-# Hazard thresholds that combine with distance (design doc section 6 logic).
+# Hazard thresholds and score adjustments.
 STORM_HIGH_WIND_MPH = 100
+STORM_HIGH_WIND_BONUS = 5
 STORM_HEAVY_RAIN_INCHES = 8.0
+STORM_HEAVY_RAIN_BONUS = 3
 HIGH_FLOOD_ZONES = frozenset({"High"})
+HIGH_FLOOD_ZONE_BONUS = 5
 
 
 def _haversine_miles(lat1, lon1, lat2, lon2):
@@ -119,53 +144,60 @@ def _distance_to_path_miles(lat, lon, path_points):
     return best
 
 
-def _bump_level(level, notches=1):
-    """Move a storm impact level up by ``notches`` (capped at Severe)."""
-    idx = STORM_IMPACT_LEVELS.index(level)
-    return STORM_IMPACT_LEVELS[min(idx + notches, len(STORM_IMPACT_LEVELS) - 1)]
+def _base_storm_score(distance):
+    """0-100 base score from distance to the storm path (linear in-band decay).
 
-
-def _classify_storm_level(distance, wind, rain, flood):
-    """Combined distance + hazard classification (design doc section 6).
-
-    Returns (level, list_of_driver_strings). Distance sets the base tier;
-    wind/rain/flood can raise it, but a far-away property stays Low.
+    Returns 0 beyond STORM_MAX_IMPACT_DISTANCE_MILES — the property is outside
+    meaningful storm impact range.
     """
+    lower_bound = 0.0
+    for upper_bound, far_score, near_score in STORM_SCORE_DISTANCE_BANDS:
+        if distance <= upper_bound:
+            span = upper_bound - lower_bound
+            fraction_near = (upper_bound - distance) / span if span else 1.0
+            return far_score + fraction_near * (near_score - far_score)
+        lower_bound = upper_bound
+    return 0.0
+
+
+def compute_storm_impact_score(distance, wind, rain, flood):
+    """Distance-decayed, hazard-adjusted 0-100 storm impact score.
+
+    Returns (score, drivers). Hazard bonuses apply only when the base score is
+    positive: intensity cannot make an out-of-range property "affected".
+    """
+    base = _base_storm_score(distance)
     drivers = []
-    high_wind = wind is not None and wind >= STORM_HIGH_WIND_MPH
-    heavy_rain = rain is not None and rain >= STORM_HEAVY_RAIN_INCHES
-    high_flood = flood in HIGH_FLOOD_ZONES
+    if base <= 0:
+        drivers.append(
+            f"{distance:.0f} mi from projected storm path "
+            f"(beyond {STORM_MAX_IMPACT_DISTANCE_MILES:.0f} mi impact range)"
+        )
+        return 0, drivers
 
-    if distance <= STORM_DIST_SEVERE and high_wind:
-        level = "Severe"
-        drivers.append(f"Within {distance:.0f} mi of track and high wind {wind} mph")
-    elif distance <= STORM_DIST_HIGH or heavy_rain:
-        level = "High"
-        if distance <= STORM_DIST_HIGH:
-            drivers.append(f"Within {distance:.0f} mi of projected storm path")
-        if heavy_rain:
-            drivers.append(f"Heavy rainfall forecast {rain} in")
-    elif distance <= STORM_DIST_MEDIUM:
-        level = "Medium"
-        drivers.append(f"{distance:.0f} mi from projected storm path")
-    else:
-        level = "Low"
-        drivers.append(f"{distance:.0f} mi from projected storm path (outside impact band)")
+    drivers.append(f"{distance:.0f} mi from projected storm path (base score {base:.0f})")
+    score = base
+    if wind is not None and wind >= STORM_HIGH_WIND_MPH:
+        score += STORM_HIGH_WIND_BONUS
+        drivers.append(f"High wind {wind} mph (+{STORM_HIGH_WIND_BONUS})")
+    if rain is not None and rain >= STORM_HEAVY_RAIN_INCHES:
+        score += STORM_HEAVY_RAIN_BONUS
+        drivers.append(f"Heavy rainfall forecast {rain} in (+{STORM_HEAVY_RAIN_BONUS})")
+    if flood in HIGH_FLOOD_ZONES:
+        score += HIGH_FLOOD_ZONE_BONUS
+        drivers.append(f"High flood-zone exposure (+{HIGH_FLOOD_ZONE_BONUS})")
 
-    # High flood-zone exposure nudges a borderline property up one tier,
-    # but never escalates a far-away (Low) property.
-    if high_flood and level in ("Medium", "High"):
-        bumped = _bump_level(level)
-        drivers.append("High flood-zone exposure (level raised)")
-        level = bumped
-
-    return level, drivers
+    # A positive base never rounds down to 0 ("None"): in-range stays >= 1.
+    return max(1, min(100, int(round(score)))), drivers
 
 
 def compute_storm_impact_level(property_dict, path_points, storm_meta):
-    """Compute the stormImpactLevel Layer 1 result for one property."""
+    """Compute the stormImpactLevel Layer 1 result for one property.
+
+    Every property gets a result; level "None" (score 0) means the property is
+    outside meaningful impact range or its distance is not computable.
+    """
     property_id = property_dict.get("propertyId", "UNKNOWN")
-    drivers = []
     notes = []
     confidence = "High"
 
@@ -175,14 +207,15 @@ def compute_storm_impact_level(property_dict, path_points, storm_meta):
     if lat is None or lon is None:
         notes.append("Missing property lat/lng; cannot compute storm distance")
         return make_storm_impact_result(
-            property_id, "Low", distance_miles=None, drivers=["No coordinates"],
+            property_id, "None", score=0, distance_miles=None,
+            drivers=["No coordinates; storm impact not assessable"],
             confidence="Low", data_quality_notes=notes,
         )
 
     if not path_points:
         notes.append("Missing storm path data; storm impact not computed")
         return make_storm_impact_result(
-            property_id, "Low", distance_miles=None,
+            property_id, "None", score=0, distance_miles=None,
             drivers=["No storm path available"], confidence="Low",
             data_quality_notes=notes,
         )
@@ -193,19 +226,20 @@ def compute_storm_impact_level(property_dict, path_points, storm_meta):
     rain = storm_meta.get("rainfallForecastInches")
     flood = property_dict.get("floodZoneExposure")
 
-    level, drivers = _classify_storm_level(distance, wind, rain, flood)
+    score, drivers = compute_storm_impact_score(distance, wind, rain, flood)
+    level = storm_level_for_score(score)
 
     if wind is None:
-        notes.append("Missing storm windSpeedMph; Severe escalation unavailable")
+        notes.append("Missing storm windSpeedMph; wind adjustment skipped")
         confidence = "Medium"
     if rain is None:
-        notes.append("Missing storm rainfallForecastInches; rain escalation skipped")
+        notes.append("Missing storm rainfallForecastInches; rain adjustment skipped")
         confidence = "Medium"
     if flood is None:
-        notes.append("Missing property floodZoneExposure; flood escalation skipped")
+        notes.append("Missing property floodZoneExposure; flood adjustment skipped")
 
     return make_storm_impact_result(
-        property_id, level, distance_miles=distance, drivers=drivers,
+        property_id, level, score=score, distance_miles=distance, drivers=drivers,
         confidence=confidence, data_quality_notes=notes,
     )
 
@@ -227,8 +261,9 @@ RISK_V2_WEIGHTS = {
     "assetValue": 0.10,
 }
 
-# stormExposure: storm impact level -> 0-100 component score.
-STORM_EXPOSURE_BY_LEVEL = {"Low": 15, "Medium": 50, "High": 75, "Severe": 95}
+# stormExposure: uses the 0-100 stormImpactScore directly (distance-decayed),
+# so a "None"-impact property contributes 0 here while its other risk factors
+# (vulnerability, maintenance, location, value) still produce a riskScore_v2.
 
 # locationHazard: flood-zone exposure -> 0-100.
 FLOOD_ZONE_HAZARD = {"High": 90, "Moderate": 55, "Low": 20}
@@ -282,7 +317,9 @@ def compute_risk_score_v2(property_dict, storm_impact_result, asset_health_resul
     notes = []
     confidences = [storm_impact_result["confidence"], asset_health_result["confidence"]]
 
-    storm_exposure = STORM_EXPOSURE_BY_LEVEL.get(storm_impact_result["level"], 15)
+    # stormImpactScore (0-100, distance-decayed) IS the storm exposure
+    # component; "None"-impact properties contribute 0 but are still scored.
+    storm_exposure = storm_impact_result.get("score", 0)
     building_vuln = _building_vulnerability_score(property_dict, analysis_year)
     maintenance_risk = _maintenance_risk_from_health(asset_health_result)
 
@@ -334,7 +371,15 @@ def compute_risk_score_v2(property_dict, storm_impact_result, asset_health_resul
 # lossForecast = replacementValue * damageRatio * vulnerabilityMultiplier
 #                * maintenanceConditionMultiplier
 # Damage ratios by storm impact level (design doc section 6 example values).
-DAMAGE_RATIO_BY_LEVEL = {"Low": 0.005, "Medium": 0.025, "High": 0.075, "Severe": 0.15}
+# "None" (outside meaningful impact range) -> 0: the expected storm loss is 0,
+# but the lossForecast result still exists for every property.
+DAMAGE_RATIO_BY_LEVEL = {
+    "None": 0.0,
+    "Low": 0.005,
+    "Medium": 0.025,
+    "High": 0.075,
+    "Severe": 0.15,
+}
 
 
 def _vulnerability_multiplier(property_dict, analysis_year=2026):
@@ -358,7 +403,7 @@ def compute_loss_forecast(property_dict, storm_impact_result, asset_health_resul
     confidences = [storm_impact_result["confidence"], asset_health_result["confidence"]]
 
     level = storm_impact_result["level"]
-    damage_ratio = DAMAGE_RATIO_BY_LEVEL.get(level, 0.005)
+    damage_ratio = DAMAGE_RATIO_BY_LEVEL.get(level, 0.0)
     vuln_mult = _vulnerability_multiplier(property_dict, analysis_year)
     maint_mult = _maintenance_condition_multiplier(asset_health_result)
     multipliers = {"buildingVulnerability": vuln_mult, "maintenanceCondition": maint_mult}
@@ -480,9 +525,11 @@ def compute_phase_b(data_dir=None, scope=None):
 
 __all__ = [
     "compute_storm_impact_level",
+    "compute_storm_impact_score",
     "compute_risk_score_v2",
     "compute_loss_forecast",
     "compute_phase_b",
     "RISK_V2_WEIGHTS",
     "DAMAGE_RATIO_BY_LEVEL",
+    "STORM_MAX_IMPACT_DISTANCE_MILES",
 ]

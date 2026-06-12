@@ -12,7 +12,7 @@ import pytest
 from services.capital_planning import (
     DAMAGE_RATIO_BY_LEVEL,
     RISK_V2_WEIGHTS,
-    _classify_storm_level,
+    compute_storm_impact_score,
     _distance_to_path_miles,
     compute_loss_forecast,
     compute_phase_b,
@@ -22,6 +22,7 @@ from services.capital_planning import (
 from services.layer1_schema import (
     RISK_V2_COMPONENTS,
     STORM_IMPACT_LEVELS,
+    storm_level_for_score,
     validate_loss_forecast_result,
     validate_risk_v2_result,
     validate_storm_impact_result,
@@ -71,44 +72,57 @@ def test_distance_increases_away_from_path():
     assert far > 150
 
 
-def test_classify_severe_close_and_high_wind():
-    level, drivers = _classify_storm_level(distance=10, wind=110, rain=2.0, flood="Low")
+def _level_for(distance, wind=80, rain=2.0, flood="Low"):
+    score, _ = compute_storm_impact_score(distance, wind, rain, flood)
+    return storm_level_for_score(score), score
+
+
+def test_score_severe_close_to_path():
+    level, score = _level_for(distance=10, wind=110)
     assert level == "Severe"
-    assert drivers
+    assert score >= 95
 
 
-def test_classify_high_within_50mi():
-    level, _ = _classify_storm_level(distance=40, wind=80, rain=2.0, flood="Low")
+def test_score_high_within_50mi():
+    level, score = _level_for(distance=40)
     assert level == "High"
+    assert 60 <= score <= 79
 
 
-def test_classify_high_on_heavy_rain_even_if_far():
-    level, _ = _classify_storm_level(distance=70, wind=80, rain=9.0, flood="Low")
-    assert level == "High"
-
-
-def test_classify_medium_band():
-    level, _ = _classify_storm_level(distance=80, wind=80, rain=2.0, flood="Low")
+def test_score_medium_band():
+    level, score = _level_for(distance=80)
     assert level == "Medium"
+    assert 30 <= score <= 59
 
 
-def test_classify_low_when_far_and_dry():
-    # Far from path, no heavy rain -> Low (wind alone can't escalate a far asset).
-    level, _ = _classify_storm_level(distance=150, wind=110, rain=2.0, flood="Low")
+def test_score_low_when_far():
+    # Far from path: hazard bonuses nudge the score but cannot re-tier a
+    # distant asset out of Low (decay dominates intensity).
+    level, score = _level_for(distance=150, wind=110, rain=9.0, flood="High")
     assert level == "Low"
+    assert 1 <= score <= 29
 
 
-def test_classify_heavy_rain_forces_high_even_if_far():
-    # Per design doc: distance<=50 OR rainfall>=8 -> High (rain is storm-wide).
-    level, _ = _classify_storm_level(distance=150, wind=80, rain=9.0, flood="Low")
-    assert level == "High"
+def test_score_none_outside_impact_range():
+    # Beyond 200 mi the property is outside meaningful storm impact: score 0,
+    # and intensity bonuses never apply to an out-of-range asset.
+    level, score = _level_for(distance=250, wind=120, rain=10.0, flood="High")
+    assert level == "None"
+    assert score == 0
 
 
-def test_high_flood_bumps_medium_to_high_but_not_low():
-    medium_level, _ = _classify_storm_level(distance=80, wind=80, rain=2.0, flood="High")
-    assert medium_level == "High"  # Medium bumped to High
-    low_level, _ = _classify_storm_level(distance=150, wind=80, rain=2.0, flood="High")
-    assert low_level == "Low"  # far property NOT escalated
+def test_score_decays_monotonically_with_distance():
+    distances = [0, 5, 15, 30, 60, 90, 120, 180, 210]
+    scores = [compute_storm_impact_score(d, 80, 2.0, "Low")[0] for d in distances]
+    assert scores == sorted(scores, reverse=True)
+    assert scores[0] == 100 and scores[-1] == 0
+
+
+def test_hazard_bonuses_raise_in_range_score():
+    base, _ = compute_storm_impact_score(40, wind=80, rain=2.0, flood="Low")
+    boosted, drivers = compute_storm_impact_score(40, wind=110, rain=9.0, flood="High")
+    assert boosted == min(100, base + 5 + 3 + 5)
+    assert any("wind" in d.lower() for d in drivers)
 
 
 def test_storm_impact_result_schema_and_near_property():
@@ -124,7 +138,8 @@ def test_storm_impact_missing_coords_degrades():
     prop = make_property(lat=None, lng=None)
     result = compute_storm_impact_level(prop, PATH, STORM_META)
     assert validate_storm_impact_result(result) == []
-    assert result["level"] == "Low"
+    assert result["level"] == "None"
+    assert result["score"] == 0
     assert result["confidence"] == "Low"
     assert result["distanceMiles"] is None
     assert any("lat/lng" in n for n in result["dataQualityNotes"])
@@ -133,7 +148,8 @@ def test_storm_impact_missing_coords_degrades():
 def test_storm_impact_missing_path_degrades():
     prop = make_property()
     result = compute_storm_impact_level(prop, [], {})
-    assert result["level"] == "Low"
+    assert result["level"] == "None"
+    assert result["score"] == 0
     assert result["confidence"] == "Low"
     assert any("storm path" in n.lower() for n in result["dataQualityNotes"])
 
@@ -156,7 +172,7 @@ def test_risk_v2_weights_sum_to_one():
 def test_risk_v2_deterministic_known_value():
     """Lock the weighted formula with a hand-computed expectation."""
     prop = make_property()
-    storm = compute_storm_impact_level(prop, PATH, STORM_META)  # Severe -> stormExposure 95
+    storm = compute_storm_impact_level(prop, PATH, STORM_META)  # on path + high wind -> score 100
     wos = []
     health = compute_asset_health_score(prop, wos)
     valuation = {"replacementValue": 10_000_000}  # assetValue tier -> 50
@@ -165,7 +181,7 @@ def test_risk_v2_deterministic_known_value():
     assert validate_risk_v2_result(result) == []
 
     comps = result["components"]
-    assert comps["stormExposure"] == 95
+    assert comps["stormExposure"] == 100
     assert comps["assetValue"] == 50
     # locationHazard for Moderate flood = 55
     assert comps["locationHazard"] == 55
@@ -272,9 +288,9 @@ def test_loss_forecast_never_negative():
 def test_phase_b_runs_over_real_portfolio():
     out = compute_phase_b()
     assert set(out.keys()) == {"stormImpactLevel", "riskScore_v2", "lossForecast"}
-    assert len(out["stormImpactLevel"]) == 14
-    assert len(out["riskScore_v2"]) == 14
-    assert len(out["lossForecast"]) == 14
+    assert len(out["stormImpactLevel"]) == 290
+    assert len(out["riskScore_v2"]) == 290
+    assert len(out["lossForecast"]) == 290
     for r in out["stormImpactLevel"]:
         assert validate_storm_impact_result(r) == []
     for r in out["riskScore_v2"]:

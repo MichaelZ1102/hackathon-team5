@@ -157,7 +157,27 @@ RISK_SCORE_V2_METRIC = "riskScore_v2"
 LOSS_FORECAST_METRIC = "lossForecast"
 
 # stormImpactLevel categorical levels, ordered low -> high severity.
-STORM_IMPACT_LEVELS = ("Low", "Medium", "High", "Severe")
+# "None" means the property is outside meaningful storm impact range; every
+# portfolio property is still evaluated and carries a level.
+STORM_IMPACT_LEVELS = ("None", "Low", "Medium", "High", "Severe")
+
+# stormImpactLevel derived from stormImpactScore (0-100), evaluated high to low.
+# Score 0 (or no computable distance) maps to "None".
+STORM_IMPACT_SCORE_BANDS = (
+    (80, "Severe"),
+    (60, "High"),
+    (30, "Medium"),
+    (1, "Low"),
+    (0, "None"),
+)
+
+
+def storm_level_for_score(score):
+    """Return the stormImpactLevel label for a 0-100 stormImpactScore."""
+    for minimum, label in STORM_IMPACT_SCORE_BANDS:
+        if score >= minimum:
+            return label
+    return "None"
 
 # riskScore_v2 bands (design doc section 6: 0-39 Low, 40-69 Medium, 70-100 High).
 # Stored high-to-low for evaluation, mirroring ASSET_HEALTH_BANDS' style.
@@ -208,6 +228,7 @@ def risk_v2_band_for_score(score):
 def make_storm_impact_result(
     property_id,
     level,
+    score=0,
     distance_miles=None,
     drivers=None,
     confidence="High",
@@ -217,6 +238,8 @@ def make_storm_impact_result(
 
     Payload fields beyond the envelope:
         level            str    - one of STORM_IMPACT_LEVELS
+        score            int    - 0-100 stormImpactScore (distance-decayed,
+                                  hazard-adjusted); 0 = outside impact range
         distanceMiles    float  - distance from property to the projected storm
                                   path (None if not computable)
     """
@@ -224,10 +247,17 @@ def make_storm_impact_result(
         raise ValueError(f"level must be one of {STORM_IMPACT_LEVELS}, got {level!r}")
     if confidence not in CONFIDENCE_LEVELS:
         raise ValueError(f"confidence must be one of {CONFIDENCE_LEVELS}, got {confidence!r}")
+    score = max(0, min(100, int(round(score))))
+    if level != storm_level_for_score(score):
+        raise ValueError(
+            f"level {level!r} does not match score {score} "
+            f"(expected {storm_level_for_score(score)!r})"
+        )
     return {
         "propertyId": str(property_id),
         "metric": STORM_IMPACT_METRIC,
         "level": level,
+        "score": score,
         "distanceMiles": (round(float(distance_miles), 1) if distance_miles is not None else None),
         "drivers": list(drivers or []),
         "confidence": confidence,
@@ -240,6 +270,16 @@ def validate_storm_impact_result(result):
     _validate_envelope(result, STORM_IMPACT_METRIC, problems)
     if result.get("level") not in STORM_IMPACT_LEVELS:
         problems.append(f"level {result.get('level')!r} not in {STORM_IMPACT_LEVELS}")
+    score = result.get("score")
+    if isinstance(score, bool) or not isinstance(score, int):
+        problems.append("score must be int")
+    elif not (0 <= score <= 100):
+        problems.append(f"score out of range 0-100: {score}")
+    elif result.get("level") != storm_level_for_score(score):
+        problems.append(
+            f"level {result.get('level')!r} does not match score {score} "
+            f"(expected {storm_level_for_score(score)!r})"
+        )
     dist = result.get("distanceMiles")
     if dist is not None and not isinstance(dist, (int, float)):
         problems.append("distanceMiles must be a number or None")

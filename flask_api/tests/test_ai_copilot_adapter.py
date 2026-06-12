@@ -64,7 +64,7 @@ def test_state_builder_includes_available_calculated_metrics():
     assert "riskScore_v2" in state["availableMetrics"]
     assert "lossForecast" in state["availableMetrics"]
     assert state["layer1Results"]
-    assert state["portfolioSummary"]["propertyCount"] == 14
+    assert state["portfolioSummary"]["propertyCount"] == 290
 
 
 def test_missing_metrics_are_listed_as_data_gaps_when_context_requests_them():
@@ -106,7 +106,7 @@ def test_compact_state_consumes_portfolio_intelligence_output():
     assert top["propertyId"]
     assert top["riskScore_v2"] is not None
     assert top["stormImpactLevel"] in ("Low", "Medium", "High", "Severe")
-    assert state["portfolioSummary"]["totalProperties"] == 14
+    assert state["portfolioSummary"]["totalProperties"] == 290
 
 
 def test_compact_run_uses_real_metrics_in_mock_mode():
@@ -121,7 +121,7 @@ def test_compact_run_uses_real_metrics_in_mock_mode():
     assert validate_ai_copilot_response(response["result"]) == []
     # The mock executive summary should reflect the real 14-property portfolio,
     # not the degraded "0 properties" output from before the PI summary aliases.
-    assert "0 properties were reviewed" not in response["result"]["executiveSummary"]
+    assert not response["result"]["executiveSummary"].startswith("0 properties were reviewed")
     assert response["result"]["priorityAssets"], "priorityAssets should be populated"
 
 
@@ -338,7 +338,7 @@ def test_ai_platform_call_uses_basic_auth_conversation_protocol(monkeypatch):
     assert payload["states"][0]["key"] == "aiCopilotState"
     assert payload["states"][0]["value"]["taskType"] == "portfolio_review"
     assert len(payload["states"][0]["value"]["layer1Results"]) <= 20
-    assert payload["states"][0]["value"]["stateMeta"]["fullLayer1ResultsCount"] == 56
+    assert payload["states"][0]["value"]["stateMeta"]["fullLayer1ResultsCount"] == 290 * 4
 
 
 def test_load_env_file_reads_values_without_overriding_existing_env(tmp_path, monkeypatch):

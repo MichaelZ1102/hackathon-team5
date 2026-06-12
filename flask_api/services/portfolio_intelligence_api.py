@@ -54,6 +54,24 @@ _CONFIDENCE_RANK = {"Low": 0, "Medium": 1, "High": 2}
 # How many properties appear on the temporary watch list.
 WATCH_LIST_SIZE = 5
 
+# Storm impact level vocabulary (distance-decayed; "None" = out of range).
+STORM_LEVELS = ("Severe", "High", "Medium", "Low", "None")
+
+# "Affected" is a derived rollup, NOT a county boolean: a property counts as
+# affected when its distance-decayed storm impact level is Medium or worse.
+AFFECTED_LEVELS = ("Severe", "High", "Medium")
+AFFECTED_DEFINITION = "stormImpactLevel in (Severe, High, Medium); distance-decayed, not county membership"
+
+
+def _storm_impact_distribution(property_results):
+    """Counts by stormImpactLevel across ALL evaluated properties."""
+    counts = {level: 0 for level in STORM_LEVELS}
+    for r in property_results:
+        level = (r.get("stormImpactLevel") or {}).get("level")
+        if level in counts:
+            counts[level] += 1
+    return counts
+
 
 def _least_confident(levels):
     """Return the most severe (lowest) confidence among a list of levels."""
@@ -149,6 +167,10 @@ def build_portfolio_intelligence(data_dir=None, scope=None):
                     "lat": prop.get("lat"),
                     "lng": prop.get("lng"),
                 },
+                # Storm fields surfaced at the top level: EVERY property is
+                # evaluated; impact decays with distance ("None" = out of range).
+                "distanceToStormPathMiles": (si or {}).get("distanceMiles"),
+                "stormImpactScore": (si or {}).get("score"),
                 "assetHealthScore": ah,
                 "stormImpactLevel": si,
                 "riskScore_v2": rv,
@@ -172,6 +194,8 @@ def build_portfolio_intelligence(data_dir=None, scope=None):
     diagnostics = {
         "calculationVersion": CALCULATION_VERSION,
         "analysisScope": analysis_scope,
+        "stormImpactDistribution": _storm_impact_distribution(property_results),
+        "affectedDefinition": AFFECTED_DEFINITION,
         "includedMetrics": list(INCLUDED_METRICS),
         "missingMetrics": list(MISSING_METRICS),
         "dataSourcesUsed": list(DATA_SOURCES_USED),
@@ -293,6 +317,8 @@ def _build_watch_list(property_results):
                 "riskScore_v2": rv.get("score"),
                 "riskBand": rv.get("band"),
                 "stormImpactLevel": si.get("level"),
+                "stormImpactScore": si.get("score"),
+                "distanceToStormPathMiles": si.get("distanceMiles"),
                 "lossForecast": lf.get("expectedLoss"),
                 "assetHealthScore": ah.get("score"),
                 "drivers": (rv.get("drivers") or [])[:3],
@@ -319,6 +345,7 @@ def _build_final_priority_list(property_results):
         lf = r.get("lossForecast") or {}
         ah = r.get("assetHealthScore") or {}
         ig = r.get("insuranceGap") or {}
+        si = r.get("stormImpactLevel") or {}
         best = r.get("bestCapitalAction")
         rows.append(
             {
@@ -327,6 +354,9 @@ def _build_final_priority_list(property_results):
                 "propertyId": r["propertyId"],
                 "propertyName": r["propertyName"],
                 "county": r["county"],
+                "stormImpactLevel": si.get("level"),
+                "stormImpactScore": si.get("score"),
+                "distanceToStormPathMiles": si.get("distanceMiles"),
                 "riskScore_v2": rv.get("score"),
                 "lossForecast": lf.get("expectedLoss"),
                 "assetHealthScore": ah.get("score"),
@@ -355,6 +385,11 @@ def _build_summary(property_results, watch_list):
         1
         for r in property_results
         if (r.get("stormImpactLevel") or {}).get("level") == "Severe"
+    )
+    affected_count = sum(
+        1
+        for r in property_results
+        if (r.get("stormImpactLevel") or {}).get("level") in AFFECTED_LEVELS
     )
     high_risk_count = sum(
         1
@@ -400,6 +435,8 @@ def _build_summary(property_results, watch_list):
     return {
         "totalProperties": total,
         "severeImpactCount": severe_count,
+        # Derived rollup, not a county boolean — see AFFECTED_DEFINITION.
+        "affectedPropertyCount": affected_count,
         "highRiskCount": high_risk_count,
         "totalLossForecast": total_loss,
         "averageAssetHealthScore": avg_health,

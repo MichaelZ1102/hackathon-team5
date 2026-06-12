@@ -260,10 +260,10 @@ def test_priority_ranking_ties_break_on_property_id():
 
 def test_compute_phase_c_covers_full_portfolio():
     out = compute_phase_c()
-    assert len(out["insuranceGap"]) == 14
-    assert len(out["priorityRanking"]) == 14
-    assert len(out["capitalROI"]) == 18  # one per capital action
-    assert [r["priorityRank"] for r in out["priorityRanking"]] == list(range(1, 15))
+    assert len(out["insuranceGap"]) == 290
+    assert len(out["priorityRanking"]) == 290
+    assert len(out["capitalROI"]) == 60  # one per capital action (top-30 x up to 2)
+    assert [r["priorityRank"] for r in out["priorityRanking"]] == list(range(1, 291))
     for r in out["insuranceGap"]:
         assert validate_insurance_gap_result(r) == []
     for r in out["capitalROI"]:
@@ -277,12 +277,12 @@ def test_compute_phase_c_is_deterministic():
 
 
 def test_demo_data_shows_a_visible_insurance_gap():
-    """The demo dataset intentionally underinsures FL-LAK-044 (limit cut at the
-    2026 renewal — see insurance_policies.json meta note) so the insuranceGap
-    metric is visible in the UI. Guard that the demo story stays intact."""
+    """The demo dataset intentionally underinsures STORMPATH-006 (limit cut at
+    the 2026 renewal — see insurance_policies.json meta note) so the
+    insuranceGap metric is visible in the UI. Guard the demo story."""
     gaps = compute_phase_c()["insuranceGap"]
-    lak = next(g for g in gaps if g["propertyId"] == "FL-LAK-044")
-    assert lak["insuranceGap"] is not None and lak["insuranceGap"] > 0
+    focal = next(g for g in gaps if g["propertyId"] == "STORMPATH-006")
+    assert focal["insuranceGap"] is not None and focal["insuranceGap"] > 0
     total = sum(g["insuranceGap"] for g in gaps if g["insuranceGap"] is not None)
     assert total > 0
 
@@ -314,13 +314,13 @@ def test_api_response_includes_phase_c_metrics(client):
     # Final ranking list exists alongside the compatibility watchList.
     assert "watchList" in data
     final = data["finalPriorityList"]
-    assert len(final) == 14
-    assert [row["priorityRank"] for row in final] == list(range(1, 15))
+    assert len(final) == 290
+    assert [row["priorityRank"] for row in final] == list(range(1, 291))
     assert final[0]["bestCapitalAction"] is not None
     assert "capitalROI" in final[0]["bestCapitalAction"]
 
     # Per-action results are exposed for the capital-planning view.
-    assert len(data["capitalActionResults"]) == 18
+    assert len(data["capitalActionResults"]) == 60
 
     diag = data["diagnostics"]
     for m in ("insuranceGap", "capitalROI", "priorityRanking"):
